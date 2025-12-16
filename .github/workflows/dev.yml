@@ -54,7 +54,7 @@ jobs:
         working-directory: AVD-Demo
         run: make build
 
-      - name: Check for changes
+      - name: Check for Changes
         id: git-check
         run: |
           git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
