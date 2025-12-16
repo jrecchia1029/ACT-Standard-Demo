@@ -1,0 +1,104 @@
+port_profiles:
+-  profile: Access
+   spanning_tree_portfast: edge
+servers:  # dynamic_key: connected_endpoints
+-  name: NY5-0601-ESX01
+   rack: 0601.01.Rack01
+   adapters:
+   -  endpoint_ports:
+      - Onboard_NIC_1
+      - PCI_slot_1_Port_1
+      switch_ports:
+      - Ethernet1
+      - Ethernet1
+      switches:
+      - NY5-Leaf1
+      - NY5-Leaf2
+      mode: trunk
+      mtu: 9214
+      port_channel:
+         mode: active
+      ethernet_segment:
+         short_esi: auto
+      profile: Access
+   -  endpoint_ports:
+      - Onboard_NIC_2
+      - PCI_slot_2_Port_2
+      switch_ports:
+      - Ethernet25
+      - Ethernet25
+      switches:
+      - NY5-Leaf1
+      - NY5-Leaf2
+      mode: trunk
+      mtu: 9214
+      port_channel:
+         mode: active
+      ethernet_segment:
+         short_esi: auto
+      profile: Access
+   -  endpoint_ports:
+      - PCI_slot_1_Port_2
+      - PCI_slot_2_Port_1
+      switch_ports:
+      - Ethernet1
+      - Ethernet1
+      switches:
+      - NY5-Leaf5A
+      - NY5-Leaf5B
+      mode: trunk
+      vlans: 2821, 2822, 2833, 2834
+      mtu: 9214
+      port_channel:
+         mode: active
+      profile: Access
+-  name: CH3-0901-ESX01
+   rack: 0901.01.Rack01
+   adapters:
+   -  endpoint_ports:
+      - Onboard_NIC_1
+      - PCI_slot_1_Port_1
+      switch_ports:
+      - Ethernet1
+      - Ethernet1
+      switches:
+      - CH3-Leaf1
+      - CH3-Leaf2
+      mode: trunk
+      mtu: 9214
+      port_channel:
+         mode: active
+      ethernet_segment:
+         short_esi: auto
+      profile: Access
+   -  endpoint_ports:
+      - Onboard_NIC_2
+      - PCI_slot_2_Port_2
+      switch_ports:
+      - Ethernet25
+      - Ethernet25
+      switches:
+      - CH3-Leaf1
+      - CH3-Leaf2
+      mode: trunk
+      mtu: 9214
+      port_channel:
+         mode: active
+      ethernet_segment:
+         short_esi: auto
+      profile: Access
+   -  endpoint_ports:
+      - PCI_slot_1_Port_2
+      - PCI_slot_2_Port_1
+      switch_ports:
+      - Ethernet1
+      - Ethernet1
+      switches:
+      - CH3-Leaf5A
+      - CH3-Leaf5B
+      mode: trunk
+      vlans: 2821, 2822, 2833, 2834
+      mtu: 9214
+      port_channel:
+         mode: active
+      profile: Access

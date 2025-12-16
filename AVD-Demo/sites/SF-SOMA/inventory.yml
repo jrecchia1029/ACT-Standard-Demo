@@ -1,0 +1,43 @@
+---
+# AVD-Demo/Campus/SF-SOMA/inventory.yml
+
+all:
+  children:
+    SF:
+      children:
+        SOMA:
+          children:
+            SF_SOMA_SPINES:
+              hosts:
+                SF-SOMA-Spine-1:
+                  ansible_host: 10.73.252.11
+                SF-SOMA-Spine-2:
+                  ansible_host: 10.73.252.12
+            SF_SOMA_LEAFS:
+              hosts:
+                SF-SOMA-Leaf-1A:
+                  ansible_host: 10.73.252.13
+                SF-SOMA-Leaf-1B:
+                  ansible_host: 10.73.252.14
+                SF-SOMA-Leaf-2A:
+                  ansible_host: 10.73.252.15
+                SF-SOMA-Leaf-3A:
+                  ansible_host: 10.73.252.16
+                SF-SOMA-Leaf-3B:
+                  ansible_host: 10.73.252.17
+                SF-SOMA-Leaf-3C:
+                  ansible_host: 10.73.252.18
+                SF-SOMA-Leaf-3D:
+                  ansible_host: 10.73.252.19
+                SF-SOMA-Leaf-3E:
+                  ansible_host: 10.73.252.20
+Network_Services:
+  children:
+    SF_SOMA_SPINES:
+    SF_SOMA_LEAFS:
+Spines:
+  children:
+    SF_SOMA_SPINES:
+Leafs:
+  children:
+    SF_SOMA_LEAFS:

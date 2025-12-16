@@ -1,0 +1,59 @@
+---
+### group_vars/DC1.yml
+
+# avd_eos_designs_debug: True  # <bool; default=False>
+
+# Cloudvision Settings
+cv_settings:
+  cvaas:
+    enabled: true
+    clusters:
+      - name: cvaas
+        region: "staging"  # "staging", "dev" and "play" are for internal Arista use
+  terminattr:
+    disable_aaa: True
+  set_source_interfaces: true
+
+# DNS Servers
+dns_settings:
+  servers:
+    - ip_address: 169.254.169.254
+    # - ip_address: 8.8.8.8
+    #   - ip_address: 1.1.1.1
+
+# NTP servers
+ntp_settings:
+  servers:
+    - name: pool.ntp.org
+    - name: 204.17.205.24
+
+# local users
+aaa_settings:
+  authorization:
+    exec:
+      default: local
+  local_users:
+    - name: cvpadmin
+      privilege: 15
+      role: network-admin
+      sha512_password: $6$cx2rQNKbwSucqoex$usev3S8KBYhdLF2k9A0w4cPa2LmxVpm10mgQmoSWBiaLnbqmbLhB7MYxXyws/eEbaeLy6CZH0XVoeW3pwR4sX/
+
+# vEOS
+p2p_uplinks_mtu: 1500
+
+# Max spines
+max_spines: 2
+
+# ACT agent
+custom_structured_configuration_agents:
+  - name: KernelFib
+    environment_variables:
+      - name: KERNELFIB_PROGRAM_ALL_ECMP
+        value: "'true'"
+
+# Disable LLDP on management interface
+custom_structured_configuration_management_interfaces:
+  - name: Management1
+    lldp:
+      transmit: true
+      receive: false

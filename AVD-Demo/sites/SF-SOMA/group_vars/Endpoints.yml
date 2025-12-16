@@ -1,0 +1,22 @@
+---
+port_profiles:
+  - profile: access_interface
+    spanning_tree_bpduguard: true
+    spanning_tree_portfast: edge
+    mode: access
+
+network_ports:
+  - switches:
+      - Uptown-Leaf(1|2)(A|B)
+      - Uptown-Leaf3(C|D|E)
+    switch_ports:
+      - Ethernet1
+      - Ethernet8
+    profile: access_interface
+    vlans: 10
+  - switches:
+      - Uptown-Leaf1(A|B)
+    switch_ports:
+      - Ethernet13
+    profile: access_interface
+    vlans: 15

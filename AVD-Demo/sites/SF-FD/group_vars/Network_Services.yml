@@ -1,0 +1,19 @@
+---
+tenants:  # dynamic_key: network_services
+  - name: FD
+    mac_vrf_vni_base: 10000
+    vrfs:
+      - name: default
+        vrf_vni: 1
+        svis:
+          - id: 4092
+            name: L2_INBAND_MGMT
+            enabled: true
+            ip_virtual_router_addresses: ['10.1.15.97']
+            ip_helpers:
+              - ip_helper: 172.16.254.253
+            nodes:
+              - node: SF-SOMA-Spine-1
+                ip_address: 10.1.15.98/24
+              - node: SF-SOMA-Spine-2
+                ip_address: 10.1.15.99/24

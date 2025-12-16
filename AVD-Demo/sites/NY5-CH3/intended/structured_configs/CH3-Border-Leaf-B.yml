@@ -1,0 +1,341 @@
+aaa_authorization:
+  exec:
+    default: local
+aaa_root:
+  disabled: true
+agents:
+- name: KernelFib
+  environment_variables:
+  - name: KERNELFIB_PROGRAM_ALL_ECMP
+    value: '''true'''
+arp:
+  aging:
+    timeout_default: 5400
+config_end: true
+daemon_terminattr:
+  cvaddrs:
+  - apiserver.cv-staging.corp.arista.io:443
+  cvauth:
+    method: token-secure
+    token_file: /tmp/cv-onboarding-token
+  cvsourceintf: Management1
+  cvvrf: MGMT
+  disable_aaa: true
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+enable_password:
+  disabled: true
+ethernet_interfaces:
+- name: Ethernet53/1
+  description: MLAG_CH3-Border-Leaf-A_Ethernet53/1
+  shutdown: false
+  channel_group:
+    id: 531
+    mode: active
+  peer: CH3-Border-Leaf-A
+  peer_interface: Ethernet53/1
+  peer_type: mlag_peer
+- name: Ethernet54/1
+  description: MLAG_CH3-Border-Leaf-A_Ethernet54/1
+  shutdown: false
+  channel_group:
+    id: 531
+    mode: active
+  peer: CH3-Border-Leaf-A
+  peer_interface: Ethernet54/1
+  peer_type: mlag_peer
+- name: Ethernet55/1
+  description: P2P_CH3-Spine1_Ethernet2/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.12.5/31
+  peer: CH3-Spine1
+  peer_interface: Ethernet2/1
+  peer_type: spine
+  switchport:
+    enabled: false
+- name: Ethernet56/1
+  description: P2P_CH3-Spine2_Ethernet2/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.12.7/31
+  peer: CH3-Spine2
+  peer_interface: Ethernet2/1
+  peer_type: spine
+  switchport:
+    enabled: false
+- name: Ethernet52/1
+  description: P2P_WAN-1_Ethernet4/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 10.255.0.7/31
+  peer: WAN-1
+  peer_interface: Ethernet4/1
+  peer_type: other
+  switchport:
+    enabled: false
+hostname: CH3-Border-Leaf-B
+ip_domain_lookup:
+  source_interfaces:
+  - name: Management1
+    vrf: MGMT
+ip_igmp_snooping:
+  globally_enabled: true
+ip_name_servers:
+- ip_address: 169.254.169.254
+  vrf: MGMT
+ip_routing: true
+ip_virtual_router_mac_address: 00:1c:73:00:09:99
+local_users:
+- name: cvpadmin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$cx2rQNKbwSucqoex$usev3S8KBYhdLF2k9A0w4cPa2LmxVpm10mgQmoSWBiaLnbqmbLhB7MYxXyws/eEbaeLy6CZH0XVoeW3pwR4sX/
+loopback_interfaces:
+- name: Loopback0
+  description: ROUTER_ID
+  shutdown: false
+  ip_address: 10.245.218.4/32
+- name: Loopback1
+  description: VXLAN_TUNNEL_SOURCE
+  shutdown: false
+  ip_address: 10.245.218.35/32
+management_api_http:
+  enable_https: true
+  enable_vrfs:
+  - name: MGMT
+management_interfaces:
+- name: Management1
+  description: OOB_MANAGEMENT
+  shutdown: false
+  vrf: MGMT
+  ip_address: 10.0.2.28/24
+  type: oob
+  gateway: 10.0.2.1
+  lldp:
+    transmit: true
+    receive: false
+metadata:
+  is_deployed: true
+  platform: vEOS-lab
+  pod_name: CH3_Pod1
+  dc_name: CH3
+  fabric_name: DC
+  cv_tags:
+    device_tags:
+    - name: topology_hint_datacenter
+      value: CH3
+    - name: topology_hint_fabric
+      value: DC
+    - name: topology_hint_pod
+      value: CH3_Pod1
+    - name: topology_hint_type
+      value: leaf
+    - name: topology_hint_rack
+      value: CH3-Border-Leaf
+mlag_configuration:
+  domain_id: CH3-Border-Leaf
+  local_interface: Vlan4094
+  peer_address: 192.168.14.96
+  peer_link: Port-Channel531
+  reload_delay_mlag: '300'
+  reload_delay_non_mlag: '330'
+ntp:
+  local_interface:
+    name: Management1
+    vrf: MGMT
+  servers:
+  - name: pool.ntp.org
+    preferred: true
+    vrf: MGMT
+  - name: 204.17.205.24
+    vrf: MGMT
+port_channel_interfaces:
+- name: Port-Channel531
+  description: MLAG_CH3-Border-Leaf-A_Port-Channel531
+  shutdown: false
+  switchport:
+    enabled: true
+    mode: trunk
+    trunk:
+      groups:
+      - MLAG
+prefix_lists:
+- name: PL-LOOPBACKS-EVPN-OVERLAY
+  sequence_numbers:
+  - sequence: 10
+    action: permit 10.245.218.0/27 eq 32
+  - sequence: 20
+    action: permit 10.245.218.32/27 eq 32
+route_maps:
+- name: RM-MLAG-PEER-IN
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    description: Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
+    set:
+    - origin incomplete
+- name: RM-CONN-2-BGP
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    match:
+    - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 300
+    min_rx: 300
+    multiplier: 3
+router_bgp:
+  as: '65055'
+  router_id: 10.245.218.4
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  maximum_paths:
+    paths: 4
+    ecmp: 4
+  bgp:
+    default:
+      ipv4_unicast: true
+  peer_groups:
+  - name: MLAG-IPv4-UNDERLAY-PEER
+    type: ipv4
+    remote_as: '65055'
+    description: CH3-Border-Leaf-A
+    next_hop_self: true
+    send_community: all
+    maximum_routes: 12000
+    route_map_in: RM-MLAG-PEER-IN
+  - name: IPv4-UNDERLAY-PEERS
+    type: ipv4
+    send_community: all
+    maximum_routes: 12000
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 3
+    send_community: all
+    maximum_routes: 0
+  - name: INTER-DC-EVPN-PEERS
+    remote_as: '65005'
+    update_source: Loopback0
+    ebgp_multihop: 10
+    send_community: all
+    maximum_routes: 0
+    maximum_routes_warning_limit: '500000'
+  neighbors:
+  - ip_address: 192.168.14.64
+    peer_group: MLAG-IPv4-UNDERLAY-PEER
+    peer: CH3-Border-Leaf-A
+    description: CH3-Border-Leaf-A_Vlan4093
+  - ip_address: 192.168.12.4
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65050'
+    peer: CH3-Spine1
+    description: CH3-Spine1_Ethernet2/1
+  - ip_address: 192.168.12.6
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65050'
+    peer: CH3-Spine2
+    description: CH3-Spine2_Ethernet2/1
+  - ip_address: 10.245.218.1
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65050'
+    peer: CH3-Spine1
+    description: CH3-Spine1_Loopback0
+  - ip_address: 10.245.218.2
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65050'
+    peer: CH3-Spine2
+    description: CH3-Spine2_Loopback0
+  - ip_address: 10.255.0.6
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '64750'
+    peer: WAN-1
+    description: WAN-1
+  - ip_address: 10.245.217.7
+    peer_group: INTER-DC-EVPN-PEERS
+    description: NY5-Leaf5A
+  - ip_address: 10.245.217.8
+    peer_group: INTER-DC-EVPN-PEERS
+    description: NY5-Leaf5B
+  redistribute:
+    connected:
+      enabled: true
+      route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+    - name: INTER-DC-EVPN-PEERS
+      activate: true
+    evpn_hostflap_detection:
+      enabled: false
+      window: 180
+      threshold: 5
+  address_family_ipv4:
+    peer_groups:
+    - name: MLAG-IPv4-UNDERLAY-PEER
+      activate: true
+    - name: IPv4-UNDERLAY-PEERS
+      activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+    - name: INTER-DC-EVPN-PEERS
+      activate: true
+serial_number: SN-CH3-Border-Leaf-B
+service_routing_protocols_model: multi-agent
+spanning_tree:
+  mode: mstp
+  mst_instances:
+  - id: '0'
+    priority: 4096
+  no_spanning_tree_vlan: 4093-4094
+static_routes:
+- vrf: MGMT
+  prefix: 0.0.0.0/0
+  next_hop: 10.0.2.1
+transceiver_qsfp_default_mode_4x10: true
+vlan_interfaces:
+- name: Vlan4093
+  description: MLAG_L3
+  shutdown: false
+  ip_address: 192.168.14.65/31
+  mtu: 1500
+- name: Vlan4094
+  description: MLAG
+  shutdown: false
+  ip_address: 192.168.14.97/31
+  mtu: 1500
+  no_autostate: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+vlans:
+- id: 4093
+  name: MLAG_L3
+  trunk_groups:
+  - MLAG
+  tenant: system
+- id: 4094
+  name: MLAG
+  trunk_groups:
+  - MLAG
+  tenant: system
+vrfs:
+- name: MGMT
+  ip_routing: false
+vxlan_interface:
+  vxlan1:
+    description: CH3-Border-Leaf-B_VTEP
+    vxlan:
+      source_interface: Loopback1
+      udp_port: 4789
+      virtual_router_encapsulation_mac_address: mlag-system-id

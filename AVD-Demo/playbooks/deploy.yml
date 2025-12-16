@@ -1,0 +1,18 @@
+---
+# build.yaml
+
+- name: Deploy Configs
+  hosts: all
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Deploy configurations and tags to CloudVision
+      ansible.builtin.import_role:
+        name: arista.avd.cv_deploy
+      ignore_errors: true
+      vars:
+        cv_skip_missing_devices: true
+        cv_verify_certs: false
+        # cv_submit_workspace: false
+        cv_server: www.cv-staging.corp.arista.io
+        cv_token: eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJkaWQiOjQyOTkzMzMxNjgsImRzbiI6IkFWRCIsImRzdCI6ImFjY291bnQiLCJleHAiOjE5MDkwMjIzOTksImlhdCI6MTc1MDY4ODQwMywib2dpIjo0Mjk5MjM3MTUyLCJvZ24iOiJqb2VyLWNhbXB1cyIsInNpZCI6ImY2NDczYjEyMWM3YWI5YzhkZTAyZGMzNzc1M2Y3YTQxOWY3YjY3OTA1NGFlOWZjOGUxZDhiN2QzYTVhODM4N2Itc3pHbGc2NjlIcmR5WWZMMDd4UmtzQTNaaGxrekpqR19hWjJGdmVRbSJ9.ZLHHoe6e1Vku9G5TmCUQ1TuEMN1yNpH7j3h-jcatUxVUU-thYNXh_NcJZUK6dVEh853hUwxyC5JZBvf4_WvrZw

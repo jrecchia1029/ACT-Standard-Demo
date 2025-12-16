@@ -1,0 +1,149 @@
+---
+# AVD-Demo/Campus/SF-FD/group_vars/Fabric.yml
+
+# L2LS Campus Fabric Design
+fabric_name: FD
+
+# Management
+default_mgmt_method: inband
+mgmt_gateway: 10.0.15.1
+mgmt_interface_vrf: MGMT
+
+generate_cv_tags:
+  topology_hints: true
+  campus_fabric: true
+
+underlay_routing_protocol: ebgp
+overlay_routing_protocol: ebgp
+inband_ztp_bootstrap_file: http://172.16.254.253/bootstrap.py
+
+# Spine switches (aggregation layer)
+l3spine:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab
+    campus: SF
+    campus_pod: FD
+    spanning_tree_mode: mstp
+    spanning_tree_priority: 4096
+    mlag_domain_id: 'MLAG'
+    mlag_peer_ipv4_pool: 169.254.0.0/24
+    mlag_peer_l3_ipv4_pool: 192.168.255.0/24
+    mlag_interfaces: ['Ethernet49/1', 'Ethernet50/1']
+    virtual_router_mac_address: 00:1c:73:00:00:99
+    inband_mgmt_interface: Loopback0
+    loopback_ipv4_pool: 10.255.255.160/28
+    vtep_loopback_ipv4_pool: 10.255.254.160/28
+  node_groups:
+    - group: SF_FD_SPINES
+      bgp_as: 65350
+      nodes:
+        - name: SF-FD-Spine-1
+          id: 1
+          mgmt_ip: 10.0.15.4/24
+          serial_number: SN-SF-FD-Spine-1
+        - name: SF-FD-Spine-2
+          id: 2
+          mgmt_ip: 10.0.15.5/24
+          serial_number: SN-SF-FD-Spine-2
+
+# Leaf switches (l2 only access layer)
+l3leaf:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab
+    campus: SF
+    campus_pod: FD
+    spanning_tree_mode: mstp
+    spanning_tree_priority: 4096
+    mlag_domain_id: 'MLAG'
+    mlag_peer_ipv4_pool: 169.254.0.0/24
+    mlag_peer_l3_ipv4_pool: 192.168.255.0/24
+    mlag_interfaces: ['Ethernet49', 'Ethernet50']
+    virtual_router_mac_address: 00:1c:73:00:00:99
+    inband_mgmt_interface: Loopback0
+    inband_ztp: true
+    loopback_ipv4_pool: 10.255.255.160/28
+    vtep_loopback_ipv4_pool: 10.255.254.160/28
+    loopback_ipv4_offset: 2
+    uplink_switches: ['SF-FD-Spine-1', 'SF-FD-Spine-2']
+    uplink_ipv4_pool: 10.250.15.0/24
+  node_groups:
+    - group: Floor1_Leafs
+      campus_access_pod: Floor1
+      bgp_as: 65351
+      uplink_interfaces: ['Ethernet51', 'Ethernet52']
+      nodes:
+        - name: SF-FD-Leaf-1A
+          id: 1
+          mgmt_ip: 10.0.15.6/24
+          serial_number: SN-SF-FD-Leaf-1A
+          uplink_switch_interfaces: ['Ethernet1', 'Ethernet1']
+        - name: SF-FD-Leaf-1B
+          id: 2
+          mgmt_ip: 10.0.15.7/24
+          serial_number: SN-SF-FD-Leaf-1B
+          uplink_switch_interfaces: ['Ethernet2', 'Ethernet2']
+    - group: Floor2_Leafs
+      campus_access_pod: Floor2
+      bgp_as: 65352
+      uplink_interfaces: ['Ethernet97/1', 'Ethernet98/1']
+      nodes:
+        - name: SF-FD-Leaf-2A
+          id: 3
+          mgmt_ip: 10.0.15.8/24
+          serial_number: SN-SF-FD-Leaf-2A
+          uplink_switch_interfaces: ['Ethernet3', 'Ethernet3']
+    - group: Floor3_Leafs
+      campus_access_pod: Floor3
+      bgp_as: 65353
+      uplink_interfaces: ['Ethernet51', 'Ethernet52']
+      nodes:
+        - name: SF-FD-Leaf-3A
+          id: 4
+          mgmt_ip: 10.0.15.9/24
+          serial_number: SN-SF-FD-Leaf-3A
+          uplink_switch_interfaces: ['Ethernet4', 'Ethernet4']
+        - name: SF-FD-Leaf-3B
+          id: 5
+          mgmt_ip: 10.0.15.10/24
+          serial_number: SN-SF-FD-Leaf-3B
+          uplink_switch_interfaces: ['Ethernet5', 'Ethernet5']
+
+# Leaf switches (l2 only access layer)
+l2leaf:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab
+    campus: SF
+    campus_pod: FD
+    spanning_tree_mode: mstp
+    mlag_domain_id: 'MLAG'
+    mlag_interfaces: ['Ethernet49', 'Ethernet50']
+    mlag_peer_ipv4_pool: 169.254.0.0/24
+    inband_mgmt_vlan: 4092
+    inband_mgmt_subnet: 10.1.15.96/27
+    inband_ztp: true
+  node_groups:
+    - group: Floor3_Member_Leafs_CD
+      campus_access_pod: Floor3
+      cv_tags_topology_type: member-leaf
+      uplink_switches: ['SF-FD-Leaf-3A', 'SF-FD-Leaf-3B']
+      uplink_interfaces: ['Ethernet25', 'Ethernet26']
+      mlag_interfaces: ['Ethernet27', 'Ethernet28']
+      nodes:
+        - name: SF-FD-Leaf-3C
+          id: 1
+          serial_number: SN-SF-FD-Leaf-3C
+          uplink_switch_interfaces: ['Ethernet53', 'Ethernet53']
+        - name: SF-FD-Leaf-3D
+          id: 2
+          serial_number: SN-SF-FD-Leaf-3D
+          uplink_switch_interfaces: ['Ethernet54', 'Ethernet54']
+    - group: Floor3_Member_Leafs_E
+      campus_access_pod: Floor3
+      cv_tags_topology_type: member-leaf
+      uplink_switches: ['SF-FD-Leaf-3A', 'SF-FD-Leaf-3B']
+      uplink_interfaces: ['Ethernet25', 'Ethernet26']
+      nodes:
+        - name: SF-FD-Leaf-3E
+          id: 3
+          serial_number: SN-SF-FD-Leaf-3E
+          uplink_switch_interfaces: ['Ethernet55', 'Ethernet55']

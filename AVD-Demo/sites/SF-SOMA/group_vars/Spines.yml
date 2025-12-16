@@ -1,0 +1,16 @@
+type: l3spine
+
+l3_edge:
+  p2p_links:
+    - nodes: ['SF-SOMA-Spine-1', 'WAN-1']
+      interfaces: ['Ethernet51/1', 'Ethernet13/1']
+      ip: ['10.255.0.25/31', '10.255.0.24/31']
+      as: [65300, 64750]
+      include_in_underlay_protocol: true
+      campus_link_type: ['egress']
+    - nodes: ['SF-SOMA-Spine-2', 'WAN-1']
+      interfaces: ['Ethernet51/1', 'Ethernet14/1']
+      ip: ['10.255.0.27/31', '10.255.0.26/31']
+      as: [65300, 64750]
+      include_in_underlay_protocol: true
+      campus_link_type: ['egress']

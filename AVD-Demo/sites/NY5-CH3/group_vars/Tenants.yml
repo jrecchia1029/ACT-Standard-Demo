@@ -1,0 +1,146 @@
+---
+tenants:  # dynamic_key: network_services
+  - name: XYZ-CORP
+    mac_vrf_vni_base: 10000
+    vrfs:
+      - name: Production
+        vrf_vni: 10
+        vtep_diagnostic:
+          loopback: 10
+          loopback_ip_pools:
+            - pod: NY5_Pod1
+              ipv4_pool: 10.1.10.0/27
+            - pod: CH3_Pod1
+              ipv4_pool: 10.2.10.0/27
+        svis:
+          - id: 55
+            name: HYPER_PROD
+            enabled: true
+            ip_address_virtual: 10.10.55.1/24
+          - id: 100
+            name: Compute
+            enabled: true
+            ip_address_virtual: 10.10.100.1/24
+          - id: 101
+            name: Data
+            enabled: true
+            ip_address_virtual: 10.10.101.1/24
+          - id: 201
+            name: VMOTION_A
+            enabled: true
+            ip_address_virtual: 10.0.201.1/24
+          - id: 202
+            name: VXRAIL
+            enabled: true
+            ip_address_virtual: 10.0.202.1/24
+          - id: 400
+            name: VMWARE_REPL
+            enabled: true
+            ip_address_virtual: 10.40.0.1/24
+          - id: 500
+            name: Compute_Backup
+            enabled: true
+            ip_address_virtual: 10.50.0.1/24
+          - id: 501
+            name: Data_Backup
+            enabled: true
+            ip_address_virtual: 10.50.1.1/24
+          - id: 821
+            name: SAN_Disk
+            enabled: true
+            ip_address_virtual: 10.82.1.1/24
+          - id: 887
+            name: NOCB_WORKLOAD1
+            enabled: true
+            ip_address_virtual: 10.88.7.1/24
+          - id: 888
+            name: NOCB_WORKLOAD2
+            enabled: true
+            ip_address_virtual: 10.88.8.1/24
+          - id: 899
+            name: NAS
+            enabled: true
+            ip_address_virtual: 10.89.9.1/24
+          - id: 999
+            name: BWS
+            enabled: true
+            ip_address_virtual: 10.99.9.1/24
+          - id: 1000
+            name: SRVR_FARM_BLADE
+            enabled: true
+            ip_address_virtual: 10.0.0.1/24
+          - id: 1100
+            name: SRVR_FARM_BLADE_0
+            enabled: true
+            ip_address_virtual: 11.0.0.1/24
+          - id: 1101
+            name: SRVR_FARM_BLADE_1
+            enabled: true
+            ip_address_virtual: 11.0.1.1/24
+          - id: 1102
+            name: SRVR_FARM_BLADE_2
+            enabled: true
+            ip_address_virtual: 11.0.2.1/24
+          - id: 1201
+            name: UCP_MGMT_1
+            enabled: true
+            ip_address_virtual: 12.0.1.1/24
+          - id: 1202
+            name: UCP_MGMT_2
+            enabled: true
+            ip_address_virtual: 12.0.2.1/24
+          - id: 2000
+            name: Data_Prod
+            enabled: true
+            ip_address_virtual: 20.0.0.1/24
+          - id: 3434
+            name: VM_Servers
+            enabled: true
+            ip_address_virtual: 10.34.34.1/24
+          - id: 3911
+            name: SCADA_PROD
+            enabled: true
+            ip_address_virtual: 10.39.11.1/24
+      - name: Development
+        vrf_vni: 11
+        vtep_diagnostic:
+          loopback: 11
+          loopback_ip_pools:
+            - pod: NY5_Pod1
+              ipv4_pool: 10.1.11.0/27
+            - pod: CH3_Pod1
+              ipv4_pool: 10.2.11.0/27
+        svis:
+          - id: 21
+            name: VRF11_VLAN21
+            enabled: true
+            ip_address_virtual: 10.10.21.1/24
+          - id: 22
+            name: VRF11_VLAN22
+            enabled: true
+            ip_address_virtual: 10.10.22.1/24
+          - id: 2500
+            name: Scada_Dev
+            enabled: true
+            ip_address_virtual: 12.50.0.1/24
+          - id: 2821
+            name: Users_Dev
+            enabled: true
+            ip_address_virtual: 10.28.21.1/24
+          - id: 2822
+            name: Voice_Dev
+            enabled: true
+            ip_address_virtual: 10.28.22.1/24
+          - id: 2833
+            name: Broadcast1
+            enabled: true
+            ip_address_virtual: 10.28.33.1/24
+          - id: 2834
+            name: Broadcast2
+            enabled: true
+            ip_address_virtual: 10.28.34.1/24
+    l2vlans:
+      - id: 3401
+        name: L2_VLAN3401
+      - id: 3402
+        name: L2_VLAN3402

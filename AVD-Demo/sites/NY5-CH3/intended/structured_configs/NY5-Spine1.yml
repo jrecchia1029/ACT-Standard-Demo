@@ -1,0 +1,285 @@
+aaa_authorization:
+  exec:
+    default: local
+aaa_root:
+  disabled: true
+agents:
+- name: KernelFib
+  environment_variables:
+  - name: KERNELFIB_PROGRAM_ALL_ECMP
+    value: '''true'''
+arp:
+  aging:
+    timeout_default: 5400
+config_end: true
+daemon_terminattr:
+  cvaddrs:
+  - apiserver.cv-staging.corp.arista.io:443
+  cvauth:
+    method: token-secure
+    token_file: /tmp/cv-onboarding-token
+  cvsourceintf: Management1
+  cvvrf: MGMT
+  disable_aaa: true
+  smashexcludes: ale,flexCounter,hardware,kni,pulse,strata
+enable_password:
+  disabled: true
+ethernet_interfaces:
+- name: Ethernet1/1
+  description: P2P_NY5-Border-Leaf-A_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.0/31
+  peer: NY5-Border-Leaf-A
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet2/1
+  description: P2P_NY5-Border-Leaf-B_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.4/31
+  peer: NY5-Border-Leaf-B
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet3/1
+  description: P2P_NY5-Leaf1A_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.8/31
+  peer: NY5-Leaf1A
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet4/1
+  description: P2P_NY5-Leaf1B_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.12/31
+  peer: NY5-Leaf1B
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet5/1
+  description: P2P_NY5-Leaf2A_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.16/31
+  peer: NY5-Leaf2A
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+- name: Ethernet6/1
+  description: P2P_NY5-Leaf2B_Ethernet51/1
+  shutdown: false
+  mtu: 1500
+  ip_address: 192.168.11.20/31
+  peer: NY5-Leaf2B
+  peer_interface: Ethernet51/1
+  peer_type: l3leaf
+  switchport:
+    enabled: false
+hostname: NY5-Spine1
+ip_domain_lookup:
+  source_interfaces:
+  - name: Management1
+    vrf: MGMT
+ip_name_servers:
+- ip_address: 169.254.169.254
+  vrf: MGMT
+ip_routing: true
+local_users:
+- name: cvpadmin
+  privilege: 15
+  role: network-admin
+  sha512_password: $6$cx2rQNKbwSucqoex$usev3S8KBYhdLF2k9A0w4cPa2LmxVpm10mgQmoSWBiaLnbqmbLhB7MYxXyws/eEbaeLy6CZH0XVoeW3pwR4sX/
+loopback_interfaces:
+- name: Loopback0
+  description: ROUTER_ID
+  shutdown: false
+  ip_address: 10.245.217.1/32
+management_api_http:
+  enable_https: true
+  enable_vrfs:
+  - name: MGMT
+management_interfaces:
+- name: Management1
+  description: OOB_MANAGEMENT
+  shutdown: false
+  vrf: MGMT
+  ip_address: 10.0.1.11/24
+  type: oob
+  gateway: 10.0.1.1
+  lldp:
+    transmit: true
+    receive: false
+metadata:
+  is_deployed: true
+  platform: vEOS-lab
+  pod_name: NY5_Pod1
+  dc_name: NY5
+  fabric_name: DC
+  cv_tags:
+    device_tags:
+    - name: topology_hint_datacenter
+      value: NY5
+    - name: topology_hint_fabric
+      value: DC
+    - name: topology_hint_pod
+      value: NY5_Pod1
+    - name: topology_hint_type
+      value: spine
+ntp:
+  local_interface:
+    name: Management1
+    vrf: MGMT
+  servers:
+  - name: pool.ntp.org
+    preferred: true
+    vrf: MGMT
+  - name: 204.17.205.24
+    vrf: MGMT
+prefix_lists:
+- name: PL-LOOPBACKS-EVPN-OVERLAY
+  sequence_numbers:
+  - sequence: 10
+    action: permit 10.245.217.0/27 eq 32
+route_maps:
+- name: RM-CONN-2-BGP
+  sequence_numbers:
+  - sequence: 10
+    type: permit
+    match:
+    - ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY
+router_bfd:
+  multihop:
+    interval: 300
+    min_rx: 300
+    multiplier: 3
+router_bgp:
+  as: '65000'
+  router_id: 10.245.217.1
+  distance:
+    external_routes: 20
+    internal_routes: 200
+    local_routes: 200
+  graceful_restart:
+    enabled: true
+    restart_time: 300
+  maximum_paths:
+    paths: 4
+    ecmp: 4
+  bgp:
+    default:
+      ipv4_unicast: true
+  peer_groups:
+  - name: IPv4-UNDERLAY-PEERS
+    type: ipv4
+    send_community: all
+    maximum_routes: 12000
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    next_hop_unchanged: true
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 3
+    send_community: all
+    maximum_routes: 0
+  neighbors:
+  - ip_address: 192.168.11.1
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65005'
+    peer: NY5-Border-Leaf-A
+    description: NY5-Border-Leaf-A_Ethernet51/1
+  - ip_address: 192.168.11.5
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65005'
+    peer: NY5-Border-Leaf-B
+    description: NY5-Border-Leaf-B_Ethernet51/1
+  - ip_address: 192.168.11.9
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65001'
+    peer: NY5-Leaf1A
+    description: NY5-Leaf1A_Ethernet51/1
+  - ip_address: 192.168.11.13
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65002'
+    peer: NY5-Leaf1B
+    description: NY5-Leaf1B_Ethernet51/1
+  - ip_address: 192.168.11.17
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65003'
+    peer: NY5-Leaf2A
+    description: NY5-Leaf2A_Ethernet51/1
+  - ip_address: 192.168.11.21
+    peer_group: IPv4-UNDERLAY-PEERS
+    remote_as: '65003'
+    peer: NY5-Leaf2B
+    description: NY5-Leaf2B_Ethernet51/1
+  - ip_address: 10.245.217.3
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65005'
+    peer: NY5-Border-Leaf-A
+    description: NY5-Border-Leaf-A_Loopback0
+  - ip_address: 10.245.217.4
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65005'
+    peer: NY5-Border-Leaf-B
+    description: NY5-Border-Leaf-B_Loopback0
+  - ip_address: 10.245.217.5
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65001'
+    peer: NY5-Leaf1A
+    description: NY5-Leaf1A_Loopback0
+  - ip_address: 10.245.217.6
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65002'
+    peer: NY5-Leaf1B
+    description: NY5-Leaf1B_Loopback0
+  - ip_address: 10.245.217.7
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65003'
+    peer: NY5-Leaf2A
+    description: NY5-Leaf2A_Loopback0
+  - ip_address: 10.245.217.8
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65003'
+    peer: NY5-Leaf2B
+    description: NY5-Leaf2B_Loopback0
+  redistribute:
+    connected:
+      enabled: true
+      route_map: RM-CONN-2-BGP
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
+  address_family_ipv4:
+    peer_groups:
+    - name: IPv4-UNDERLAY-PEERS
+      activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
+serial_number: SN-NY5-Spine-1
+service_routing_protocols_model: multi-agent
+spanning_tree:
+  mode: none
+static_routes:
+- vrf: MGMT
+  prefix: 0.0.0.0/0
+  next_hop: 10.0.1.1
+transceiver_qsfp_default_mode_4x10: true
+vlan_internal_order:
+  allocation: ascending
+  range:
+    beginning: 1006
+    ending: 1199
+vrfs:
+- name: MGMT
+  ip_routing: false

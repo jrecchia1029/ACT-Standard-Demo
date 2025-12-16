@@ -1,0 +1,49 @@
+---
+# AVD-Demo/Campus/SF-FD/inventory.yml
+
+all:
+  children:
+    SF:
+      children:
+        FD:
+          children:
+            SF_FD_SPINES:
+              hosts:
+                SF-FD-Spine-1:
+                  ansible_host: 10.73.252.11
+                SF-FD-Spine-2:
+                  ansible_host: 10.73.252.12
+            SF_FD_L3_LEAFS:
+              hosts:
+                SF-FD-Leaf-1A:
+                  ansible_host: 10.73.252.13
+                SF-FD-Leaf-1B:
+                  ansible_host: 10.73.252.14
+                SF-FD-Leaf-2A:
+                  ansible_host: 10.73.252.15
+                SF-FD-Leaf-3A:
+                  ansible_host: 10.73.252.16
+                SF-FD-Leaf-3B:
+                  ansible_host: 10.73.252.17
+            SF_FD_L2_LEAFS:
+              hosts:
+                SF-FD-Leaf-3C:
+                  ansible_host: 10.73.252.18
+                SF-FD-Leaf-3D:
+                  ansible_host: 10.73.252.19
+                SF-FD-Leaf-3E:
+                  ansible_host: 10.73.252.20
+Network_Services:
+  children:
+    SF_FD_SPINES:
+    SF_FD_L3_LEAFS:
+    SF_FD_L2_LEAFS:
+Spines:
+  children:
+    SF_FD_SPINES:
+L3_Leafs:
+  children:
+    SF_FD_L3_LEAFS:
+L2_Leafs:
+  children:
+    SF_FD_L2_LEAFS:

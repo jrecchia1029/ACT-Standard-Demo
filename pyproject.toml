@@ -1,0 +1,11 @@
+[project]
+name = "avd-demo"
+version = "0.1.0"
+description = "Demo Project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ansible-core==2.18.5",
+    "pyavd[ansible]==5.7.1",
+    "pre-commit>=3.5.0"
+]

@@ -1,0 +1,124 @@
+---
+# AVD-Demo/Campus/SF-SOMA/group_vars/Fabric.yml
+
+# L2LS Campus Fabric Design
+fabric_name: SOMA
+
+# Management
+default_mgmt_method: inband
+mgmt_gateway: 10.73.252.1
+# mgmt_interface: Management1
+# mgmt_interface_vrf: MGMT
+
+generate_cv_tags:
+  topology_hints: true
+  campus_fabric: true
+
+underlay_routing_protocol: ebgp
+inband_ztp_bootstrap_file: http://172.16.254.253/bootstrap.py
+
+# Spine switches (aggregation layer)
+l3spine:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab
+    campus: SF
+    campus_pod: SOMA
+    spanning_tree_mode: mstp
+    spanning_tree_priority: 4096
+    mlag_domain_id: 'MLAG'
+    mlag_peer_ipv4_pool: 169.254.0.0/24
+    mlag_peer_l3_ipv4_pool: 192.168.255.0/24
+    mlag_interfaces: ['Ethernet49/1', 'Ethernet50/1']
+    virtual_router_mac_address: 00:1c:73:00:00:99
+    inband_mgmt_interface: Loopback0
+    loopback_ipv4_pool: 10.255.255.144/28
+    bgp_as: 65300
+  node_groups:
+    - group: SF_SOMA_SPINES
+      nodes:
+        - name: SF-SOMA-Spine-1
+          id: 1
+          mgmt_ip: 10.0.14.4/24
+          serial_number: SN-SF-SOMA-Spine-1
+        - name: SF-SOMA-Spine-2
+          id: 2
+          mgmt_ip: 10.0.14.5/24
+          serial_number: SN-SF-SOMA-Spine-2
+
+# Leaf switches (access layer)
+l2leaf:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab
+    campus: SF
+    campus_pod: SOMA
+    spanning_tree_mode: mstp
+    uplink_switches: ['SF-SOMA-Spine-1', 'SF-SOMA-Spine-2']
+    mlag_domain_id: 'MLAG'
+    mlag_interfaces: ['Ethernet49', 'Ethernet50']
+    mlag_peer_ipv4_pool: 169.254.0.0/24
+    inband_mgmt_vlan: 4092
+    inband_mgmt_subnet: 10.1.14.0/24
+    inband_ztp: true
+  node_groups:
+    - group: Floor1_Leafs
+      campus_access_pod: Floor1
+      uplink_interfaces: ['Ethernet51', 'Ethernet52']
+      nodes:
+        - name: SF-SOMA-Leaf-1A
+          id: 1
+          mgmt_ip: 10.0.14.6/24
+          serial_number: SN-SF-SOMA-Leaf-1A
+          uplink_switch_interfaces: ['Ethernet1', 'Ethernet1']
+        - name: SF-SOMA-Leaf-1B
+          id: 2
+          mgmt_ip: 10.0.14.7/24
+          serial_number: SN-SF-SOMA-Leaf-1B
+          uplink_switch_interfaces: ['Ethernet2', 'Ethernet2']
+    - group: Floor2_Leafs
+      campus_access_pod: Floor2
+      uplink_interfaces: ['Ethernet97/1', 'Ethernet98/1']
+      nodes:
+        - name: SF-SOMA-Leaf-2A
+          id: 3
+          mgmt_ip: 10.0.14.8/24
+          serial_number: SN-SF-SOMA-Leaf-2A
+          uplink_switch_interfaces: ['Ethernet3', 'Ethernet3']
+    - group: Floor3_Leafs
+      campus_access_pod: Floor3
+      uplink_interfaces: ['Ethernet51', 'Ethernet52']
+      nodes:
+        - name: SF-SOMA-Leaf-3A
+          id: 4
+          mgmt_ip: 10.0.14.9/24
+          serial_number: SN-SF-SOMA-Leaf-3A
+          uplink_switch_interfaces: ['Ethernet4', 'Ethernet4']
+        - name: SF-SOMA-Leaf-3B
+          id: 5
+          mgmt_ip: 10.0.14.10/24
+          serial_number: SN-SF-SOMA-Leaf-3B
+          uplink_switch_interfaces: ['Ethernet5', 'Ethernet5']
+    - group: Floor3_Member_Leafs_CD
+      campus_access_pod: Floor3
+      cv_tags_topology_type: member-leaf
+      uplink_switches: ['SF-SOMA-Leaf-3A', 'SF-SOMA-Leaf-3B']
+      uplink_interfaces: ['Ethernet25', 'Ethernet26']
+      mlag_interfaces: ['Ethernet27', 'Ethernet28']
+      nodes:
+        - name: SF-SOMA-Leaf-3C
+          id: 6
+          serial_number: SN-SF-SOMA-Leaf-3C
+          uplink_switch_interfaces: ['Ethernet53', 'Ethernet53']
+        - name: SF-SOMA-Leaf-3D
+          id: 7
+          serial_number: SN-SF-SOMA-Leaf-3D
+          uplink_switch_interfaces: ['Ethernet54', 'Ethernet54']
+    - group: Floor3_Member_Leafs_E
+      campus_access_pod: Floor3
+      cv_tags_topology_type: member-leaf
+      uplink_switches: ['SF-SOMA-Leaf-3A', 'SF-SOMA-Leaf-3B']
+      uplink_interfaces: ['Ethernet25', 'Ethernet26']
+      nodes:
+        - name: SF-SOMA-Leaf-3E
+          id: 8
+          serial_number: SN-SF-SOMA-Leaf-3E
+          uplink_switch_interfaces: ['Ethernet55', 'Ethernet55']

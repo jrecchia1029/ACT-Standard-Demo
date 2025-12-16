@@ -1,0 +1,161 @@
+fabric_name: DC
+dc_name: NY5
+pod_name: NY5_Pod1
+
+# MGMT
+default_mgmt_method: oob
+mgmt_interface_vrf: MGMT
+mgmt_gateway: 10.0.1.1
+
+# Routing protocols
+underlay_routing_protocol: ebgp
+overlay_routing_protocol: ebgp
+
+# Node Types
+spine:  # dynamic_key: node_type
+  defaults:
+    # node BGP AS | Required.
+    bgp_as: 65000
+    platform: vEOS-lab  # 7050CX3
+    # IPv4 subnet for Loopback0 allocation
+    loopback_ipv4_pool: 10.245.217.0/27
+  nodes:
+    - name: NY5-Spine1
+      id: 1
+      mgmt_ip: 10.0.1.11/24
+      serial_number: SN-NY5-Spine-1
+    - name: NY5-Spine2
+      id: 2
+      mgmt_ip: 10.0.1.12/24
+      serial_number: SN-NY5-Spine-2
+
+l3leaf:  # dynamic_key: node_type
+  defaults:
+    platform: vEOS-lab  # 7050SX3
+    # Spanning tree mode | Required.
+    spanning_tree_mode: mstp
+    # Spanning tree priority.
+    spanning_tree_priority: 4096
+    # MLAG interfaces
+    mlag_interfaces: ['Ethernet49/1', Ethernet50/1]
+    # MLAG peering VLAN 4094
+    mlag_peer_ipv4_pool: 192.168.13.96/27
+    # MLAG L3 peering VLAN 4093
+    mlag_peer_l3_ipv4_pool: 192.168.13.64/27
+    # Virtual Router MAC
+    virtual_router_mac_address: 00:1c:73:00:09:99
+    # Uplink Details
+    uplink_switches: ['NY5-Spine1', 'NY5-Spine2']
+    uplink_interfaces: ['Ethernet51/1', 'Ethernet52/1']
+    uplink_ipv4_pool: 192.168.11.0/26
+    # IPv4 subnet for Loopback0 allocation
+    loopback_ipv4_pool: 10.245.217.0/27
+    loopback_ipv4_offset: 2
+    # IPv4 subnet for VTEP/Loopback1 allocation.
+    vtep_loopback_ipv4_pool: 10.245.217.32/27
+    filter:
+      only_vlans_in_use: true
+  node_groups:
+    - group: NY5-Border-Leaf
+      bgp_as: 65005
+      filter:
+        tags: ['compute', 'border', 'all']
+      structured_config:
+        router_bgp:
+          peer_groups:
+            - name: INTER-DC-EVPN-PEERS
+              update_source: Loopback0
+              ebgp_multihop: 10
+              maximum_routes: 0
+              maximum_routes_warning_limit: 500000
+              send_community: all
+              remote_as: 65055
+          address_family_ipv4:
+            peer_groups:
+              - name: INTER-DC-EVPN-PEERS
+                activate: true
+          address_family_evpn:
+            peer_groups:
+              - name: INTER-DC-EVPN-PEERS
+                activate: true
+          neighbors:
+            # CH3 Border Leafs
+            - ip_address: 10.245.218.7
+              description: CH3-Border-Leaf-A
+              peer_group: INTER-DC-EVPN-PEERS
+            - ip_address: 10.245.218.8
+              description: CH3-Border-Leaf-B
+              peer_group: INTER-DC-EVPN-PEERS
+      # evpn_gateway:
+      #   remote_peers:
+      #     - hostname: CH3-Leaf5A
+      #       ip_address: 10.245.218.7
+      #       bgp_as: 65055
+      #     - hostname: CH3-Leaf5B
+      #       ip_address: 10.245.218.8
+      #       bgp_as: 65055
+      #   # Enable EVPN Gateway functionality for route-types 2 (MAC-IP) and 3 (IMET).
+      #   evpn_l2:
+      #     enabled: true
+      #   # Enable EVPN Gateway functionality for route-type 5 (IP-PREFIX).
+      #   evpn_l3:
+      #     enabled: true
+      #     inter_domain: false
+      nodes:
+        - name: NY5-Border-Leaf-A
+          id: 1
+          mgmt_ip: 10.0.1.17/24
+          serial_number: SN-NY5-Border-Leaf-A
+          uplink_switch_interfaces: ['Ethernet1/1', 'Ethernet1/1']
+        - name: NY5-Border-Leaf-B
+          id: 2
+          mgmt_ip: 10.0.1.18/24
+          serial_number: SN-NY5-Border-Leaf-B
+          uplink_switch_interfaces: ['Ethernet2/1', 'Ethernet2/1']
+    - group: NY5-Leaf1
+      mlag: false
+      filter:
+        tags: ['vms', 'compute', 'storage', 'all']
+      nodes:
+        - name: NY5-Leaf1A
+          id: 3
+          mgmt_ip: 10.0.1.13/24
+          serial_number: 'SN-NY5-Leaf-1A'
+          uplink_switch_interfaces: ['Ethernet3/1', 'Ethernet3/1']
+          bgp_as: 65001
+        - name: NY5-Leaf1B
+          id: 4
+          mgmt_ip: 10.0.1.14/24
+          serial_number: 'SN-NY5-Leaf-1B'
+          uplink_switch_interfaces: ['Ethernet4/1', 'Ethernet4/1']
+          bgp_as: 65002
+    - group: NY5-Leaf2
+      bgp_as: 65003
+      filter:
+        tags: ['compute', 'data', 'all']
+      nodes:
+        - name: NY5-Leaf2A
+          id: 5
+          mgmt_ip: 10.0.1.15/24
+          serial_number: 'SN-NY5-Leaf-2A'
+          uplink_switch_interfaces: ['Ethernet5/1', 'Ethernet5/1']
+        - name: NY5-Leaf2B
+          id: 6
+          mgmt_ip: 10.0.1.16/24
+          serial_number: 'SN-NY5-Leaf-2B'
+          uplink_switch_interfaces: ['Ethernet6/1', 'Ethernet6/1']
+
+l3_edge:
+  p2p_links:
+    # DCI Link 1
+    - nodes: [NY5-Border-Leaf-A,  WAN-1]
+      interfaces: [Ethernet52/1, Ethernet1/1]
+      ip: [10.255.0.1/31, 10.255.0.0/31]
+      as: [65005, 64750]
+      include_in_underlay_protocol: true
+    # DCI Link 2
+    - nodes: [NY5-Border-Leaf-B, WAN-1]
+      interfaces: [Ethernet52/1, Ethernet2/1]
+      ip: [10.255.0.3/31, 10.255.0.2/31]
+      as: [65005, 64750]
+      include_in_underlay_protocol: true
