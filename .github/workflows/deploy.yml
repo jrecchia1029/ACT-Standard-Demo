@@ -1,0 +1,69 @@
+name: Deploy updates
+
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: write
+jobs:
+  deploy-prod:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python (from pyproject.toml)
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install dependencies with uv
+        run: uv sync --all-extras --dev
+
+      - name: Install Arista AVD collection
+        working-directory: AVD-Demo
+        run: |
+          uv run ansible-galaxy collection install -r collections/requirements.yml
+
+      - name: Run AVD Deploy
+        working-directory: AVD-Demo
+        run: make deploy
+
+#   validate_prod:
+#     needs: deploy-prod
+#     runs-on: self-hosted
+#     timeout-minutes: 15
+#     steps:
+#       - uses: actions/checkout@v3
+
+#       - name: Install uv
+#         uses: astral-sh/setup-uv@v5
+
+#       - name: Set up Python (from pyproject.toml)
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version-file: "pyproject.toml"
+
+#       - name: Install dependencies with uv
+#         run: uv sync --all-extras --dev
+
+#       - name: Install Arista AVD collection
+#         run: |
+#           uv run ansible-galaxy collection install -r collections/requirements.yml
+
+#       - name: Activate virtual environment & validate
+#         run: |
+#           export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+#           ansible-playbook playbooks/validate_all.yml -i inventory.yml
+
+#       - name: Commit report
+#         run: |
+#           git config --global user.name 'Joe Recchia'
+#           git config --global user.email 'joerecchia@users.noreply.github.com'
+#           git add .
+#           git diff --quiet && git diff --staged --quiet || git commit -am 'Automated report'
+#           git push
