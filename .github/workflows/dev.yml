@@ -24,6 +24,9 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
+      - name: WhoamI
+        run: uv run whoami
+
       - name: Set up Python (from pyproject.toml)
         uses: actions/setup-python@v5
         with:
