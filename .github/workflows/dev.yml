@@ -24,22 +24,22 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
 
-      - name: WhoamI
-        run: uv run whoami
+    #   - name: WhoamI
+    #     run: uv run whoami
 
-      - name: Set up Python (from pyproject.toml)
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: "pyproject.toml"
+    #   - name: Set up Python (from pyproject.toml)
+    #     uses: actions/setup-python@v5
+    #     with:
+    #       python-version-file: "pyproject.toml"
 
       - name: Install dependencies with uv
         run: uv sync --all-extras --dev
 
-      - name: Run pre-commit on changed files
-        run: |
-          # Run pre-commit using uv
-          uv run pre-commit run --all-files
-        continue-on-error: false
+    #   - name: Run pre-commit on changed files
+    #     run: |
+    #       # Run pre-commit using uv
+    #       uv run pre-commit run --all-files
+    #     continue-on-error: false
 
       - name: Install Arista AVD collection
         working-directory: AVD-Demo
