@@ -7,16 +7,16 @@ port_profiles:
 
 network_ports:
   - switches:
-      - Uptown-Leaf(1|2)(A|B)
-      - Uptown-Leaf3(C|D|E)
+      - SF-SOMA-Leaf1(A|B)
+      - SF-SOMA-Leaf3(C|D|E)
     switch_ports:
-      - Ethernet1
-      - Ethernet8
+      - Ethernet1-24
+      - Ethernet1-24
     profile: access_interface
     vlans: 10
   - switches:
-      - Uptown-Leaf1(A|B)
+      - SF-SOMA-Leaf2A
     switch_ports:
-      - Ethernet13
+      - Ethernet1-24
     profile: access_interface
-    vlans: 15
+    vlans: 30

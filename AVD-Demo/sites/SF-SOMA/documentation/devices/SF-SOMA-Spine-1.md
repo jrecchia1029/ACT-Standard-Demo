@@ -42,6 +42,7 @@
 - [Multicast](#multicast)
   - [IP IGMP Snooping](#ip-igmp-snooping)
 - [Filters](#filters)
+  - [Prefix-lists](#prefix-lists)
   - [Route-maps](#route-maps)
 - [VRF Instances](#vrf-instances)
   - [VRF Instances Summary](#vrf-instances-summary)
@@ -300,6 +301,10 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
+| 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
@@ -307,6 +312,19 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
+!
+vlan 3009
+   name MLAG_L3_VRF_CORPORATE
+   trunk group MLAG
 !
 vlan 4092
    name INBAND_MGMT
@@ -330,11 +348,11 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet1 | L2_SF-SOMA-Leaf-1A_Ethernet51 | *trunk | *4092 | *- | *- | 1 |
-| Ethernet2 | L2_SF-SOMA-Leaf-1B_Ethernet51 | *trunk | *4092 | *- | *- | 1 |
-| Ethernet3 | L2_SF-SOMA-Leaf-2A_Ethernet97/1 | *trunk | *4092 | *- | *- | 3 |
-| Ethernet4 | L2_SF-SOMA-Leaf-3A_Ethernet51 | *trunk | *4092 | *- | *- | 4 |
-| Ethernet5 | L2_SF-SOMA-Leaf-3B_Ethernet51 | *trunk | *4092 | *- | *- | 4 |
+| Ethernet1 | L2_SF-SOMA-Leaf-1A_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 1 |
+| Ethernet2 | L2_SF-SOMA-Leaf-1B_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 1 |
+| Ethernet3 | L2_SF-SOMA-Leaf-2A_Ethernet97/1 | *trunk | *10,20,30,4092 | *- | *- | 3 |
+| Ethernet4 | L2_SF-SOMA-Leaf-3A_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 4 |
+| Ethernet5 | L2_SF-SOMA-Leaf-3B_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 4 |
 | Ethernet49/1 | MLAG_SF-SOMA-Spine-2_Ethernet49/1 | *trunk | *- | *- | *MLAG | 491 |
 | Ethernet50/1 | MLAG_SF-SOMA-Spine-2_Ethernet50/1 | *trunk | *- | *- | *MLAG | 491 |
 
@@ -416,9 +434,9 @@ interface Ethernet51/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel1 | L2_Floor1_Leafs_Port-Channel51 | trunk | 4092 | - | - | 30 | individual | 1 | - |
-| Port-Channel3 | L2_SF-SOMA-Leaf-2A_Port-Channel971 | trunk | 4092 | - | - | 30 | individual | 3 | - |
-| Port-Channel4 | L2_Floor3_Leafs_Port-Channel51 | trunk | 4092 | - | - | 30 | individual | 4 | - |
+| Port-Channel1 | L2_Floor1_Leafs_Port-Channel51 | trunk | 10,20,30,4092 | - | - | 30 | individual | 1 | - |
+| Port-Channel3 | L2_SF-SOMA-Leaf-2A_Port-Channel971 | trunk | 10,20,30,4092 | - | - | 30 | individual | 3 | - |
+| Port-Channel4 | L2_Floor3_Leafs_Port-Channel51 | trunk | 10,20,30,4092 | - | - | 30 | individual | 4 | - |
 | Port-Channel491 | MLAG_SF-SOMA-Spine-2_Port-Channel491 | trunk | - | - | MLAG | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
@@ -428,7 +446,7 @@ interface Ethernet51/1
 interface Port-Channel1
    description L2_Floor1_Leafs_Port-Channel51
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -438,7 +456,7 @@ interface Port-Channel1
 interface Port-Channel3
    description L2_SF-SOMA-Leaf-2A_Port-Channel971
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -448,7 +466,7 @@ interface Port-Channel3
 interface Port-Channel4
    description L2_Floor3_Leafs_Port-Channel51
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -472,12 +490,14 @@ interface Port-Channel491
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | ROUTER_ID | default | 10.255.255.145/32 |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | 10.255.254.145/32 |
 
 ##### IPv6
 
 | Interface | Description | VRF | IPv6 Address |
 | --------- | ----------- | --- | ------------ |
 | Loopback0 | ROUTER_ID | default | - |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -487,6 +507,12 @@ interface Loopback0
    description ROUTER_ID
    no shutdown
    ip address 10.255.255.145/32
+!
+interface Loopback10
+   description DIAG_VRF_CORPORATE
+   no shutdown
+   vrf CORPORATE
+   ip address 10.255.254.145/32
 ```
 
 ### VLAN Interfaces
@@ -495,6 +521,10 @@ interface Loopback0
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
+| Vlan10 | DATA | CORPORATE | - | False |
+| Vlan20 | VOICE | CORPORATE | - | False |
+| Vlan30 | PRINTERS | CORPORATE | - | False |
+| Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | Inband Management | default | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
@@ -503,6 +533,10 @@ interface Loopback0
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan10 |  CORPORATE  |  -  |  10.15.10.1/24  |  -  |  -  |  -  |
+| Vlan20 |  CORPORATE  |  -  |  10.15.20.1/24  |  -  |  -  |  -  |
+| Vlan30 |  CORPORATE  |  -  |  10.15.30.1/24  |  -  |  -  |  -  |
+| Vlan3009 |  CORPORATE  |  192.168.255.0/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  10.1.14.2/24  |  -  |  10.1.14.1  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.0/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  169.254.0.0/31  |  -  |  -  |  -  |  -  |
@@ -510,6 +544,31 @@ interface Loopback0
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan10
+   description DATA
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.10.1/24
+!
+interface Vlan20
+   description VOICE
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.20.1/24
+!
+interface Vlan30
+   description PRINTERS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.30.1/24
+!
+interface Vlan3009
+   description MLAG_L3_VRF_CORPORATE
+   no shutdown
+   mtu 1500
+   vrf CORPORATE
+   ip address 192.168.255.0/31
 !
 interface Vlan4092
    description Inband Management
@@ -565,6 +624,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | True |
+| CORPORATE | True |
 | MGMT | False |
 
 #### IP Routing Device Configuration
@@ -572,6 +632,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 ```eos
 !
 ip routing
+ip routing vrf CORPORATE
 no ip routing vrf MGMT
 ```
 
@@ -582,6 +643,7 @@ no ip routing vrf MGMT
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | False |
+| CORPORATE | false |
 | MGMT | false |
 
 ### Static Routes
@@ -689,9 +751,34 @@ router bgp 65300
 
 ## Filters
 
+### Prefix-lists
+
+#### Prefix-lists Summary
+
+##### PL-MLAG-PEER-VRFS
+
+| Sequence | Action |
+| -------- | ------ |
+| 10 | permit 192.168.255.0/31 |
+
+#### Prefix-lists Device Configuration
+
+```eos
+!
+ip prefix-list PL-MLAG-PEER-VRFS
+   seq 10 permit 192.168.255.0/31
+```
+
 ### Route-maps
 
 #### Route-maps Summary
+
+##### RM-CONN-2-BGP-VRFS
+
+| Sequence | Type | Match | Set | Sub-Route-Map | Continue |
+| -------- | ---- | ----- | --- | ------------- | -------- |
+| 10 | deny | ip address prefix-list PL-MLAG-PEER-VRFS | - | - | - |
+| 20 | permit | - | - | - | - |
 
 ##### RM-MLAG-PEER-IN
 
@@ -702,6 +789,11 @@ router bgp 65300
 #### Route-maps Device Configuration
 
 ```eos
+!
+route-map RM-CONN-2-BGP-VRFS deny 10
+   match ip address prefix-list PL-MLAG-PEER-VRFS
+!
+route-map RM-CONN-2-BGP-VRFS permit 20
 !
 route-map RM-MLAG-PEER-IN permit 10
    description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
@@ -714,11 +806,14 @@ route-map RM-MLAG-PEER-IN permit 10
 
 | VRF Name | IP Routing |
 | -------- | ---------- |
+| CORPORATE | enabled |
 | MGMT | disabled |
 
 ### VRF Instances Device Configuration
 
 ```eos
+!
+vrf instance CORPORATE
 !
 vrf instance MGMT
 ```

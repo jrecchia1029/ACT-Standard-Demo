@@ -264,11 +264,23 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
 | 4092 | INBAND_MGMT | - |
 
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
 !
 vlan 4092
    name INBAND_MGMT
@@ -284,8 +296,8 @@ vlan 4092
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet97/1 | L2_SF-SOMA-Spine-1_Ethernet3 | *trunk | *4092 | *- | *- | 971 |
-| Ethernet98/1 | L2_SF-SOMA-Spine-2_Ethernet3 | *trunk | *4092 | *- | *- | 971 |
+| Ethernet97/1 | L2_SF-SOMA-Spine-1_Ethernet3 | *trunk | *10,20,30,4092 | *- | *- | 971 |
+| Ethernet98/1 | L2_SF-SOMA-Spine-2_Ethernet3 | *trunk | *10,20,30,4092 | *- | *- | 971 |
 
 *Inherited from Port-Channel Interface
 
@@ -312,7 +324,7 @@ interface Ethernet98/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel971 | L2_SF_SOMA_SPINES_Port-Channel3 | trunk | 4092 | - | - | - | - | - | - |
+| Port-Channel971 | L2_SF_SOMA_SPINES_Port-Channel3 | trunk | 10,20,30,4092 | - | - | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -321,7 +333,7 @@ interface Ethernet98/1
 interface Port-Channel971
    description L2_SF_SOMA_SPINES_Port-Channel3
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
 ```
