@@ -79,7 +79,7 @@ agent KernelFib environment KERNELFIB_PROGRAM_ALL_ECMP='true'
 
 | Management Interface | Description | Type | VRF | IP Address | Gateway |
 | -------------------- | ----------- | ---- | --- | ---------- | ------- |
-| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.25/24 | 10.0.2.1 |
+| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.15/24 | 10.0.2.1 |
 
 ##### IPv6
 
@@ -95,7 +95,7 @@ interface Management1
    description OOB_MANAGEMENT
    no shutdown
    vrf MGMT
-   ip address 10.0.2.25/24
+   ip address 10.0.2.15/24
    no lldp receive
 ```
 
@@ -242,7 +242,7 @@ daemon TerminAttr
 
 | Domain-id | Local-interface | Peer-address | Peer-link |
 | --------- | --------------- | ------------ | --------- |
-| CH3-Leaf2 | Vlan4094 | 192.168.14.105 | Port-Channel531 |
+| CH3-Leaf2 | Vlan4094 | 192.168.14.105 | Port-Channel491 |
 
 Dual primary detection is disabled.
 
@@ -254,7 +254,7 @@ mlag configuration
    domain-id CH3-Leaf2
    local-interface Vlan4094
    peer-address 192.168.14.105
-   peer-link Port-Channel531
+   peer-link Port-Channel491
    reload-delay mlag 300
    reload-delay non-mlag 330
 ```
@@ -331,8 +331,8 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet53/1 | MLAG_CH3-Leaf2B_Ethernet53/1 | *trunk | *- | *- | *MLAG | 531 |
-| Ethernet54/1 | MLAG_CH3-Leaf2B_Ethernet54/1 | *trunk | *- | *- | *MLAG | 531 |
+| Ethernet49/1 | MLAG_CH3-Leaf2B_Ethernet49/1 | *trunk | *- | *- | *MLAG | 491 |
+| Ethernet50/1 | MLAG_CH3-Leaf2B_Ethernet50/1 | *trunk | *- | *- | *MLAG | 491 |
 
 *Inherited from Port-Channel Interface
 
@@ -340,31 +340,31 @@ vlan 4094
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet55/1 | P2P_CH3-Spine1_Ethernet5/1 | - | 192.168.12.17/31 | default | 1500 | False | - | - |
-| Ethernet56/1 | P2P_CH3-Spine2_Ethernet5/1 | - | 192.168.12.19/31 | default | 1500 | False | - | - |
+| Ethernet51/1 | P2P_CH3-Spine1_Ethernet5/1 | - | 192.168.12.17/31 | default | 1500 | False | - | - |
+| Ethernet52/1 | P2P_CH3-Spine2_Ethernet5/1 | - | 192.168.12.19/31 | default | 1500 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
 !
-interface Ethernet53/1
-   description MLAG_CH3-Leaf2B_Ethernet53/1
+interface Ethernet49/1
+   description MLAG_CH3-Leaf2B_Ethernet49/1
    no shutdown
-   channel-group 531 mode active
+   channel-group 491 mode active
 !
-interface Ethernet54/1
-   description MLAG_CH3-Leaf2B_Ethernet54/1
+interface Ethernet50/1
+   description MLAG_CH3-Leaf2B_Ethernet50/1
    no shutdown
-   channel-group 531 mode active
+   channel-group 491 mode active
 !
-interface Ethernet55/1
+interface Ethernet51/1
    description P2P_CH3-Spine1_Ethernet5/1
    no shutdown
    mtu 1500
    no switchport
    ip address 192.168.12.17/31
 !
-interface Ethernet56/1
+interface Ethernet52/1
    description P2P_CH3-Spine2_Ethernet5/1
    no shutdown
    mtu 1500
@@ -380,14 +380,14 @@ interface Ethernet56/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel531 | MLAG_CH3-Leaf2B_Port-Channel531 | trunk | - | - | MLAG | - | - | - | - |
+| Port-Channel491 | MLAG_CH3-Leaf2B_Port-Channel491 | trunk | - | - | MLAG | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
 
 ```eos
 !
-interface Port-Channel531
-   description MLAG_CH3-Leaf2B_Port-Channel531
+interface Port-Channel491
+   description MLAG_CH3-Leaf2B_Port-Channel491
    no shutdown
    switchport mode trunk
    switchport trunk group MLAG

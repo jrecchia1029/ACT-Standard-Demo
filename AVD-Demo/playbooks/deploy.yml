@@ -1,5 +1,5 @@
 ---
-# build.yaml
+# deploy.yaml
 
 - name: Deploy Configs
   hosts: all

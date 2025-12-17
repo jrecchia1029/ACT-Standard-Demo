@@ -149,13 +149,13 @@ l3_edge:
   p2p_links:
     # DCI Link 1
     - nodes: [NY5-Border-Leaf-A,  WAN-1]
-      interfaces: [Ethernet52/1, Ethernet1/1]
+      interfaces: [Ethernet54/1, Ethernet1/1]
       ip: [10.255.0.1/31, 10.255.0.0/31]
       as: [65005, 64750]
       include_in_underlay_protocol: true
     # DCI Link 2
     - nodes: [NY5-Border-Leaf-B, WAN-1]
-      interfaces: [Ethernet52/1, Ethernet2/1]
+      interfaces: [Ethernet54/1, Ethernet2/1]
       ip: [10.255.0.3/31, 10.255.0.2/31]
       as: [65005, 64750]
       include_in_underlay_protocol: true

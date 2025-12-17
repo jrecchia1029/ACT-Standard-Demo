@@ -10,27 +10,27 @@ all:
             SF_SOMA_SPINES:
               hosts:
                 SF-SOMA-Spine-1:
-                  ansible_host: 10.73.252.11
+                  ansible_host: 10.18.146.29
                 SF-SOMA-Spine-2:
-                  ansible_host: 10.73.252.12
+                  ansible_host: 10.18.185.139
             SF_SOMA_LEAFS:
               hosts:
                 SF-SOMA-Leaf-1A:
-                  ansible_host: 10.73.252.13
+                  ansible_host: 10.18.160.48
                 SF-SOMA-Leaf-1B:
-                  ansible_host: 10.73.252.14
+                  ansible_host: 10.18.182.158
                 SF-SOMA-Leaf-2A:
-                  ansible_host: 10.73.252.15
+                  ansible_host: 10.18.147.183
                 SF-SOMA-Leaf-3A:
-                  ansible_host: 10.73.252.16
+                  ansible_host: 10.18.148.221
                 SF-SOMA-Leaf-3B:
-                  ansible_host: 10.73.252.17
+                  ansible_host: 10.18.167.18
                 SF-SOMA-Leaf-3C:
-                  ansible_host: 10.73.252.18
+                  ansible_host: 10.18.177.204
                 SF-SOMA-Leaf-3D:
-                  ansible_host: 10.73.252.19
+                  ansible_host: 10.18.171.149
                 SF-SOMA-Leaf-3E:
-                  ansible_host: 10.73.252.20
+                  ansible_host: 10.18.160.63
 Network_Services:
   children:
     SF_SOMA_SPINES:

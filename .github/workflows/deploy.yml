@@ -31,14 +31,14 @@ jobs:
 
       - name: Run AVD Deploy
         working-directory: AVD-Demo
-        run: make deploy
+        run: make deploy-auto
 
-#   validate_prod:
-#     needs: deploy-prod
-#     runs-on: self-hosted
-#     timeout-minutes: 15
-#     steps:
-#       - uses: actions/checkout@v3
+  validate_prod:
+    needs: deploy-prod
+    runs-on: self-hosted
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
 
 #       - name: Install uv
 #         uses: astral-sh/setup-uv@v5
@@ -55,15 +55,16 @@ jobs:
 #         run: |
 #           uv run ansible-galaxy collection install -r collections/requirements.yml
 
-#       - name: Activate virtual environment & validate
-#         run: |
-#           export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-#           ansible-playbook playbooks/validate_all.yml -i inventory.yml
+      - name: validate
+        run: |
+          export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+          make validate
 
-#       - name: Commit report
-#         run: |
-#           git config --global user.name 'Joe Recchia'
-#           git config --global user.email 'joerecchia@users.noreply.github.com'
-#           git add .
-#           git diff --quiet && git diff --staged --quiet || git commit -am 'Automated report'
-#           git push
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "🤖 Automated AVD configuration build [skip ci]"
+          git push

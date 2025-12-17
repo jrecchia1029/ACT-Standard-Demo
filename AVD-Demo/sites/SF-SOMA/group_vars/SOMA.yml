@@ -6,7 +6,7 @@ fabric_name: SOMA
 
 # Management
 default_mgmt_method: inband
-mgmt_gateway: 10.73.252.1
+mgmt_gateway: 10.0.14.1
 # mgmt_interface: Management1
 # mgmt_interface_vrf: MGMT
 
@@ -122,3 +122,8 @@ l2leaf:  # dynamic_key: node_type
           id: 8
           serial_number: SN-SF-SOMA-Leaf-3E
           uplink_switch_interfaces: ['Ethernet55', 'Ethernet55']
+
+anta_reports_dir_name: "reports"
+anta_reports_dir: '{{ root_dir }}/{{ anta_reports_dir_name }}/{{ fabric_name }}'
+anta_report_md_path: '{{ anta_reports_dir }}/{{ fabric_name }}-anta-report.md'
+anta_report_csv_path: '{{ anta_reports_dir }}/{{ fabric_name }}-anta-report.csv'

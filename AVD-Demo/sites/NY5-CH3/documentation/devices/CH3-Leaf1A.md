@@ -71,7 +71,7 @@ agent KernelFib environment KERNELFIB_PROGRAM_ALL_ECMP='true'
 
 | Management Interface | Description | Type | VRF | IP Address | Gateway |
 | -------------------- | ----------- | ---- | --- | ---------- | ------- |
-| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.23/24 | 10.0.2.1 |
+| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.13/24 | 10.0.2.1 |
 
 ##### IPv6
 
@@ -87,7 +87,7 @@ interface Management1
    description OOB_MANAGEMENT
    no shutdown
    vrf MGMT
-   ip address 10.0.2.23/24
+   ip address 10.0.2.13/24
    no lldp receive
 ```
 
@@ -280,21 +280,21 @@ vlan internal order ascending range 1006 1199
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet55/1 | P2P_CH3-Spine1_Ethernet3/1 | - | 192.168.12.9/31 | default | 1500 | False | - | - |
-| Ethernet56/1 | P2P_CH3-Spine2_Ethernet3/1 | - | 192.168.12.11/31 | default | 1500 | False | - | - |
+| Ethernet51/1 | P2P_CH3-Spine1_Ethernet3/1 | - | 192.168.12.9/31 | default | 1500 | False | - | - |
+| Ethernet52/1 | P2P_CH3-Spine2_Ethernet3/1 | - | 192.168.12.11/31 | default | 1500 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
 !
-interface Ethernet55/1
+interface Ethernet51/1
    description P2P_CH3-Spine1_Ethernet3/1
    no shutdown
    mtu 1500
    no switchport
    ip address 192.168.12.9/31
 !
-interface Ethernet56/1
+interface Ethernet52/1
    description P2P_CH3-Spine2_Ethernet3/1
    no shutdown
    mtu 1500

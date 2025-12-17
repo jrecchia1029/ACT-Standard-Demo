@@ -25,7 +25,7 @@ daemon_terminattr:
 enable_password:
   disabled: true
 ethernet_interfaces:
-- name: Ethernet55/1
+- name: Ethernet51/1
   description: P2P_CH3-Spine1_Ethernet3/1
   shutdown: false
   mtu: 1500
@@ -35,7 +35,7 @@ ethernet_interfaces:
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet56/1
+- name: Ethernet52/1
   description: P2P_CH3-Spine2_Ethernet3/1
   shutdown: false
   mtu: 1500
@@ -80,7 +80,7 @@ management_interfaces:
   description: OOB_MANAGEMENT
   shutdown: false
   vrf: MGMT
-  ip_address: 10.0.2.23/24
+  ip_address: 10.0.2.13/24
   type: oob
   gateway: 10.0.2.1
   lldp:

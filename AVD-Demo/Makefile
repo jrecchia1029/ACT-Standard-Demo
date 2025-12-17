@@ -16,6 +16,8 @@ SOMA_INVENTORY := $(MAKEFILE_DIR)sites/SF-SOMA/inventory.yml
 FD_INVENTORY := $(MAKEFILE_DIR)sites/SF-FD/inventory.yml
 BUILD_PLAYBOOK := $(MAKEFILE_DIR)playbooks/build.yml
 DEPLOY_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy.yml
+DEPLOY_AUTO_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy_auto.yml
+VALIDATE_PLAYBOOK := $(MAKEFILE_DIR)playbooks/validate.yml
 
 help: ## Display this help message
 	@echo "AVD Multi-Site Demo - Available Commands:"
@@ -58,6 +60,40 @@ deploy: ## Deploy configurations to CloudVision for all sites
 	@$(ANSIBLE) $(DEPLOY_PLAYBOOK) -i $(FD_INVENTORY)
 	@echo ""
 	@echo "✅ All configurations deployed successfully!"
+	@echo ""
+
+deploy-auto: ## Deploy configurations to CloudVision for all sites
+	@echo "=========================================="
+	@echo "Deploying to CloudVision"
+	@echo "=========================================="
+	@echo ""
+	@echo "→ Deploying Datacenter (NY5 & CH3)..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(DC_INVENTORY)
+	@echo ""
+	@echo "→ Deploying SF-SOMA Campus..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(SOMA_INVENTORY)
+	@echo ""
+	@echo "→ Deploying SF-FD Campus..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(FD_INVENTORY)
+	@echo ""
+	@echo "✅ All configurations deployed successfully!"
+	@echo ""
+
+validate: ## Validate device state
+	@echo "=========================================="
+	@echo "Running ANTA validation tests"
+	@echo "=========================================="
+	@echo ""
+	@echo "→ Validating Datacenter (NY5 & CH3)..."
+	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(DC_INVENTORY)
+	@echo ""
+	@echo "→ Validating SF-SOMA Campus..."
+	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(SOMA_INVENTORY)
+	@echo ""
+	@echo "→ Validating SF-FD Campus..."
+	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(FD_INVENTORY)
+	@echo ""
+	@echo "✅ All validation tests ran successfully!"
 	@echo ""
 
 debug: ## Show Makefile variables and verify paths
