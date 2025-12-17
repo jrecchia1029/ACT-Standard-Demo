@@ -31,7 +31,7 @@ SF-SOMA-Leaf-1A,VerifyCoredump,success,,Verifies there are no core dump files.,S
 SF-SOMA-Leaf-1A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
 SF-SOMA-Leaf-1A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
 SF-SOMA-Leaf-1A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
-SF-SOMA-Leaf-1A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-1A,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
 SF-SOMA-Leaf-1A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-SOMA-Leaf-1B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-SOMA-Leaf-1B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration

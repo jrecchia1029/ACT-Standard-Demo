@@ -242,7 +242,7 @@ daemon TerminAttr
 
 | Domain-id | Local-interface | Peer-address | Peer-link |
 | --------- | --------------- | ------------ | --------- |
-| CH3-Border-Leaf | Vlan4094 | 192.168.14.96 | Port-Channel531 |
+| CH3-Border-Leaf | Vlan4094 | 192.168.14.96 | Port-Channel491 |
 
 Dual primary detection is disabled.
 
@@ -254,7 +254,7 @@ mlag configuration
    domain-id CH3-Border-Leaf
    local-interface Vlan4094
    peer-address 192.168.14.96
-   peer-link Port-Channel531
+   peer-link Port-Channel491
    reload-delay mlag 300
    reload-delay non-mlag 330
 ```
@@ -331,8 +331,8 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet53/1 | MLAG_CH3-Border-Leaf-A_Ethernet53/1 | *trunk | *- | *- | *MLAG | 531 |
-| Ethernet54/1 | MLAG_CH3-Border-Leaf-A_Ethernet54/1 | *trunk | *- | *- | *MLAG | 531 |
+| Ethernet49/1 | MLAG_CH3-Border-Leaf-A_Ethernet49/1 | *trunk | *- | *- | *MLAG | 491 |
+| Ethernet50/1 | MLAG_CH3-Border-Leaf-A_Ethernet50/1 | *trunk | *- | *- | *MLAG | 491 |
 
 *Inherited from Port-Channel Interface
 
@@ -340,44 +340,44 @@ vlan 4094
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet52/1 | P2P_WAN-1_Ethernet4/1 | - | 10.255.0.7/31 | default | 1500 | False | - | - |
-| Ethernet55/1 | P2P_CH3-Spine1_Ethernet2/1 | - | 192.168.12.5/31 | default | 1500 | False | - | - |
-| Ethernet56/1 | P2P_CH3-Spine2_Ethernet2/1 | - | 192.168.12.7/31 | default | 1500 | False | - | - |
+| Ethernet51/1 | P2P_CH3-Spine1_Ethernet2/1 | - | 192.168.12.5/31 | default | 1500 | False | - | - |
+| Ethernet52/1 | P2P_CH3-Spine2_Ethernet2/1 | - | 192.168.12.7/31 | default | 1500 | False | - | - |
+| Ethernet54/1 | P2P_WAN-1_Ethernet4/1 | - | 10.255.0.7/31 | default | 1500 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
 !
-interface Ethernet52/1
-   description P2P_WAN-1_Ethernet4/1
+interface Ethernet49/1
+   description MLAG_CH3-Border-Leaf-A_Ethernet49/1
    no shutdown
-   mtu 1500
-   no switchport
-   ip address 10.255.0.7/31
+   channel-group 491 mode active
 !
-interface Ethernet53/1
-   description MLAG_CH3-Border-Leaf-A_Ethernet53/1
+interface Ethernet50/1
+   description MLAG_CH3-Border-Leaf-A_Ethernet50/1
    no shutdown
-   channel-group 531 mode active
+   channel-group 491 mode active
 !
-interface Ethernet54/1
-   description MLAG_CH3-Border-Leaf-A_Ethernet54/1
-   no shutdown
-   channel-group 531 mode active
-!
-interface Ethernet55/1
+interface Ethernet51/1
    description P2P_CH3-Spine1_Ethernet2/1
    no shutdown
    mtu 1500
    no switchport
    ip address 192.168.12.5/31
 !
-interface Ethernet56/1
+interface Ethernet52/1
    description P2P_CH3-Spine2_Ethernet2/1
    no shutdown
    mtu 1500
    no switchport
    ip address 192.168.12.7/31
+!
+interface Ethernet54/1
+   description P2P_WAN-1_Ethernet4/1
+   no shutdown
+   mtu 1500
+   no switchport
+   ip address 10.255.0.7/31
 ```
 
 ### Port-Channel Interfaces
@@ -388,14 +388,14 @@ interface Ethernet56/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel531 | MLAG_CH3-Border-Leaf-A_Port-Channel531 | trunk | - | - | MLAG | - | - | - | - |
+| Port-Channel491 | MLAG_CH3-Border-Leaf-A_Port-Channel491 | trunk | - | - | MLAG | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
 
 ```eos
 !
-interface Port-Channel531
-   description MLAG_CH3-Border-Leaf-A_Port-Channel531
+interface Port-Channel491
+   description MLAG_CH3-Border-Leaf-A_Port-Channel491
    no shutdown
    switchport mode trunk
    switchport trunk group MLAG

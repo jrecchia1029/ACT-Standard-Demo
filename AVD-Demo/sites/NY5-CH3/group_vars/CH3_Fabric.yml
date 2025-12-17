@@ -37,7 +37,7 @@ l3leaf:  # dynamic_key: node_type
     # Spanning tree priority.
     spanning_tree_priority: 4096
     # MLAG interfaces
-    mlag_interfaces: ['Ethernet53/1', Ethernet54/1]
+    mlag_interfaces: ['Ethernet49/1', Ethernet50/1]
     # MLAG peering VLAN 4094
     mlag_peer_ipv4_pool: 192.168.14.96/27
     # MLAG L3 peering VLAN 4093
@@ -46,7 +46,7 @@ l3leaf:  # dynamic_key: node_type
     virtual_router_mac_address: 00:1c:73:00:09:99
     # Uplink Details
     uplink_switches: ['CH3-Spine1', 'CH3-Spine2']
-    uplink_interfaces: ['Ethernet55/1', 'Ethernet56/1']
+    uplink_interfaces: ['Ethernet51/1', 'Ethernet52/1']
     uplink_ipv4_pool: 192.168.12.0/26
     # IPv4 subnet for Loopback0 allocation
     loopback_ipv4_pool: 10.245.218.0/27
@@ -149,13 +149,13 @@ l3_edge:
   p2p_links:
     # DCI Link 1
     - nodes: [CH3-Border-Leaf-A,  WAN-1]
-      interfaces: [Ethernet52/1, Ethernet3/1]
+      interfaces: [Ethernet54/1, Ethernet3/1]
       ip: [10.255.0.5/31, 10.255.0.4/31]
       as: [65055, 64750]
       include_in_underlay_protocol: true
     # DCI Link 2
     - nodes: [CH3-Border-Leaf-B, WAN-1]
-      interfaces: [Ethernet52/1, Ethernet4/1]
+      interfaces: [Ethernet54/1, Ethernet4/1]
       ip: [10.255.0.7/31, 10.255.0.6/31]
       as: [65055, 64750]
       include_in_underlay_protocol: true

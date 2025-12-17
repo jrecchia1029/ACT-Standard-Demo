@@ -51,6 +51,11 @@
             "port": "Ethernet51/1",
             "neighbor_device": "NY5-Spine1",
             "neighbor_port": "Ethernet2/1"
+          },
+          {
+            "port": "Ethernet52/1",
+            "neighbor_device": "NY5-Spine2",
+            "neighbor_port": "Ethernet2/1"
           }
         ]
       }
@@ -70,6 +75,12 @@
           {
             "destination": "192.168.11.4",
             "source": "192.168.11.5",
+            "vrf": "default",
+            "repeat": 1
+          },
+          {
+            "destination": "192.168.11.6",
+            "source": "192.168.11.7",
             "vrf": "default",
             "repeat": 1
           }
@@ -270,6 +281,10 @@
           },
           {
             "name": "Ethernet52/1",
+            "status": "up"
+          },
+          {
+            "name": "Ethernet54/1",
             "status": "up"
           },
           {

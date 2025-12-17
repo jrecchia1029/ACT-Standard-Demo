@@ -47,22 +47,22 @@
 
 | Type | Node | Node Interface | Peer Type | Peer Node | Peer Interface |
 | ---- | ---- | -------------- | --------- | ----------| -------------- |
-| l3leaf | CH3-Border-Leaf-A | Ethernet53/1 | mlag_peer | CH3-Border-Leaf-B | Ethernet53/1 |
-| l3leaf | CH3-Border-Leaf-A | Ethernet54/1 | mlag_peer | CH3-Border-Leaf-B | Ethernet54/1 |
-| l3leaf | CH3-Border-Leaf-A | Ethernet55/1 | spine | CH3-Spine1 | Ethernet1/1 |
-| l3leaf | CH3-Border-Leaf-A | Ethernet56/1 | spine | CH3-Spine2 | Ethernet1/1 |
-| l3leaf | CH3-Border-Leaf-B | Ethernet55/1 | spine | CH3-Spine1 | Ethernet2/1 |
-| l3leaf | CH3-Border-Leaf-B | Ethernet56/1 | spine | CH3-Spine2 | Ethernet2/1 |
-| l3leaf | CH3-Leaf1A | Ethernet55/1 | spine | CH3-Spine1 | Ethernet3/1 |
-| l3leaf | CH3-Leaf1A | Ethernet56/1 | spine | CH3-Spine2 | Ethernet3/1 |
-| l3leaf | CH3-Leaf1B | Ethernet55/1 | spine | CH3-Spine1 | Ethernet4/1 |
-| l3leaf | CH3-Leaf1B | Ethernet56/1 | spine | CH3-Spine2 | Ethernet4/1 |
-| l3leaf | CH3-Leaf2A | Ethernet53/1 | mlag_peer | CH3-Leaf2B | Ethernet53/1 |
-| l3leaf | CH3-Leaf2A | Ethernet54/1 | mlag_peer | CH3-Leaf2B | Ethernet54/1 |
-| l3leaf | CH3-Leaf2A | Ethernet55/1 | spine | CH3-Spine1 | Ethernet5/1 |
-| l3leaf | CH3-Leaf2A | Ethernet56/1 | spine | CH3-Spine2 | Ethernet5/1 |
-| l3leaf | CH3-Leaf2B | Ethernet55/1 | spine | CH3-Spine1 | Ethernet6/1 |
-| l3leaf | CH3-Leaf2B | Ethernet56/1 | spine | CH3-Spine2 | Ethernet6/1 |
+| l3leaf | CH3-Border-Leaf-A | Ethernet49/1 | mlag_peer | CH3-Border-Leaf-B | Ethernet49/1 |
+| l3leaf | CH3-Border-Leaf-A | Ethernet50/1 | mlag_peer | CH3-Border-Leaf-B | Ethernet50/1 |
+| l3leaf | CH3-Border-Leaf-A | Ethernet51/1 | spine | CH3-Spine1 | Ethernet1/1 |
+| l3leaf | CH3-Border-Leaf-A | Ethernet52/1 | spine | CH3-Spine2 | Ethernet1/1 |
+| l3leaf | CH3-Border-Leaf-B | Ethernet51/1 | spine | CH3-Spine1 | Ethernet2/1 |
+| l3leaf | CH3-Border-Leaf-B | Ethernet52/1 | spine | CH3-Spine2 | Ethernet2/1 |
+| l3leaf | CH3-Leaf1A | Ethernet51/1 | spine | CH3-Spine1 | Ethernet3/1 |
+| l3leaf | CH3-Leaf1A | Ethernet52/1 | spine | CH3-Spine2 | Ethernet3/1 |
+| l3leaf | CH3-Leaf1B | Ethernet51/1 | spine | CH3-Spine1 | Ethernet4/1 |
+| l3leaf | CH3-Leaf1B | Ethernet52/1 | spine | CH3-Spine2 | Ethernet4/1 |
+| l3leaf | CH3-Leaf2A | Ethernet49/1 | mlag_peer | CH3-Leaf2B | Ethernet49/1 |
+| l3leaf | CH3-Leaf2A | Ethernet50/1 | mlag_peer | CH3-Leaf2B | Ethernet50/1 |
+| l3leaf | CH3-Leaf2A | Ethernet51/1 | spine | CH3-Spine1 | Ethernet5/1 |
+| l3leaf | CH3-Leaf2A | Ethernet52/1 | spine | CH3-Spine2 | Ethernet5/1 |
+| l3leaf | CH3-Leaf2B | Ethernet51/1 | spine | CH3-Spine1 | Ethernet6/1 |
+| l3leaf | CH3-Leaf2B | Ethernet52/1 | spine | CH3-Spine2 | Ethernet6/1 |
 | l3leaf | NY5-Border-Leaf-A | Ethernet49/1 | mlag_peer | NY5-Border-Leaf-B | Ethernet49/1 |
 | l3leaf | NY5-Border-Leaf-A | Ethernet50/1 | mlag_peer | NY5-Border-Leaf-B | Ethernet50/1 |
 | l3leaf | NY5-Border-Leaf-A | Ethernet51/1 | spine | NY5-Spine1 | Ethernet1/1 |
@@ -86,29 +86,29 @@
 
 | Uplink IPv4 Pool | Available Addresses | Assigned addresses | Assigned Address % |
 | ---------------- | ------------------- | ------------------ | ------------------ |
-| 192.168.11.0/26 | 64 | 22 | 34.38 % |
+| 192.168.11.0/26 | 64 | 24 | 37.5 % |
 | 192.168.12.0/26 | 64 | 24 | 37.5 % |
 
 ### Point-To-Point Links Node Allocation
 
 | Node | Node Interface | Node IP Address | Peer Node | Peer Interface | Peer IP Address |
 | ---- | -------------- | --------------- | --------- | -------------- | --------------- |
-| CH3-Border-Leaf-A | Ethernet55/1 | 192.168.12.1/31 | CH3-Spine1 | Ethernet1/1 | 192.168.12.0/31 |
-| CH3-Border-Leaf-A | Ethernet56/1 | 192.168.12.3/31 | CH3-Spine2 | Ethernet1/1 | 192.168.12.2/31 |
-| CH3-Border-Leaf-B | Ethernet55/1 | 192.168.12.5/31 | CH3-Spine1 | Ethernet2/1 | 192.168.12.4/31 |
-| CH3-Border-Leaf-B | Ethernet56/1 | 192.168.12.7/31 | CH3-Spine2 | Ethernet2/1 | 192.168.12.6/31 |
-| CH3-Leaf1A | Ethernet55/1 | 192.168.12.9/31 | CH3-Spine1 | Ethernet3/1 | 192.168.12.8/31 |
-| CH3-Leaf1A | Ethernet56/1 | 192.168.12.11/31 | CH3-Spine2 | Ethernet3/1 | 192.168.12.10/31 |
-| CH3-Leaf1B | Ethernet55/1 | 192.168.12.13/31 | CH3-Spine1 | Ethernet4/1 | 192.168.12.12/31 |
-| CH3-Leaf1B | Ethernet56/1 | 192.168.12.15/31 | CH3-Spine2 | Ethernet4/1 | 192.168.12.14/31 |
-| CH3-Leaf2A | Ethernet55/1 | 192.168.12.17/31 | CH3-Spine1 | Ethernet5/1 | 192.168.12.16/31 |
-| CH3-Leaf2A | Ethernet56/1 | 192.168.12.19/31 | CH3-Spine2 | Ethernet5/1 | 192.168.12.18/31 |
-| CH3-Leaf2B | Ethernet55/1 | 192.168.12.21/31 | CH3-Spine1 | Ethernet6/1 | 192.168.12.20/31 |
-| CH3-Leaf2B | Ethernet56/1 | 192.168.12.23/31 | CH3-Spine2 | Ethernet6/1 | 192.168.12.22/31 |
+| CH3-Border-Leaf-A | Ethernet51/1 | 192.168.12.1/31 | CH3-Spine1 | Ethernet1/1 | 192.168.12.0/31 |
+| CH3-Border-Leaf-A | Ethernet52/1 | 192.168.12.3/31 | CH3-Spine2 | Ethernet1/1 | 192.168.12.2/31 |
+| CH3-Border-Leaf-B | Ethernet51/1 | 192.168.12.5/31 | CH3-Spine1 | Ethernet2/1 | 192.168.12.4/31 |
+| CH3-Border-Leaf-B | Ethernet52/1 | 192.168.12.7/31 | CH3-Spine2 | Ethernet2/1 | 192.168.12.6/31 |
+| CH3-Leaf1A | Ethernet51/1 | 192.168.12.9/31 | CH3-Spine1 | Ethernet3/1 | 192.168.12.8/31 |
+| CH3-Leaf1A | Ethernet52/1 | 192.168.12.11/31 | CH3-Spine2 | Ethernet3/1 | 192.168.12.10/31 |
+| CH3-Leaf1B | Ethernet51/1 | 192.168.12.13/31 | CH3-Spine1 | Ethernet4/1 | 192.168.12.12/31 |
+| CH3-Leaf1B | Ethernet52/1 | 192.168.12.15/31 | CH3-Spine2 | Ethernet4/1 | 192.168.12.14/31 |
+| CH3-Leaf2A | Ethernet51/1 | 192.168.12.17/31 | CH3-Spine1 | Ethernet5/1 | 192.168.12.16/31 |
+| CH3-Leaf2A | Ethernet52/1 | 192.168.12.19/31 | CH3-Spine2 | Ethernet5/1 | 192.168.12.18/31 |
+| CH3-Leaf2B | Ethernet51/1 | 192.168.12.21/31 | CH3-Spine1 | Ethernet6/1 | 192.168.12.20/31 |
+| CH3-Leaf2B | Ethernet52/1 | 192.168.12.23/31 | CH3-Spine2 | Ethernet6/1 | 192.168.12.22/31 |
 | NY5-Border-Leaf-A | Ethernet51/1 | 192.168.11.1/31 | NY5-Spine1 | Ethernet1/1 | 192.168.11.0/31 |
-| NY5-Border-Leaf-A | Ethernet52/1 | 10.255.0.1/31 | NY5-Spine2 | Ethernet1/1 | 192.168.11.2/31 |
+| NY5-Border-Leaf-A | Ethernet52/1 | 192.168.11.3/31 | NY5-Spine2 | Ethernet1/1 | 192.168.11.2/31 |
 | NY5-Border-Leaf-B | Ethernet51/1 | 192.168.11.5/31 | NY5-Spine1 | Ethernet2/1 | 192.168.11.4/31 |
-| NY5-Border-Leaf-B | Ethernet52/1 | 10.255.0.3/31 | NY5-Spine2 | Ethernet2/1 | 192.168.11.6/31 |
+| NY5-Border-Leaf-B | Ethernet52/1 | 192.168.11.7/31 | NY5-Spine2 | Ethernet2/1 | 192.168.11.6/31 |
 | NY5-Leaf1A | Ethernet51/1 | 192.168.11.9/31 | NY5-Spine1 | Ethernet3/1 | 192.168.11.8/31 |
 | NY5-Leaf1A | Ethernet52/1 | 192.168.11.11/31 | NY5-Spine2 | Ethernet3/1 | 192.168.11.10/31 |
 | NY5-Leaf1B | Ethernet51/1 | 192.168.11.13/31 | NY5-Spine1 | Ethernet4/1 | 192.168.11.12/31 |

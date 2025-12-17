@@ -280,21 +280,21 @@ vlan internal order ascending range 1006 1199
 
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet55/1 | P2P_CH3-Spine1_Ethernet4/1 | - | 192.168.12.13/31 | default | 1500 | False | - | - |
-| Ethernet56/1 | P2P_CH3-Spine2_Ethernet4/1 | - | 192.168.12.15/31 | default | 1500 | False | - | - |
+| Ethernet51/1 | P2P_CH3-Spine1_Ethernet4/1 | - | 192.168.12.13/31 | default | 1500 | False | - | - |
+| Ethernet52/1 | P2P_CH3-Spine2_Ethernet4/1 | - | 192.168.12.15/31 | default | 1500 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
 !
-interface Ethernet55/1
+interface Ethernet51/1
    description P2P_CH3-Spine1_Ethernet4/1
    no shutdown
    mtu 1500
    no switchport
    ip address 192.168.12.13/31
 !
-interface Ethernet56/1
+interface Ethernet52/1
    description P2P_CH3-Spine2_Ethernet4/1
    no shutdown
    mtu 1500

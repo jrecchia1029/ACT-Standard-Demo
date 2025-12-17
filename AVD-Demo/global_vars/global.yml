@@ -69,5 +69,5 @@ custom_structured_configuration_management_interfaces:
 # ANTA
 anta_user: cvpadmin
 anta_password: arista123
-anta_runner_timeout: 120
-anta_runner_batch_size: 5
+anta_runner_timeout: 60
+anta_runner_batch_size: 10

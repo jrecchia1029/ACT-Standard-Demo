@@ -83,13 +83,13 @@
         },
         "hosts": [
           {
-            "destination": "10.255.0.1",
+            "destination": "192.168.11.3",
             "source": "192.168.11.2",
             "vrf": "default",
             "repeat": 1
           },
           {
-            "destination": "10.255.0.3",
+            "destination": "192.168.11.7",
             "source": "192.168.11.6",
             "vrf": "default",
             "repeat": 1

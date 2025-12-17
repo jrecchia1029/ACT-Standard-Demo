@@ -38,22 +38,22 @@
         },
         "neighbors": [
           {
-            "port": "Ethernet53/1",
+            "port": "Ethernet49/1",
             "neighbor_device": "CH3-Leaf2A",
-            "neighbor_port": "Ethernet53/1"
+            "neighbor_port": "Ethernet49/1"
           },
           {
-            "port": "Ethernet54/1",
+            "port": "Ethernet50/1",
             "neighbor_device": "CH3-Leaf2A",
-            "neighbor_port": "Ethernet54/1"
+            "neighbor_port": "Ethernet50/1"
           },
           {
-            "port": "Ethernet55/1",
+            "port": "Ethernet51/1",
             "neighbor_device": "CH3-Spine1",
             "neighbor_port": "Ethernet6/1"
           },
           {
-            "port": "Ethernet56/1",
+            "port": "Ethernet52/1",
             "neighbor_device": "CH3-Spine2",
             "neighbor_port": "Ethernet6/1"
           }
@@ -256,19 +256,19 @@
         },
         "interfaces": [
           {
-            "name": "Ethernet53/1",
+            "name": "Ethernet49/1",
             "status": "up"
           },
           {
-            "name": "Ethernet54/1",
+            "name": "Ethernet50/1",
             "status": "up"
           },
           {
-            "name": "Ethernet55/1",
+            "name": "Ethernet51/1",
             "status": "up"
           },
           {
-            "name": "Ethernet56/1",
+            "name": "Ethernet52/1",
             "status": "up"
           },
           {
@@ -280,7 +280,7 @@
             "status": "up"
           },
           {
-            "name": "Port-Channel531",
+            "name": "Port-Channel491",
             "status": "up"
           },
           {

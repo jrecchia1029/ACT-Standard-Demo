@@ -341,7 +341,8 @@ vlan 4094
 | Interface | Description | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
 | Ethernet51/1 | P2P_NY5-Spine1_Ethernet2/1 | - | 192.168.11.5/31 | default | 1500 | False | - | - |
-| Ethernet52/1 | P2P_WAN-1_Ethernet2/1 | - | 10.255.0.3/31 | default | 1500 | False | - | - |
+| Ethernet52/1 | P2P_NY5-Spine2_Ethernet2/1 | - | 192.168.11.7/31 | default | 1500 | False | - | - |
+| Ethernet54/1 | P2P_WAN-1_Ethernet2/1 | - | 10.255.0.3/31 | default | 1500 | False | - | - |
 
 #### Ethernet Interfaces Device Configuration
 
@@ -365,6 +366,13 @@ interface Ethernet51/1
    ip address 192.168.11.5/31
 !
 interface Ethernet52/1
+   description P2P_NY5-Spine2_Ethernet2/1
+   no shutdown
+   mtu 1500
+   no switchport
+   ip address 192.168.11.7/31
+!
+interface Ethernet54/1
    description P2P_WAN-1_Ethernet2/1
    no shutdown
    mtu 1500

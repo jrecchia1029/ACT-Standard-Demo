@@ -25,7 +25,7 @@ daemon_terminattr:
 enable_password:
   disabled: true
 ethernet_interfaces:
-- name: Ethernet55/1
+- name: Ethernet51/1
   description: P2P_CH3-Spine1_Ethernet4/1
   shutdown: false
   mtu: 1500
@@ -35,7 +35,7 @@ ethernet_interfaces:
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet56/1
+- name: Ethernet52/1
   description: P2P_CH3-Spine2_Ethernet4/1
   shutdown: false
   mtu: 1500

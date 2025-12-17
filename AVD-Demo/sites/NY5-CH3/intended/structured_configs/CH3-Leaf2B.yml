@@ -25,25 +25,25 @@ daemon_terminattr:
 enable_password:
   disabled: true
 ethernet_interfaces:
-- name: Ethernet53/1
-  description: MLAG_CH3-Leaf2A_Ethernet53/1
+- name: Ethernet49/1
+  description: MLAG_CH3-Leaf2A_Ethernet49/1
   shutdown: false
   channel_group:
-    id: 531
+    id: 491
     mode: active
   peer: CH3-Leaf2A
-  peer_interface: Ethernet53/1
+  peer_interface: Ethernet49/1
   peer_type: mlag_peer
-- name: Ethernet54/1
-  description: MLAG_CH3-Leaf2A_Ethernet54/1
+- name: Ethernet50/1
+  description: MLAG_CH3-Leaf2A_Ethernet50/1
   shutdown: false
   channel_group:
-    id: 531
+    id: 491
     mode: active
   peer: CH3-Leaf2A
-  peer_interface: Ethernet54/1
+  peer_interface: Ethernet50/1
   peer_type: mlag_peer
-- name: Ethernet55/1
+- name: Ethernet51/1
   description: P2P_CH3-Spine1_Ethernet6/1
   shutdown: false
   mtu: 1500
@@ -53,7 +53,7 @@ ethernet_interfaces:
   peer_type: spine
   switchport:
     enabled: false
-- name: Ethernet56/1
+- name: Ethernet52/1
   description: P2P_CH3-Spine2_Ethernet6/1
   shutdown: false
   mtu: 1500
@@ -126,7 +126,7 @@ mlag_configuration:
   domain_id: CH3-Leaf2
   local_interface: Vlan4094
   peer_address: 192.168.14.104
-  peer_link: Port-Channel531
+  peer_link: Port-Channel491
   reload_delay_mlag: '300'
   reload_delay_non_mlag: '330'
 ntp:
@@ -140,8 +140,8 @@ ntp:
   - name: 204.17.205.24
     vrf: MGMT
 port_channel_interfaces:
-- name: Port-Channel531
-  description: MLAG_CH3-Leaf2A_Port-Channel531
+- name: Port-Channel491
+  description: MLAG_CH3-Leaf2A_Port-Channel491
   shutdown: false
   switchport:
     enabled: true
