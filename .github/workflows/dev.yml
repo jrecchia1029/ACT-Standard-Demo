@@ -61,11 +61,11 @@ jobs:
           git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
           git diff --cached --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
 
-      # - name: Commit and push changes
-      #   if: steps.git-check.outputs.changed == 'true'
-      #   run: |
-      #     git config --local user.name 'github-actions[bot]'
-      #     git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-      #     git add -A
-      #     git commit -m "🤖 Automated AVD configuration build [skip ci]"
-      #     git push
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "🤖 Automated AVD configuration build [skip ci]"
+          git push
