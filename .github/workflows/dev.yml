@@ -11,7 +11,8 @@ permissions:
 jobs:
   build-configs-with-avd:
     timeout-minutes: 15
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
+    # runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -27,10 +28,10 @@ jobs:
     #   - name: WhoamI
     #     run: uv run whoami
 
-    #   - name: Set up Python (from pyproject.toml)
-    #     uses: actions/setup-python@v5
-    #     with:
-    #       python-version-file: "pyproject.toml"
+      - name: Set up Python (from pyproject.toml)
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
 
       - name: Install dependencies with uv
         run: uv sync --all-extras --dev
