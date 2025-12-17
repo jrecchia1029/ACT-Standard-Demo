@@ -1,3 +1,6 @@
+---
+# validate.yml
+
 - name: Validate State
   hosts: all
   connection: local

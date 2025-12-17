@@ -16,6 +16,7 @@ SOMA_INVENTORY := $(MAKEFILE_DIR)sites/SF-SOMA/inventory.yml
 FD_INVENTORY := $(MAKEFILE_DIR)sites/SF-FD/inventory.yml
 BUILD_PLAYBOOK := $(MAKEFILE_DIR)playbooks/build.yml
 DEPLOY_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy.yml
+DEPLOY_AUTO_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy_auto.yml
 VALIDATE_PLAYBOOK := $(MAKEFILE_DIR)playbooks/validate.yml
 
 help: ## Display this help message
@@ -57,6 +58,23 @@ deploy: ## Deploy configurations to CloudVision for all sites
 	@echo ""
 	@echo "→ Deploying SF-FD Campus..."
 	@$(ANSIBLE) $(DEPLOY_PLAYBOOK) -i $(FD_INVENTORY)
+	@echo ""
+	@echo "✅ All configurations deployed successfully!"
+	@echo ""
+
+deploy-auto: ## Deploy configurations to CloudVision for all sites
+	@echo "=========================================="
+	@echo "Deploying to CloudVision"
+	@echo "=========================================="
+	@echo ""
+	@echo "→ Deploying Datacenter (NY5 & CH3)..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(DC_INVENTORY)
+	@echo ""
+	@echo "→ Deploying SF-SOMA Campus..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(SOMA_INVENTORY)
+	@echo ""
+	@echo "→ Deploying SF-FD Campus..."
+	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(FD_INVENTORY)
 	@echo ""
 	@echo "✅ All configurations deployed successfully!"
 	@echo ""
