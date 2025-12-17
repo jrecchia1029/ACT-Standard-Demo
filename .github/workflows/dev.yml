@@ -11,15 +11,11 @@ permissions:
 jobs:
   build-configs-with-avd:
     timeout-minutes: 15
-    runs-on: self-hosted
+    runs-on: ubuntu-22.04
+    # runs-on: self-hosted
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # Fetch full history for better git operations
-          fetch-depth: 0
-          # Ensure we're on the correct branch
-          ref: ${{ github.ref }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
@@ -27,10 +23,10 @@ jobs:
     #   - name: WhoamI
     #     run: uv run whoami
 
-    #   - name: Set up Python (from pyproject.toml)
-    #     uses: actions/setup-python@v5
-    #     with:
-    #       python-version-file: "pyproject.toml"
+      - name: Set up Python (from pyproject.toml)
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
 
       - name: Install dependencies with uv
         run: uv sync --all-extras --dev
@@ -54,17 +50,17 @@ jobs:
         working-directory: AVD-Demo
         run: make build
 
-      - name: Check for changes
+      - name: Check for Changes
         id: git-check
         run: |
           git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
           git diff --cached --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
 
-      # - name: Commit and push changes
-      #   if: steps.git-check.outputs.changed == 'true'
-      #   run: |
-      #     git config --local user.name 'github-actions[bot]'
-      #     git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-      #     git add -A
-      #     git commit -m "🤖 Automated AVD configuration build [skip ci]"
-      #     git push
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.name 'github-actions[bot]'
+          git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "🤖 Automated AVD configuration build [skip ci]"
+          git push
