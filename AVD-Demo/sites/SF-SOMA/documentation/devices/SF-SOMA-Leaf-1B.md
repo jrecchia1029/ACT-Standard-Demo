@@ -295,24 +295,12 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
-| 10 | DATA | - |
-| 20 | VOICE | - |
-| 30 | PRINTERS | - |
 | 4092 | INBAND_MGMT | - |
 | 4094 | MLAG | MLAG |
 
 ### VLANs Device Configuration
 
 ```eos
-!
-vlan 10
-   name DATA
-!
-vlan 20
-   name VOICE
-!
-vlan 30
-   name PRINTERS
 !
 vlan 4092
    name INBAND_MGMT
@@ -334,8 +322,8 @@ vlan 4094
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet49 | MLAG_SF-SOMA-Leaf-1A_Ethernet49 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet50 | MLAG_SF-SOMA-Leaf-1A_Ethernet50 | *trunk | *- | *- | *MLAG | 49 |
-| Ethernet51 | L2_SF-SOMA-Spine-1_Ethernet2 | *trunk | *10,20,30,4092 | *- | *- | 51 |
-| Ethernet52 | L2_SF-SOMA-Spine-2_Ethernet2 | *trunk | *10,20,30,4092 | *- | *- | 51 |
+| Ethernet51 | L2_SF-SOMA-Spine-1_Ethernet2 | *trunk | *4092 | *- | *- | 51 |
+| Ethernet52 | L2_SF-SOMA-Spine-2_Ethernet2 | *trunk | *4092 | *- | *- | 51 |
 
 *Inherited from Port-Channel Interface
 
@@ -379,7 +367,7 @@ interface Ethernet52
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel49 | MLAG_SF-SOMA-Leaf-1A_Port-Channel49 | trunk | - | - | MLAG | 30 | individual | - | - |
-| Port-Channel51 | L2_SF_SOMA_SPINES_Port-Channel1 | trunk | 10,20,30,4092 | - | - | - | - | 51 | - |
+| Port-Channel51 | L2_SF_SOMA_SPINES_Port-Channel1 | trunk | 4092 | - | - | - | - | 51 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -397,7 +385,7 @@ interface Port-Channel49
 interface Port-Channel51
    description L2_SF_SOMA_SPINES_Port-Channel1
    no shutdown
-   switchport trunk allowed vlan 10,20,30,4092
+   switchport trunk allowed vlan 4092
    switchport mode trunk
    switchport
    mlag 51

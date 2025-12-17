@@ -50,6 +50,9 @@
 - [VRF Instances](#vrf-instances)
   - [VRF Instances Summary](#vrf-instances-summary)
   - [VRF Instances Device Configuration](#vrf-instances-device-configuration)
+- [Virtual Source NAT](#virtual-source-nat)
+  - [Virtual Source NAT Summary](#virtual-source-nat-summary)
+  - [Virtual Source NAT Configuration](#virtual-source-nat-configuration)
 
 ## Management
 
@@ -304,6 +307,10 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
+| 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
@@ -311,6 +318,19 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
+!
+vlan 3009
+   name MLAG_L3_VRF_CORPORATE
+   trunk group MLAG
 !
 vlan 4092
    name INBAND_MGMT
@@ -336,9 +356,9 @@ vlan 4094
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet49 | MLAG_SF-FD-Leaf-3A_Ethernet49 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet50 | MLAG_SF-FD-Leaf-3A_Ethernet50 | *trunk | *- | *- | *MLAG | 49 |
-| Ethernet53 | L2_SF-FD-Leaf-3C_Ethernet26 | *trunk | *4092 | *- | *- | 53 |
-| Ethernet54 | L2_SF-FD-Leaf-3D_Ethernet26 | *trunk | *4092 | *- | *- | 53 |
-| Ethernet55 | L2_SF-FD-Leaf-3E_Ethernet26 | *trunk | *4092 | *- | *- | 55 |
+| Ethernet53 | L2_SF-FD-Leaf-3C_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 53 |
+| Ethernet54 | L2_SF-FD-Leaf-3D_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 53 |
+| Ethernet55 | L2_SF-FD-Leaf-3E_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 55 |
 
 *Inherited from Port-Channel Interface
 
@@ -417,8 +437,8 @@ interface Ethernet55
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel49 | MLAG_SF-FD-Leaf-3A_Port-Channel49 | trunk | - | - | MLAG | 30 | individual | - | - |
-| Port-Channel53 | L2_Floor3_Member_Leafs_CD_Port-Channel25 | trunk | 4092 | - | - | 30 | individual | 53 | - |
-| Port-Channel55 | L2_SF-FD-Leaf-3E_Port-Channel25 | trunk | 4092 | - | - | 30 | individual | 55 | - |
+| Port-Channel53 | L2_Floor3_Member_Leafs_CD_Port-Channel25 | trunk | 10,20,30,4092 | - | - | 30 | individual | 53 | - |
+| Port-Channel55 | L2_SF-FD-Leaf-3E_Port-Channel25 | trunk | 10,20,30,4092 | - | - | 30 | individual | 55 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -436,7 +456,7 @@ interface Port-Channel49
 interface Port-Channel53
    description L2_Floor3_Member_Leafs_CD_Port-Channel25
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -446,7 +466,7 @@ interface Port-Channel53
 interface Port-Channel55
    description L2_SF-FD-Leaf-3E_Port-Channel25
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -464,6 +484,7 @@ interface Port-Channel55
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | ROUTER_ID | default | 10.255.255.167/32 |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | 10.255.254.166/32 |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | 10.255.255.167/32 |
 
 ##### IPv6
 
@@ -471,6 +492,7 @@ interface Port-Channel55
 | --------- | ----------- | --- | ------------ |
 | Loopback0 | ROUTER_ID | default | - |
 | Loopback1 | VXLAN_TUNNEL_SOURCE | default | - |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -485,6 +507,12 @@ interface Loopback1
    description VXLAN_TUNNEL_SOURCE
    no shutdown
    ip address 10.255.254.166/32
+!
+interface Loopback10
+   description DIAG_VRF_CORPORATE
+   no shutdown
+   vrf CORPORATE
+   ip address 10.255.255.167/32
 ```
 
 ### VLAN Interfaces
@@ -493,6 +521,10 @@ interface Loopback1
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
+| Vlan10 | DATA | CORPORATE | - | False |
+| Vlan20 | VOICE | CORPORATE | - | False |
+| Vlan30 | PRINTERS | CORPORATE | - | False |
+| Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | Inband Management | default | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
@@ -501,6 +533,10 @@ interface Loopback1
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan10 |  CORPORATE  |  -  |  10.15.10.1/24  |  -  |  -  |  -  |
+| Vlan20 |  CORPORATE  |  -  |  10.15.20.1/24  |  -  |  -  |  -  |
+| Vlan30 |  CORPORATE  |  -  |  10.15.30.1/24  |  -  |  -  |  -  |
+| Vlan3009 |  CORPORATE  |  192.168.255.7/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  10.1.15.99/27  |  -  |  10.1.15.97  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.7/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  169.254.0.7/31  |  -  |  -  |  -  |  -  |
@@ -508,6 +544,31 @@ interface Loopback1
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan10
+   description DATA
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.10.1/24
+!
+interface Vlan20
+   description VOICE
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.20.1/24
+!
+interface Vlan30
+   description PRINTERS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.30.1/24
+!
+interface Vlan3009
+   description MLAG_L3_VRF_CORPORATE
+   no shutdown
+   mtu 1500
+   vrf CORPORATE
+   ip address 192.168.255.7/31
 !
 interface Vlan4092
    description Inband Management
@@ -546,12 +607,16 @@ interface Vlan4094
 
 | VLAN | VNI | Flood List | Multicast Group |
 | ---- | --- | ---------- | --------------- |
+| 10 | 10010 | - | - |
+| 20 | 10020 | - | - |
+| 30 | 10030 | - | - |
 | 4092 | 14092 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
 
 | VRF | VNI | Overlay Multicast Group to Encap Mappings |
 | --- | --- | ----------------------------------------- |
+| CORPORATE | 10 | - |
 | default | 1 | - |
 
 #### VXLAN Interface Device Configuration
@@ -563,7 +628,11 @@ interface Vxlan1
    vxlan source-interface Loopback1
    vxlan virtual-router encapsulation mac-address mlag-system-id
    vxlan udp-port 4789
+   vxlan vlan 10 vni 10010
+   vxlan vlan 20 vni 10020
+   vxlan vlan 30 vni 10030
    vxlan vlan 4092 vni 14092
+   vxlan vrf CORPORATE vni 10
    vxlan vrf default vni 1
 ```
 
@@ -598,6 +667,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | True |
+| CORPORATE | True |
 | MGMT | False |
 
 #### IP Routing Device Configuration
@@ -605,6 +675,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 ```eos
 !
 ip routing
+ip routing vrf CORPORATE
 no ip routing vrf MGMT
 ```
 
@@ -615,6 +686,7 @@ no ip routing vrf MGMT
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | False |
+| CORPORATE | false |
 | MGMT | false |
 
 ### Static Routes
@@ -685,6 +757,7 @@ ASN Notation: asplain
 | 10.250.15.16 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.250.15.18 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 192.168.255.6 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | default | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
+| 192.168.255.6 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | CORPORATE | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -698,12 +771,16 @@ ASN Notation: asplain
 
 | VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
 | ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
+| 10 | 10.255.255.167:10010 | 10010:10010 | - | - | learned |
+| 20 | 10.255.255.167:10020 | 10020:10020 | - | - | learned |
+| 30 | 10.255.255.167:10030 | 10030:10030 | - | - | learned |
 | 4092 | 10.255.255.167:14092 | 14092:14092 | - | - | learned |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute | Graceful Restart |
 | --- | ------------------- | ------------ | ---------------- |
+| CORPORATE | 10.255.255.167:10 | connected | - |
 | default | 10.255.255.167:1 | - | - |
 
 #### Router BGP Device Configuration
@@ -741,6 +818,21 @@ router bgp 65353
    redistribute connected route-map RM-CONN-2-BGP
    redistribute attached-host
    !
+   vlan 10
+      rd 10.255.255.167:10010
+      route-target both 10010:10010
+      redistribute learned
+   !
+   vlan 20
+      rd 10.255.255.167:10020
+      route-target both 10020:10020
+      redistribute learned
+   !
+   vlan 30
+      rd 10.255.255.167:10030
+      route-target both 10030:10030
+      redistribute learned
+   !
    vlan 4092
       rd 10.255.255.167:14092
       route-target both 14092:14092
@@ -753,6 +845,15 @@ router bgp 65353
       no neighbor EVPN-OVERLAY-PEERS activate
       neighbor IPv4-UNDERLAY-PEERS activate
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
+   !
+   vrf CORPORATE
+      rd 10.255.255.167:10
+      route-target import evpn 10:10
+      route-target export evpn 10:10
+      router-id 10.255.255.167
+      neighbor 192.168.255.6 peer group MLAG-IPv4-UNDERLAY-PEER
+      neighbor 192.168.255.6 description SF-FD-Leaf-3A_Vlan3009
+      redistribute connected route-map RM-CONN-2-BGP-VRFS
    !
    vrf default
       rd 10.255.255.167:1
@@ -812,6 +913,12 @@ router bfd
 | 10 | permit 10.255.255.160/28 eq 32 |
 | 20 | permit 10.255.254.160/28 eq 32 |
 
+##### PL-MLAG-PEER-VRFS
+
+| Sequence | Action |
+| -------- | ------ |
+| 10 | permit 192.168.255.6/31 |
+
 #### Prefix-lists Device Configuration
 
 ```eos
@@ -822,6 +929,9 @@ ip prefix-list PL-L2LEAF-INBAND-MGMT
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 10.255.255.160/28 eq 32
    seq 20 permit 10.255.254.160/28 eq 32
+!
+ip prefix-list PL-MLAG-PEER-VRFS
+   seq 10 permit 192.168.255.6/31
 ```
 
 ### Route-maps
@@ -834,6 +944,13 @@ ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
 | -------- | ---- | ----- | --- | ------------- | -------- |
 | 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY | - | - | - |
 | 20 | permit | ip address prefix-list PL-L2LEAF-INBAND-MGMT | - | - | - |
+
+##### RM-CONN-2-BGP-VRFS
+
+| Sequence | Type | Match | Set | Sub-Route-Map | Continue |
+| -------- | ---- | ----- | --- | ------------- | -------- |
+| 10 | deny | ip address prefix-list PL-MLAG-PEER-VRFS | - | - | - |
+| 20 | permit | - | - | - | - |
 
 ##### RM-MLAG-PEER-IN
 
@@ -851,6 +968,11 @@ route-map RM-CONN-2-BGP permit 10
 route-map RM-CONN-2-BGP permit 20
    match ip address prefix-list PL-L2LEAF-INBAND-MGMT
 !
+route-map RM-CONN-2-BGP-VRFS deny 10
+   match ip address prefix-list PL-MLAG-PEER-VRFS
+!
+route-map RM-CONN-2-BGP-VRFS permit 20
+!
 route-map RM-MLAG-PEER-IN permit 10
    description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
    set origin incomplete
@@ -862,11 +984,29 @@ route-map RM-MLAG-PEER-IN permit 10
 
 | VRF Name | IP Routing |
 | -------- | ---------- |
+| CORPORATE | enabled |
 | MGMT | disabled |
 
 ### VRF Instances Device Configuration
 
 ```eos
 !
+vrf instance CORPORATE
+!
 vrf instance MGMT
+```
+
+## Virtual Source NAT
+
+### Virtual Source NAT Summary
+
+| Source NAT VRF | Source NAT IPv4 Address | Source NAT IPv6 Address |
+| -------------- | ----------------------- | ----------------------- |
+| CORPORATE | 10.255.255.167 | - |
+
+### Virtual Source NAT Configuration
+
+```eos
+!
+ip address virtual source-nat vrf CORPORATE address 10.255.255.167
 ```

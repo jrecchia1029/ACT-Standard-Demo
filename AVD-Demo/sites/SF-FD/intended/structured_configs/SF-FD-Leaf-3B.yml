@@ -132,6 +132,11 @@ loopback_interfaces:
   description: VXLAN_TUNNEL_SOURCE
   shutdown: false
   ip_address: 10.255.254.166/32
+- name: Loopback10
+  description: DIAG_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 10.255.255.167/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -267,7 +272,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: '4092'
+      allowed_vlan: 10,20,30,4092
 - name: Port-Channel55
   description: L2_SF-FD-Leaf-3E_Port-Channel25
   shutdown: false
@@ -278,7 +283,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: '4092'
+      allowed_vlan: 10,20,30,4092
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:
@@ -286,6 +291,10 @@ prefix_lists:
     action: permit 10.255.255.160/28 eq 32
   - sequence: 20
     action: permit 10.255.254.160/28 eq 32
+- name: PL-MLAG-PEER-VRFS
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.168.255.6/31
 - name: PL-L2LEAF-INBAND-MGMT
   sequence_numbers:
   - sequence: 10
@@ -308,6 +317,14 @@ route_maps:
     type: permit
     match:
     - ip address prefix-list PL-L2LEAF-INBAND-MGMT
+- name: RM-CONN-2-BGP-VRFS
+  sequence_numbers:
+  - sequence: 10
+    type: deny
+    match:
+    - ip address prefix-list PL-MLAG-PEER-VRFS
+  - sequence: 20
+    type: permit
 router_bfd:
   multihop:
     interval: 300
@@ -364,6 +381,30 @@ router_bgp:
       enabled: true
       route_map: RM-CONN-2-BGP
   vlans:
+  - id: 10
+    tenant: FD
+    rd: 10.255.255.167:10010
+    route_targets:
+      both:
+      - 10010:10010
+    redistribute_routes:
+    - learned
+  - id: 20
+    tenant: FD
+    rd: 10.255.255.167:10020
+    route_targets:
+      both:
+      - 10020:10020
+    redistribute_routes:
+    - learned
+  - id: 30
+    tenant: FD
+    rd: 10.255.255.167:10030
+    route_targets:
+      both:
+      - 10030:10030
+    redistribute_routes:
+    - learned
   - id: 4092
     tenant: FD
     rd: 10.255.255.167:14092
@@ -385,6 +426,26 @@ router_bgp:
     - name: EVPN-OVERLAY-PEERS
       activate: false
   vrfs:
+  - name: CORPORATE
+    rd: 10.255.255.167:10
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+    router_id: 10.255.255.167
+    neighbors:
+    - ip_address: 192.168.255.6
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+      description: SF-FD-Leaf-3A_Vlan3009
+    redistribute:
+      connected:
+        enabled: true
+        route_map: RM-CONN-2-BGP-VRFS
   - name: default
     rd: 10.255.255.167:1
     route_targets:
@@ -409,6 +470,9 @@ static_routes:
   prefix: 0.0.0.0/0
   next_hop: 10.0.15.1
 transceiver_qsfp_default_mode_4x10: true
+virtual_source_nat_vrfs:
+- name: CORPORATE
+  ip_address: 10.255.255.167
 vlan_interfaces:
 - name: Vlan4093
   description: MLAG_L3
@@ -421,6 +485,32 @@ vlan_interfaces:
   ip_address: 169.254.0.7/31
   mtu: 1500
   no_autostate: true
+- name: Vlan10
+  description: DATA
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.10.1/24
+  tenant: FD
+- name: Vlan20
+  description: VOICE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.20.1/24
+  tenant: FD
+- name: Vlan30
+  description: PRINTERS
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.30.1/24
+  tenant: FD
+- name: Vlan3009
+  description: MLAG_L3_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 192.168.255.7/31
+  mtu: 1500
+  tenant: FD
+  type: underlay_peering
 - name: Vlan4092
   description: Inband Management
   shutdown: false
@@ -450,12 +540,29 @@ vlans:
   trunk_groups:
   - MLAG
   tenant: system
+- id: 10
+  name: DATA
+  tenant: FD
+- id: 20
+  name: VOICE
+  tenant: FD
+- id: 30
+  name: PRINTERS
+  tenant: FD
+- id: 3009
+  name: MLAG_L3_VRF_CORPORATE
+  trunk_groups:
+  - MLAG
+  tenant: FD
 - id: 4092
   name: INBAND_MGMT
   tenant: system
 vrfs:
 - name: MGMT
   ip_routing: false
+- name: CORPORATE
+  ip_routing: true
+  tenant: FD
 vxlan_interface:
   vxlan1:
     description: SF-FD-Leaf-3B_VTEP
@@ -464,8 +571,16 @@ vxlan_interface:
       udp_port: 4789
       virtual_router_encapsulation_mac_address: mlag-system-id
       vlans:
+      - id: 10
+        vni: 10010
+      - id: 20
+        vni: 10020
+      - id: 30
+        vni: 10030
       - id: 4092
         vni: 14092
       vrfs:
+      - name: CORPORATE
+        vni: 10
       - name: default
         vni: 1

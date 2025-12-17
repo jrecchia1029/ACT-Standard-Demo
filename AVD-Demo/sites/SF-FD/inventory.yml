@@ -38,6 +38,10 @@ Network_Services:
     SF_FD_SPINES:
     SF_FD_L3_LEAFS:
     SF_FD_L2_LEAFS:
+Endpoints:
+  children:
+    SF_FD_L3_LEAFS:
+    SF_FD_L2_LEAFS:
 Spines:
   children:
     SF_FD_SPINES:

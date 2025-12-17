@@ -2,24 +2,6 @@
 tenants:  # dynamic_key: network_services
   - name: SOMA
     vrfs:
-      - name: CORPORATE
-        vrf_vni: 10
-        vtep_diagnostic:
-          loopback: 10
-          loopback_ip_range: 10.255.254.144/28
-        svis:
-          - id: 10
-            name: DATA
-            enabled: true
-            ip_address_virtual: 10.15.10.1/24
-          - id: 20
-            name: VOICE
-            enabled: true
-            ip_address_virtual: 10.15.20.1/24
-          - id: 30
-            name: PRINTERS
-            enabled: true
-            ip_address_virtual: 10.15.30.1/24
       - name: default
         vrf_vni: 1
         svis:

@@ -66,6 +66,246 @@ ethernet_interfaces:
   peer: SF-FD-Leaf-3B
   peer_interface: Ethernet53
   peer_type: l3leaf
+- name: Ethernet1
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet2
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet3
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet4
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet5
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet6
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet7
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet8
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet9
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet10
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet11
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet12
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet13
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet14
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet15
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet16
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet17
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet18
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet19
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet20
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet21
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet22
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet23
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet24
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
 hostname: SF-FD-Leaf-3C
 ip_domain_lookup:
   source_interfaces:
@@ -140,6 +380,102 @@ metadata:
         value: Fabric
       - name: Link-Type
         value: Uplink
+    - interface: Ethernet1
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet2
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet3
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet4
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet5
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet6
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet7
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet8
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet9
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet10
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet11
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet12
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet13
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet14
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet15
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet16
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet17
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet18
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet19
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet20
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet21
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet22
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet23
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet24
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
 mlag_configuration:
   domain_id: MLAG
   local_interface: Vlan4094
@@ -177,7 +513,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: '4092'
+      allowed_vlan: 10,20,30,4092
 serial_number: SN-SF-FD-Leaf-3C
 service_routing_protocols_model: multi-agent
 spanning_tree:
@@ -217,6 +553,15 @@ vlans:
   trunk_groups:
   - MLAG
   tenant: system
+- id: 10
+  name: DATA
+  tenant: FD
+- id: 20
+  name: VOICE
+  tenant: FD
+- id: 30
+  name: PRINTERS
+  tenant: FD
 - id: 4092
   name: INBAND_MGMT
   tenant: system

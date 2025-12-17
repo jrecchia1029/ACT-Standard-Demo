@@ -1,0 +1,22 @@
+---
+port_profiles:
+  - profile: access_interface
+    spanning_tree_bpduguard: true
+    spanning_tree_portfast: edge
+    mode: access
+
+network_ports:
+  - switches:
+      - SF-FD-Leaf-1(A|B)
+      - SF-FD-Leaf-3(C|D|E)
+    switch_ports:
+      - Ethernet1-24
+      - Ethernet1-24
+    profile: access_interface
+    vlans: 10
+  - switches:
+      - SF-FD-Leaf-2A
+    switch_ports:
+      - Ethernet1-24
+    profile: access_interface
+    vlans: 30
