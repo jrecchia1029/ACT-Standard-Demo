@@ -16,11 +16,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # Fetch full history for better git operations
-          fetch-depth: 0
-          # Ensure we're on the correct branch
-          ref: ${{ github.ref }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v5
