@@ -280,6 +280,10 @@
             "status": "up"
           },
           {
+            "name": "Loopback10",
+            "status": "up"
+          },
+          {
             "name": "Port-Channel49",
             "status": "up"
           },
@@ -289,6 +293,22 @@
           },
           {
             "name": "Port-Channel55",
+            "status": "up"
+          },
+          {
+            "name": "Vlan10",
+            "status": "up"
+          },
+          {
+            "name": "Vlan20",
+            "status": "up"
+          },
+          {
+            "name": "Vlan30",
+            "status": "up"
+          },
+          {
+            "name": "Vlan3009",
             "status": "up"
           },
           {

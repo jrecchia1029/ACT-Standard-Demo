@@ -807,9 +807,201 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
             {
                 "description": "Interface: Ethernet49",
                 "result": "success",
@@ -841,9 +1033,44 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel49",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -1901,9 +2128,201 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
             {
                 "description": "Interface: Ethernet49",
                 "result": "success",
@@ -1935,9 +2354,44 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel49",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -3461,9 +3915,134 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured"
+        ],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "success",
+                "messages": []
+            },
             {
                 "description": "Interface: Ethernet97/1",
                 "result": "success",
@@ -3483,6 +4062,34 @@
                 "description": "Interface: Loopback1",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -5011,8 +5618,14 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
             {
                 "description": "Interface: Ethernet49",
@@ -5060,6 +5673,13 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel49",
                 "result": "success",
                 "messages": []
@@ -5073,6 +5693,34 @@
                 "description": "Interface: Port-Channel55",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -6179,8 +6827,14 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
             {
                 "description": "Interface: Ethernet49",
@@ -6228,6 +6882,13 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel49",
                 "result": "success",
                 "messages": []
@@ -6241,6 +6902,34 @@
                 "description": "Interface: Port-Channel55",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -7017,9 +7706,199 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down"
+        ],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
             {
                 "description": "Interface: Ethernet25",
                 "result": "success",
@@ -7801,9 +8680,199 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down",
+            "Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down"
+        ],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "failure",
+                "messages": [
+                    "Status mismatch - Expected: up/up, Actual: down/down"
+                ]
+            },
             {
                 "description": "Interface: Ethernet25",
                 "result": "success",
@@ -8568,6 +9637,126 @@
         "result": "success",
         "messages": [],
         "atomic_results": [
+            {
+                "description": "Interface: Ethernet1",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet2",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet3",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet4",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet5",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet6",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet7",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet8",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet9",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet10",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet11",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet12",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet13",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet14",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet15",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet16",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet17",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet18",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet19",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet20",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet21",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet22",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet23",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Interface: Ethernet24",
+                "result": "success",
+                "messages": []
+            },
             {
                 "description": "Interface: Ethernet25",
                 "result": "success",
@@ -9768,8 +10957,14 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
             {
                 "description": "Interface: Ethernet1",
@@ -9817,9 +11012,44 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel491",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
@@ -11387,8 +12617,14 @@
             "interfaces"
         ],
         "description": "Verifies the operational states of specified interfaces to ensure they match expected configurations.",
-        "result": "success",
-        "messages": [],
+        "result": "failure",
+        "messages": [
+            "Interface: Loopback10 - Not configured",
+            "Interface: Vlan10 - Not configured",
+            "Interface: Vlan20 - Not configured",
+            "Interface: Vlan30 - Not configured",
+            "Interface: Vlan3009 - Not configured"
+        ],
         "atomic_results": [
             {
                 "description": "Interface: Ethernet1",
@@ -11436,9 +12672,44 @@
                 "messages": []
             },
             {
+                "description": "Interface: Loopback10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
                 "description": "Interface: Port-Channel491",
                 "result": "success",
                 "messages": []
+            },
+            {
+                "description": "Interface: Vlan10",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan20",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan30",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
+            },
+            {
+                "description": "Interface: Vlan3009",
+                "result": "failure",
+                "messages": [
+                    "Not configured"
+                ]
             },
             {
                 "description": "Interface: Vlan4092",
