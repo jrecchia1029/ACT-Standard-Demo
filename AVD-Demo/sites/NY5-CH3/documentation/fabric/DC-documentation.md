@@ -19,14 +19,14 @@
 
 | POD | Type | Node | Management IP | Platform | Provisioned in CloudVision | Serial Number |
 | --- | ---- | ---- | ------------- | -------- | -------------------------- | ------------- |
-| CH3_Pod1 | l3leaf | CH3-Border-Leaf-A | 10.0.2.27/24 | vEOS-lab | Provisioned | SN-CH3-Border-Leaf-A |
-| CH3_Pod1 | l3leaf | CH3-Border-Leaf-B | 10.0.2.28/24 | vEOS-lab | Provisioned | SN-CH3-Border-Leaf-B |
-| CH3_Pod1 | l3leaf | CH3-Leaf1A | 10.0.2.23/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-1A |
-| CH3_Pod1 | l3leaf | CH3-Leaf1B | 10.0.2.24/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-1B |
-| CH3_Pod1 | l3leaf | CH3-Leaf2A | 10.0.2.25/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-2A |
-| CH3_Pod1 | l3leaf | CH3-Leaf2B | 10.0.2.26/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-2B |
-| CH3_Pod1 | spine | CH3-Spine1 | 10.0.2.21/24 | vEOS-lab | Provisioned | SN-CH3-Spine-1 |
-| CH3_Pod1 | spine | CH3-Spine2 | 10.0.2.22/24 | vEOS-lab | Provisioned | SN-CH3-Spine-2 |
+| CH3_Pod1 | l3leaf | CH3-Border-Leaf-A | 10.0.2.17/24 | vEOS-lab | Provisioned | SN-CH3-Border-Leaf-A |
+| CH3_Pod1 | l3leaf | CH3-Border-Leaf-B | 10.0.2.18/24 | vEOS-lab | Provisioned | SN-CH3-Border-Leaf-B |
+| CH3_Pod1 | l3leaf | CH3-Leaf1A | 10.0.2.13/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-1A |
+| CH3_Pod1 | l3leaf | CH3-Leaf1B | 10.0.2.14/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-1B |
+| CH3_Pod1 | l3leaf | CH3-Leaf2A | 10.0.2.15/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-2A |
+| CH3_Pod1 | l3leaf | CH3-Leaf2B | 10.0.2.16/24 | vEOS-lab | Provisioned | SN-CH3-Leaf-2B |
+| CH3_Pod1 | spine | CH3-Spine1 | 10.0.2.11/24 | vEOS-lab | Provisioned | SN-CH3-Spine-1 |
+| CH3_Pod1 | spine | CH3-Spine2 | 10.0.2.12/24 | vEOS-lab | Provisioned | SN-CH3-Spine-2 |
 | NY5_Pod1 | l3leaf | NY5-Border-Leaf-A | 10.0.1.17/24 | vEOS-lab | Provisioned | SN-NY5-Border-Leaf-A |
 | NY5_Pod1 | l3leaf | NY5-Border-Leaf-B | 10.0.1.18/24 | vEOS-lab | Provisioned | SN-NY5-Border-Leaf-B |
 | NY5_Pod1 | l3leaf | NY5-Leaf1A | 10.0.1.13/24 | vEOS-lab | Provisioned | SN-NY5-Leaf-1A |

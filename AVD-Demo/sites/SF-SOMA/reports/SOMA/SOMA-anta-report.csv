@@ -1,1 +1,333 @@
 Device,Test Name,Test Status,Message(s),Test description,Test category
+SF-SOMA-Leaf-1A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-1A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-1A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-1A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-1A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-1A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-1A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-1A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-1A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-1A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-1A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-1A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-1A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-1A,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-1A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-1A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-1A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:43 SF-SOMA-Leaf-1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1430) -- Master ProcMgr (PID=1430) exiting.
+ Dec 17 12:59:43 SF-SOMA-Leaf-1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1847) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:43 SF-SOMA-Leaf-1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1847))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-1A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-1A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-1A,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-1A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-1A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-1A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-1A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-1A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-1A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-1A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-1A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-1A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-1B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-1B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-1B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-1B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-1B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-1B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-1B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-1B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-1B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-1B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-1B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-1B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:54 SF-SOMA-Leaf-1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+ Dec 17 12:59:54 SF-SOMA-Leaf-1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1860) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:54 SF-SOMA-Leaf-1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1860))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-1B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-1B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-1B,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-1B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-1B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-1B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-1B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-1B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-1B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-1B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-1B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-1B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-2A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-2A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-2A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-2A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-2A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-2A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-2A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-2A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-2A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-2A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-2A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-2A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-2A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-2A,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-2A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-2A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-2A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:59 SF-SOMA-Leaf-2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1488) -- Master ProcMgr (PID=1488) exiting.
+ Dec 17 12:59:59 SF-SOMA-Leaf-2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1904) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:59 SF-SOMA-Leaf-2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1904))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-2A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-2A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-2A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-2A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-2A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-2A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-2A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-2A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-2A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-3A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-3A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-3A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-3A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-3A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-3A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-3A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-3A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-3A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-3A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-3A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-3A,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-3A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-3A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:57 SF-SOMA-Leaf-3A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-3A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-3A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-3A,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-3A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-3A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-3A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-3A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-3A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-3A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-3A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-3A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-3A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-3B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-3B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-3B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-3B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-3B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-3B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-3B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-3B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-3B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-3B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-3B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-3B,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-3B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-3B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:53 SF-SOMA-Leaf-3B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1437) -- Master ProcMgr (PID=1437) exiting.
+ Dec 17 12:59:53 SF-SOMA-Leaf-3B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:53 SF-SOMA-Leaf-3B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-3B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-3B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-3B,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-3B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-3B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-3B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-3B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-3B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-3B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-3B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-3B,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-3B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-3C,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-3C,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-3C,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-3C,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-3C,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-3C,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-3C,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-3C,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-3C,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3C,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-3C,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-3C,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 13:00:00 SF-SOMA-Leaf-3C ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1409) -- Master ProcMgr (PID=1409) exiting.
+ Dec 17 13:00:00 SF-SOMA-Leaf-3C Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1827) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 13:00:00 SF-SOMA-Leaf-3C Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1827))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-3C,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-3C,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-3C,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-3C,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-3C,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-3C,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-3C,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-3C,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-3C,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-3C,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-3C,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-3C,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-3D,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-3D,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-3D,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-3D,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-3D,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-3D,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-3D,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-3D,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-3D,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3D,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-3D,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-3D,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:56 SF-SOMA-Leaf-3D ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1410) -- Master ProcMgr (PID=1410) exiting.
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-3D,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Leaf-3D,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Leaf-3D,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Leaf-3D,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-3D,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-3D,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-3D,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-3D,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-3D,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-3D,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-3D,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-3D,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Leaf-3E,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Leaf-3E,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Leaf-3E,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Leaf-3E,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Leaf-3E,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Leaf-3E,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Leaf-3E,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Leaf-3E,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Leaf-3E,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3E,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Leaf-3E,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Leaf-3E,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:36 SF-SOMA-Leaf-3E ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1407) -- Master ProcMgr (PID=1407) exiting.
+ Dec 17 12:59:36 SF-SOMA-Leaf-3E Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1809) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:36 SF-SOMA-Leaf-3E Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1809))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Leaf-3E,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Leaf-3E,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Leaf-3E,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Leaf-3E,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Leaf-3E,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Leaf-3E,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Leaf-3E,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Leaf-3E,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Leaf-3E,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Spine-1,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+SF-SOMA-Spine-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Spine-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Spine-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Spine-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Spine-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Spine-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Spine-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Spine-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Spine-1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Spine-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Spine-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Spine-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 13:00:02 SF-SOMA-Spine-1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1440) -- Master ProcMgr (PID=1440) exiting.
+ Dec 17 13:00:02 SF-SOMA-Spine-1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1861) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 13:00:02 SF-SOMA-Spine-1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1861))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Spine-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Spine-1,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Spine-1,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Spine-1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Spine-1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Spine-1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Spine-1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Spine-1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Spine-1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Spine-1,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Spine-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Spine-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-SOMA-Spine-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
+SF-SOMA-Spine-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+SF-SOMA-Spine-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+SF-SOMA-Spine-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+SF-SOMA-Spine-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+SF-SOMA-Spine-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+SF-SOMA-Spine-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+SF-SOMA-Spine-2,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+SF-SOMA-Spine-2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+SF-SOMA-Spine-2,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+SF-SOMA-Spine-2,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Spine-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-SOMA-Spine-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+SF-SOMA-Spine-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+SF-SOMA-Spine-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Spine-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+SF-SOMA-Spine-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+SF-SOMA-Spine-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 13:00:01 SF-SOMA-Spine-2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1438) -- Master ProcMgr (PID=1438) exiting.
+ Dec 17 13:00:01 SF-SOMA-Spine-2 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1852) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 13:00:01 SF-SOMA-Spine-2 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1852))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+SF-SOMA-Spine-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+SF-SOMA-Spine-2,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+SF-SOMA-Spine-2,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+SF-SOMA-Spine-2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+SF-SOMA-Spine-2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+SF-SOMA-Spine-2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+SF-SOMA-Spine-2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+SF-SOMA-Spine-2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+SF-SOMA-Spine-2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+SF-SOMA-Spine-2,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+SF-SOMA-Spine-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+SF-SOMA-Spine-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System

@@ -67,7 +67,7 @@ agent KernelFib environment KERNELFIB_PROGRAM_ALL_ECMP='true'
 
 | Management Interface | Description | Type | VRF | IP Address | Gateway |
 | -------------------- | ----------- | ---- | --- | ---------- | ------- |
-| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.21/24 | 10.0.2.1 |
+| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.2.11/24 | 10.0.2.1 |
 
 ##### IPv6
 
@@ -83,7 +83,7 @@ interface Management1
    description OOB_MANAGEMENT
    no shutdown
    vrf MGMT
-   ip address 10.0.2.21/24
+   ip address 10.0.2.11/24
    no lldp receive
 ```
 

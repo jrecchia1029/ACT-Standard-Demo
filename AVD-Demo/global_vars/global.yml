@@ -38,6 +38,14 @@ aaa_settings:
       role: network-admin
       sha512_password: $6$cx2rQNKbwSucqoex$usev3S8KBYhdLF2k9A0w4cPa2LmxVpm10mgQmoSWBiaLnbqmbLhB7MYxXyws/eEbaeLy6CZH0XVoeW3pwR4sX/
 
+# management api
+management_eapi:
+  enabled: true
+  enable_https: true
+  vrfs: 
+    - name: use_default_mgmt_method_vrf
+      enabled: true
+
 # vEOS
 p2p_uplinks_mtu: 1500
 
@@ -61,4 +69,5 @@ custom_structured_configuration_management_interfaces:
 # ANTA
 anta_user: cvpadmin
 anta_password: arista123
-anta_runner_batch_size: 10
+anta_runner_timeout: 120
+anta_runner_batch_size: 5

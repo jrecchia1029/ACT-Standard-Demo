@@ -108,7 +108,7 @@ management_interfaces:
   description: OOB_MANAGEMENT
   shutdown: false
   vrf: MGMT
-  ip_address: 10.0.2.28/24
+  ip_address: 10.0.2.18/24
   type: oob
   gateway: 10.0.2.1
   lldp:

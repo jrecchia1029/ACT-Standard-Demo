@@ -80,7 +80,7 @@ management_interfaces:
   description: OOB_MANAGEMENT
   shutdown: false
   vrf: MGMT
-  ip_address: 10.0.2.24/24
+  ip_address: 10.0.2.14/24
   type: oob
   gateway: 10.0.2.1
   lldp:

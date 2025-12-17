@@ -1,1 +1,578 @@
 Device,Test Name,Test Status,Message(s),Test description,Test category
+CH3-Border-Leaf-A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Border-Leaf-A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Border-Leaf-A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Border-Leaf-A,VerifyLLDPNeighbors,failure,Port: Ethernet53/1 Neighbor: CH3-Border-Leaf-B Neighbor Port: Ethernet53/1 - No LLDP neighbors - Port: Ethernet54/1 Neighbor: CH3-Border-Leaf-B Neighbor Port: Ethernet54/1 - Wrong LLDP neighbors: WAN-1/Ethernet3/1 - Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet1/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet1/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Border-Leaf-A,VerifyReachability,failure,Destination 192.168.12.0 from 192.168.12.1 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.2 from 192.168.12.3 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Border-Leaf-A,VerifyReachability,failure,Destination 10.245.217.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.217.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Border-Leaf-A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Border-Leaf-A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Border-Leaf-A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Border-Leaf-A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Border-Leaf-A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Border-Leaf-A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+CH3-Border-Leaf-A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Border-Leaf-A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Border-Leaf-A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Border-Leaf-A,VerifyInterfaceUtilization,error,show interfaces counters rates has failed: ReadTimeout,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Border-Leaf-A,VerifyInterfacesStatus,failure,"Interface: Port-Channel531 - Status mismatch - Expected: up/up, Actual: down/lowerLayerDown - Interface: Vlan4093 - Status mismatch - Expected: up/up, Actual: down/lowerLayerDown - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Border-Leaf-A,VerifyPortChannels,failure,"Interface: Port-Channel531 - Inactive port(s) - Ethernet53/1, Ethernet54/1",Verifies there are no inactive ports in port channels.,Interfaces
+CH3-Border-Leaf-A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Border-Leaf-A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:19 CH3-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1430) -- Master ProcMgr (PID=1430) exiting.
+ Dec 17 12:59:19 CH3-Border-Leaf-A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1845) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:19 CH3-Border-Leaf-A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1845))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Border-Leaf-A,VerifyMlagConfigSanity,skipped,MLAG is disabled,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+CH3-Border-Leaf-A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+CH3-Border-Leaf-A,VerifyMlagStatus,failure,MLAG negotiation status mismatch - Expected: connected Actual: connecting - Operational state of the MLAG peer link is not correct - Expected: up Actual: lowerLayerDown,Verifies the health status of the MLAG configuration.,MLAG
+CH3-Border-Leaf-A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Border-Leaf-A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Border-Leaf-A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Border-Leaf-A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Border-Leaf-A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Border-Leaf-A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Border-Leaf-A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Border-Leaf-A,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Border-Leaf-A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Border-Leaf-A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Border-Leaf-B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Border-Leaf-B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Border-Leaf-B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Border-Leaf-B,VerifyLLDPNeighbors,failure,Port: Ethernet53/1 Neighbor: CH3-Border-Leaf-A Neighbor Port: Ethernet53/1 - No LLDP neighbors - Port: Ethernet54/1 Neighbor: CH3-Border-Leaf-A Neighbor Port: Ethernet54/1 - Wrong LLDP neighbors: WAN-1/Ethernet4/1 - Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet2/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet2/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Border-Leaf-B,VerifyReachability,failure,Destination 192.168.12.4 from 192.168.12.5 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address' - Destination 192.168.12.6 from 192.168.12.7 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Border-Leaf-B,VerifyReachability,failure,Destination 10.245.217.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.217.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Border-Leaf-B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Border-Leaf-B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Border-Leaf-B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Border-Leaf-B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Border-Leaf-B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Border-Leaf-B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+CH3-Border-Leaf-B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Border-Leaf-B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Border-Leaf-B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Border-Leaf-B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Border-Leaf-B,VerifyInterfacesStatus,failure,"Interface: Ethernet53/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet55/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet56/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Port-Channel531 - Status mismatch - Expected: up/up, Actual: down/lowerLayerDown - Interface: Vlan4093 - Status mismatch - Expected: up/up, Actual: down/lowerLayerDown - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Border-Leaf-B,VerifyPortChannels,failure,"Interface: Port-Channel531 - Inactive port(s) - Ethernet53/1, Ethernet54/1",Verifies there are no inactive ports in port channels.,Interfaces
+CH3-Border-Leaf-B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Border-Leaf-B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:16 CH3-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+ Dec 17 12:59:17 CH3-Border-Leaf-B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1855) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:17 CH3-Border-Leaf-B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1855))
+ Dec 17 12:59:17 CH3-Border-Leaf-B ConfigAgent: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Sysdb (pid:1635) at tbl://sysdb/+n closed by peer (EOF)
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Border-Leaf-B,VerifyMlagConfigSanity,skipped,MLAG is disabled,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+CH3-Border-Leaf-B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+CH3-Border-Leaf-B,VerifyMlagStatus,failure,MLAG negotiation status mismatch - Expected: connected Actual: connecting - Operational state of the MLAG peer link is not correct - Expected: up Actual: lowerLayerDown,Verifies the health status of the MLAG configuration.,MLAG
+CH3-Border-Leaf-B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Border-Leaf-B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Border-Leaf-B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Border-Leaf-B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Border-Leaf-B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Border-Leaf-B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Border-Leaf-B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Border-Leaf-B,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Border-Leaf-B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Border-Leaf-B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Leaf1A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Leaf1A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Leaf1A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Leaf1A,VerifyLLDPNeighbors,failure,Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet3/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet3/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Leaf1A,VerifyReachability,failure,Destination 192.168.12.8 from 192.168.12.9 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address' - Destination 192.168.12.10 from 192.168.12.11 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Leaf1A,VerifyReachability,failure,Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Leaf1A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Leaf1A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Leaf1A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Leaf1A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Leaf1A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Leaf1A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Leaf1A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Leaf1A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Leaf1A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Leaf1A,VerifyInterfacesStatus,failure,"Interface: Ethernet55/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet56/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Leaf1A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Leaf1A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:17 CH3-Leaf1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 17 12:59:17 CH3-Leaf1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1852) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:17 CH3-Leaf1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1852))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Leaf1A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Leaf1A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Leaf1A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Leaf1A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Leaf1A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Leaf1A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Leaf1A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Leaf1A,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Leaf1A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Leaf1A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Leaf1B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Leaf1B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Leaf1B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Leaf1B,VerifyLLDPNeighbors,failure,Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet4/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet4/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Leaf1B,VerifyReachability,failure,Destination 192.168.12.12 from 192.168.12.13 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address' - Destination 192.168.12.14 from 192.168.12.15 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Leaf1B,VerifyReachability,failure,Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Leaf1B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Leaf1B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Leaf1B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Leaf1B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Leaf1B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Leaf1B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Leaf1B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Leaf1B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Leaf1B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Leaf1B,VerifyInterfacesStatus,failure,"Interface: Ethernet55/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet56/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Leaf1B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Leaf1B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:12 CH3-Leaf1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+ Dec 17 12:59:12 CH3-Leaf1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1847) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:12 CH3-Leaf1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1847))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Leaf1B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Leaf1B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Leaf1B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Leaf1B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Leaf1B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Leaf1B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Leaf1B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Leaf1B,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Leaf1B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Leaf1B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Leaf2A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Leaf2A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Leaf2A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Leaf2A,VerifyLLDPNeighbors,failure,Port: Ethernet53/1 Neighbor: CH3-Leaf2B Neighbor Port: Ethernet53/1 - Wrong LLDP neighbors: sw-10.0.1.200.arista.local/Ethernet51/1 - Port: Ethernet54/1 Neighbor: CH3-Leaf2B Neighbor Port: Ethernet54/1 - No LLDP neighbors - Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet5/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet5/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Leaf2A,VerifyReachability,failure,Destination 192.168.12.16 from 192.168.12.17 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address' - Destination 192.168.12.18 from 192.168.12.19 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Leaf2A,VerifyReachability,failure,Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Leaf2A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Leaf2A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Leaf2A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Leaf2A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Leaf2A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Leaf2A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+CH3-Leaf2A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Leaf2A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Leaf2A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Leaf2A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Leaf2A,VerifyInterfacesStatus,failure,"Interface: Ethernet54/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet55/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet56/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Port-Channel531 - Not configured - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Leaf2A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+CH3-Leaf2A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Leaf2A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:25 NY5-Leaf2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 17 12:59:25 NY5-Leaf2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:25 NY5-Leaf2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
+ Dec 17 13:00:26 NY5-Leaf2A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.245.217.2 (VRF default AS 65000) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Leaf2A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+CH3-Leaf2A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+CH3-Leaf2A,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+CH3-Leaf2A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Leaf2A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Leaf2A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Leaf2A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Leaf2A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Leaf2A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Leaf2A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Leaf2A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+CH3-Leaf2A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Leaf2A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Leaf2B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Leaf2B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Leaf2B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Leaf2B,VerifyLLDPNeighbors,failure,Port: Ethernet53/1 Neighbor: CH3-Leaf2A Neighbor Port: Ethernet53/1 - Wrong LLDP neighbors: sw-10.0.1.200.arista.local/Ethernet52/1 - Port: Ethernet54/1 Neighbor: CH3-Leaf2A Neighbor Port: Ethernet54/1 - No LLDP neighbors - Port: Ethernet55/1 Neighbor: CH3-Spine1 Neighbor Port: Ethernet6/1 - No LLDP neighbors - Port: Ethernet56/1 Neighbor: CH3-Spine2 Neighbor Port: Ethernet6/1 - No LLDP neighbors,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Leaf2B,VerifyReachability,failure,Destination 192.168.12.20 from 192.168.12.21 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address' - Destination 192.168.12.22 from 192.168.12.23 in VRF default - Error when executing ping: 'ping: bind: Cannot assign requested address',Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Leaf2B,VerifyReachability,failure,Destination 10.245.218.1 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Leaf2B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Leaf2B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Leaf2B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Leaf2B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Leaf2B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Leaf2B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+CH3-Leaf2B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Leaf2B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Leaf2B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Leaf2B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Leaf2B,VerifyInterfacesStatus,failure,"Interface: Ethernet54/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet55/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet56/1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Port-Channel531 - Not configured - Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Leaf2B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+CH3-Leaf2B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Leaf2B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:28 NY5-Leaf2B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 17 12:59:28 NY5-Leaf2B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:28 NY5-Leaf2B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
+ Dec 17 13:00:25 NY5-Leaf2B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.11.22 (VRF default AS 65000) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 17 13:00:25 NY5-Leaf2B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.11.20 (VRF default AS 65000) 6/5 (Cease/connection rejected) 0 bytes
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Leaf2B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+CH3-Leaf2B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+CH3-Leaf2B,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+CH3-Leaf2B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Leaf2B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Leaf2B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Leaf2B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Leaf2B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Leaf2B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Leaf2B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Leaf2B,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Leaf2B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Leaf2B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+CH3-Spine1,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Spine1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Spine1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Spine1,VerifyLLDPNeighbors,failure,Port: Ethernet1/1 Neighbor: CH3-Border-Leaf-A Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Border-Leaf-A/Ethernet51/1 - Port: Ethernet2/1 Neighbor: CH3-Border-Leaf-B Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Border-Leaf-B/Ethernet51/1 - Port: Ethernet3/1 Neighbor: CH3-Leaf1A Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Leaf1A/Ethernet51/1 - Port: Ethernet4/1 Neighbor: CH3-Leaf1B Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Leaf1B/Ethernet51/1 - Port: Ethernet5/1 Neighbor: CH3-Leaf2A Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Leaf2A/Ethernet51/1 - Port: Ethernet6/1 Neighbor: CH3-Leaf2B Neighbor Port: Ethernet55/1 - Wrong LLDP neighbors: CH3-Leaf2B/Ethernet51/1,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Spine1,VerifyReachability,failure,Destination 192.168.12.1 from 192.168.12.0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.5 from 192.168.12.4 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.9 from 192.168.12.8 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.13 from 192.168.12.12 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.17 from 192.168.12.16 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.21 from 192.168.12.20 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Spine1,VerifyReachability,failure,Destination 10.245.218.3 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.4 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.5 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.6 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Spine1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Spine1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Spine1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Spine1,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Spine1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Spine1,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Spine1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Spine1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Spine1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Spine1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Spine1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Spine1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:58:59 CH3-Spine1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1398) -- Master ProcMgr (PID=1398) exiting.
+ Dec 17 12:59:00 CH3-Spine1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1803) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:00 CH3-Spine1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1803))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Spine1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Spine1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Spine1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Spine1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Spine1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Spine1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Spine1,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Spine1,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Spine1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+CH3-Spine2,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+CH3-Spine2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+CH3-Spine2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+CH3-Spine2,VerifyLLDPNeighbors,failure,Port: Ethernet1/1 Neighbor: CH3-Border-Leaf-A Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Border-Leaf-A/Ethernet52/1 - Port: Ethernet2/1 Neighbor: CH3-Border-Leaf-B Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Border-Leaf-B/Ethernet52/1 - Port: Ethernet3/1 Neighbor: CH3-Leaf1A Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Leaf1A/Ethernet52/1 - Port: Ethernet4/1 Neighbor: CH3-Leaf1B Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Leaf1B/Ethernet52/1 - Port: Ethernet5/1 Neighbor: CH3-Leaf2A Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Leaf2A/Ethernet52/1 - Port: Ethernet6/1 Neighbor: CH3-Leaf2B Neighbor Port: Ethernet56/1 - Wrong LLDP neighbors: CH3-Leaf2B/Ethernet52/1,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+CH3-Spine2,VerifyReachability,failure,Destination 192.168.12.3 from 192.168.12.2 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.7 from 192.168.12.6 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.11 from 192.168.12.10 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.15 from 192.168.12.14 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.19 from 192.168.12.18 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 192.168.12.23 from 192.168.12.22 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+CH3-Spine2,VerifyReachability,failure,Destination 10.245.218.3 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.4 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.5 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.6 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+CH3-Spine2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+CH3-Spine2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+CH3-Spine2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+CH3-Spine2,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+CH3-Spine2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+CH3-Spine2,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+CH3-Spine2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+CH3-Spine2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+CH3-Spine2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+CH3-Spine2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+CH3-Spine2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+CH3-Spine2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:19 CH3-Spine2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1402) -- Master ProcMgr (PID=1402) exiting.
+ Dec 17 12:59:20 CH3-Spine2 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1824) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:20 CH3-Spine2 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1824))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+CH3-Spine2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+CH3-Spine2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+CH3-Spine2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+CH3-Spine2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+CH3-Spine2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+CH3-Spine2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+CH3-Spine2,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+CH3-Spine2,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+CH3-Spine2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Border-Leaf-A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Border-Leaf-A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Border-Leaf-A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Border-Leaf-A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Border-Leaf-A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Border-Leaf-A,VerifyReachability,failure,Destination 10.245.217.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Border-Leaf-A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Border-Leaf-A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Border-Leaf-A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Border-Leaf-A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Border-Leaf-A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Border-Leaf-A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+NY5-Border-Leaf-A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Border-Leaf-A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Border-Leaf-A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Border-Leaf-A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Border-Leaf-A,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Border-Leaf-A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+NY5-Border-Leaf-A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Border-Leaf-A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:26 NY5-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1435) -- Master ProcMgr (PID=1435) exiting.
+ Dec 17 12:59:26 NY5-Border-Leaf-A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:26 NY5-Border-Leaf-A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))
+ Dec 17 12:59:26 NY5-Border-Leaf-A ConfigAgent: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Sysdb (pid:1636) at tbl://sysdb/+n closed by peer (EOF)
+ Dec 17 12:59:26 NY5-Border-Leaf-A ConfigAgent: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://sysdb/+n-in)(Sysdb (pid:1636))
+ Dec 17 12:59:26 NY5-Border-Leaf-A ConfigAgent: %FWK-3-MOUNT_CLOSED_EXIT: Process exiting.
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Border-Leaf-A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+NY5-Border-Leaf-A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+NY5-Border-Leaf-A,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+NY5-Border-Leaf-A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Border-Leaf-A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Border-Leaf-A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Border-Leaf-A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Border-Leaf-A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Border-Leaf-A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Border-Leaf-A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Border-Leaf-A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+NY5-Border-Leaf-A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Border-Leaf-A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Border-Leaf-B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Border-Leaf-B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Border-Leaf-B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Border-Leaf-B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Border-Leaf-B,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Border-Leaf-B,VerifyReachability,failure,Destination 10.245.217.2 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.7 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.218.8 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Border-Leaf-B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Border-Leaf-B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Border-Leaf-B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Border-Leaf-B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Border-Leaf-B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Border-Leaf-B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+NY5-Border-Leaf-B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Border-Leaf-B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Border-Leaf-B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Border-Leaf-B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Border-Leaf-B,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Border-Leaf-B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+NY5-Border-Leaf-B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Border-Leaf-B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:27 NY5-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 17 12:59:27 NY5-Border-Leaf-B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1852) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:27 NY5-Border-Leaf-B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1852))
+ Dec 17 13:00:28 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.11.4 (VRF default AS 65000) 6/5 (Cease/connection rejected) 0 bytes
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Border-Leaf-B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+NY5-Border-Leaf-B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+NY5-Border-Leaf-B,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+NY5-Border-Leaf-B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Border-Leaf-B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Border-Leaf-B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Border-Leaf-B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Border-Leaf-B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Border-Leaf-B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Border-Leaf-B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Border-Leaf-B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+NY5-Border-Leaf-B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Border-Leaf-B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Leaf1A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Leaf1A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Leaf1A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Leaf1A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Leaf1A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Leaf1A,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Leaf1A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Leaf1A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Leaf1A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Leaf1A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Leaf1A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Leaf1A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Leaf1A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Leaf1A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Leaf1A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Leaf1A,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Leaf1A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Leaf1A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:33 NY5-Leaf1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 17 12:59:33 NY5-Leaf1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1854) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:33 NY5-Leaf1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1854))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Leaf1A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Leaf1A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Leaf1A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Leaf1A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Leaf1A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Leaf1A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Leaf1A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Leaf1A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+NY5-Leaf1A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Leaf1A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Leaf1B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Leaf1B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Leaf1B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Leaf1B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Leaf1B,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Leaf1B,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Leaf1B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Leaf1B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Leaf1B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Leaf1B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Leaf1B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Leaf1B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Leaf1B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Leaf1B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Leaf1B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Leaf1B,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Leaf1B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Leaf1B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:18 NY5-Leaf1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.
+ Dec 17 12:59:19 NY5-Leaf1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:19 NY5-Leaf1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Leaf1B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Leaf1B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Leaf1B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Leaf1B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Leaf1B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Leaf1B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Leaf1B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Leaf1B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+NY5-Leaf1B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Leaf1B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Leaf2A,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Leaf2A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Leaf2A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Leaf2A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Leaf2A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Leaf2A,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Leaf2A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Leaf2A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Leaf2A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Leaf2A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Leaf2A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Leaf2A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+NY5-Leaf2A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Leaf2A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Leaf2A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Leaf2A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Leaf2A,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Leaf2A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+NY5-Leaf2A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Leaf2A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:25 NY5-Leaf2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 17 12:59:25 NY5-Leaf2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:25 NY5-Leaf2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
+ Dec 17 13:00:26 NY5-Leaf2A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.245.217.2 (VRF default AS 65000) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Leaf2A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+NY5-Leaf2A,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+NY5-Leaf2A,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+NY5-Leaf2A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Leaf2A,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Leaf2A,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Leaf2A,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Leaf2A,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Leaf2A,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Leaf2A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Leaf2A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
+NY5-Leaf2A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Leaf2A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Leaf2B,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Leaf2B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Leaf2B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Leaf2B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Leaf2B,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Leaf2B,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Leaf2B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Leaf2B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Leaf2B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Leaf2B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Leaf2B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Leaf2B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
+NY5-Leaf2B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Leaf2B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Leaf2B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Leaf2B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Leaf2B,VerifyInterfacesStatus,failure,"Interface: Vxlan1 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Leaf2B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
+NY5-Leaf2B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Leaf2B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:28 NY5-Leaf2B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 17 12:59:28 NY5-Leaf2B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:28 NY5-Leaf2B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
+ Dec 17 13:00:25 NY5-Leaf2B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.11.22 (VRF default AS 65000) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 17 13:00:25 NY5-Leaf2B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.11.20 (VRF default AS 65000) 6/5 (Cease/connection rejected) 0 bytes
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Leaf2B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
+NY5-Leaf2B,VerifyMlagInterfaces,success,,Verifies there are no inactive or active-partial MLAG ports.,MLAG
+NY5-Leaf2B,VerifyMlagStatus,success,,Verifies the health status of the MLAG configuration.,MLAG
+NY5-Leaf2B,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Leaf2B,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Leaf2B,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Leaf2B,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Leaf2B,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Leaf2B,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Leaf2B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Leaf2B,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+NY5-Leaf2B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Leaf2B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+NY5-Spine1,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Spine1,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Spine1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Spine1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Spine1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Spine1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Spine1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Spine1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Spine1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Spine1,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Spine1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Spine1,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Spine1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Spine1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Spine1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Spine1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Spine1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Spine1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:18 NY5-Spine1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1403) -- Master ProcMgr (PID=1403) exiting.
+ Dec 17 12:59:18 NY5-Spine1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1818) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 17 12:59:18 NY5-Spine1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1818))
+ Dec 17 13:00:25 NY5-Spine1 Bgp: %BGP-3-NOTIFICATION: received from neighbor 192.168.11.21 (VRF default AS 65003) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 17 13:00:28 NY5-Spine1 Bgp: %BGP-3-NOTIFICATION: received from neighbor 192.168.11.5 (VRF default AS 65005) 6/5 (Cease/connection rejected) 0 bytes
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Spine1,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Spine1,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Spine1,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Spine1,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Spine1,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Spine1,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Spine1,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Spine1,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+NY5-Spine1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+NY5-Spine2,VerifyBGPPeerSession,error,show bgp neighbors vrf all has failed: ReadTimeout,Verifies the session state of BGP peers.,BGP
+NY5-Spine2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
+NY5-Spine2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
+NY5-Spine2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
+NY5-Spine2,VerifyReachability,failure,Destination 10.255.0.1 from 192.168.11.2 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.255.0.3 from 192.168.11.6 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+NY5-Spine2,VerifyReachability,failure,Destination 10.245.217.3 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0 - Destination 10.245.217.4 from Loopback0 in VRF default - Packet loss detected - Transmitted: 1 Received: 0,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
+NY5-Spine2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
+NY5-Spine2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
+NY5-Spine2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
+NY5-Spine2,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
+NY5-Spine2,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
+NY5-Spine2,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+NY5-Spine2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+NY5-Spine2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
+NY5-Spine2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
+NY5-Spine2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+NY5-Spine2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
+NY5-Spine2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
+Dec 17 12:59:22 NY5-Spine2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1399) -- Master ProcMgr (PID=1399) exiting.
+ Dec 17 13:00:24 NY5-Spine2 Bgp: %BGP-3-NOTIFICATION: received from neighbor 192.168.11.23 (VRF default AS 65003) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 17 13:00:25 NY5-Spine2 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.217.7 (VRF default AS 65003) 6/7 (Cease/connection collision resolution) 0 bytes 
+ 
+",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
+NY5-Spine2,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
+NY5-Spine2,VerifySTPCounters,success,,Verifies there is no errors in STP BPDU packets.,STP
+NY5-Spine2,VerifyAgentLogs,success,,Verifies there are no agent crash reports.,System
+NY5-Spine2,VerifyCoredump,success,,Verifies there are no core dump files.,System
+NY5-Spine2,VerifyFileSystemUtilization,success,,Verifies that no partition is utilizing more than 75% of its disk space.,System
+NY5-Spine2,VerifyMaintenance,success,,Verifies that the device is not currently under or entering maintenance.,System
+NY5-Spine2,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
+NY5-Spine2,VerifyNTP,failure,NTP status mismatch - Expected: synchronised Actual: unsynchronised,Verifies if NTP is synchronised.,System
+NY5-Spine2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
