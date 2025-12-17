@@ -61,6 +61,12 @@ jobs:
           export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
           make validate
 
+      - name: Check for Changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --cached --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
+
       - name: Commit and push changes
         if: steps.git-check.outputs.changed == 'true'
         run: |
