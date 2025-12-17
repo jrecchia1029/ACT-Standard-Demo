@@ -169,6 +169,11 @@ loopback_interfaces:
   description: ROUTER_ID
   shutdown: false
   ip_address: 10.255.255.161/32
+- name: Loopback10
+  description: DIAG_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 10.255.255.161/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -313,6 +318,10 @@ prefix_lists:
     action: permit 10.250.15.12/31
   - sequence: 50
     action: permit 10.250.15.16/31
+- name: PL-MLAG-PEER-VRFS
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.168.255.0/31
 route_maps:
 - name: RM-MLAG-PEER-IN
   sequence_numbers:
@@ -331,6 +340,14 @@ route_maps:
     type: permit
     match:
     - ip address prefix-list PL-P2P-LINKS
+- name: RM-CONN-2-BGP-VRFS
+  sequence_numbers:
+  - sequence: 10
+    type: deny
+    match:
+    - ip address prefix-list PL-MLAG-PEER-VRFS
+  - sequence: 20
+    type: permit
 router_bgp:
   as: '65350'
   router_id: 10.255.255.161
@@ -399,6 +416,26 @@ router_bgp:
     - name: IPv4-UNDERLAY-PEERS
       activate: true
   vrfs:
+  - name: CORPORATE
+    rd: 10.255.255.161:10
+    route_targets:
+      import:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+      export:
+      - address_family: evpn
+        route_targets:
+        - '10:10'
+    router_id: 10.255.255.161
+    neighbors:
+    - ip_address: 192.168.255.1
+      peer_group: MLAG-IPv4-UNDERLAY-PEER
+      description: SF-FD-Spine-2_Vlan3009
+    redistribute:
+      connected:
+        enabled: true
+        route_map: RM-CONN-2-BGP-VRFS
   - name: default
     rd: 10.255.255.161:1
     route_targets:
@@ -435,6 +472,32 @@ vlan_interfaces:
   ip_address: 169.254.0.0/31
   mtu: 1500
   no_autostate: true
+- name: Vlan10
+  description: DATA
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.10.1/24
+  tenant: FD
+- name: Vlan20
+  description: VOICE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.20.1/24
+  tenant: FD
+- name: Vlan30
+  description: PRINTERS
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.30.1/24
+  tenant: FD
+- name: Vlan3009
+  description: MLAG_L3_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 192.168.255.0/31
+  mtu: 1500
+  tenant: FD
+  type: underlay_peering
 - name: Vlan4092
   description: L2_INBAND_MGMT
   shutdown: false
@@ -457,9 +520,26 @@ vlans:
   trunk_groups:
   - MLAG
   tenant: system
+- id: 10
+  name: DATA
+  tenant: FD
+- id: 20
+  name: VOICE
+  tenant: FD
+- id: 30
+  name: PRINTERS
+  tenant: FD
+- id: 3009
+  name: MLAG_L3_VRF_CORPORATE
+  trunk_groups:
+  - MLAG
+  tenant: FD
 - id: 4092
   name: L2_INBAND_MGMT
   tenant: FD
 vrfs:
 - name: MGMT
   ip_routing: false
+- name: CORPORATE
+  ip_routing: true
+  tenant: FD

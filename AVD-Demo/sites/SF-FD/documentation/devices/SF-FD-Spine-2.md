@@ -383,6 +383,10 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
+| 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | L2_INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
@@ -390,6 +394,19 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
+!
+vlan 3009
+   name MLAG_L3_VRF_CORPORATE
+   trunk group MLAG
 !
 vlan 4092
    name L2_INBAND_MGMT
@@ -522,12 +539,14 @@ interface Port-Channel491
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | ROUTER_ID | default | 10.255.255.162/32 |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | 10.255.255.162/32 |
 
 ##### IPv6
 
 | Interface | Description | VRF | IPv6 Address |
 | --------- | ----------- | --- | ------------ |
 | Loopback0 | ROUTER_ID | default | - |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -537,6 +556,12 @@ interface Loopback0
    description ROUTER_ID
    no shutdown
    ip address 10.255.255.162/32
+!
+interface Loopback10
+   description DIAG_VRF_CORPORATE
+   no shutdown
+   vrf CORPORATE
+   ip address 10.255.255.162/32
 ```
 
 ### VLAN Interfaces
@@ -545,6 +570,10 @@ interface Loopback0
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
+| Vlan10 | DATA | CORPORATE | - | False |
+| Vlan20 | VOICE | CORPORATE | - | False |
+| Vlan30 | PRINTERS | CORPORATE | - | False |
+| Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | L2_INBAND_MGMT | default | - | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
@@ -553,6 +582,10 @@ interface Loopback0
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan10 |  CORPORATE  |  -  |  10.15.10.1/24  |  -  |  -  |  -  |
+| Vlan20 |  CORPORATE  |  -  |  10.15.20.1/24  |  -  |  -  |  -  |
+| Vlan30 |  CORPORATE  |  -  |  10.15.30.1/24  |  -  |  -  |  -  |
+| Vlan3009 |  CORPORATE  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  169.254.0.1/31  |  -  |  -  |  -  |  -  |
@@ -560,6 +593,31 @@ interface Loopback0
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan10
+   description DATA
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.10.1/24
+!
+interface Vlan20
+   description VOICE
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.20.1/24
+!
+interface Vlan30
+   description PRINTERS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.30.1/24
+!
+interface Vlan3009
+   description MLAG_L3_VRF_CORPORATE
+   no shutdown
+   mtu 1500
+   vrf CORPORATE
+   ip address 192.168.255.1/31
 !
 interface Vlan4092
    description L2_INBAND_MGMT
@@ -611,6 +669,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | True |
+| CORPORATE | True |
 | MGMT | False |
 
 #### IP Routing Device Configuration
@@ -618,6 +677,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 ```eos
 !
 ip routing
+ip routing vrf CORPORATE
 no ip routing vrf MGMT
 ```
 
@@ -628,6 +688,7 @@ no ip routing vrf MGMT
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | False |
+| CORPORATE | false |
 | MGMT | false |
 
 ### Static Routes
@@ -691,11 +752,13 @@ ASN Notation: asplain
 | 10.250.15.19 | 65353 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.255.0.30 | 64750 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | default | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
+| 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | CORPORATE | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 
 #### Router BGP VRFs
 
 | VRF | Route-Distinguisher | Redistribute | Graceful Restart |
 | --- | ------------------- | ------------ | ---------------- |
+| CORPORATE | 10.255.255.162:10 | connected | - |
 | default | 10.255.255.162:1 | - | - |
 
 #### Router BGP Device Configuration
@@ -742,6 +805,15 @@ router bgp 65350
       neighbor IPv4-UNDERLAY-PEERS activate
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
+   vrf CORPORATE
+      rd 10.255.255.162:10
+      route-target import evpn 10:10
+      route-target export evpn 10:10
+      router-id 10.255.255.162
+      neighbor 192.168.255.0 peer group MLAG-IPv4-UNDERLAY-PEER
+      neighbor 192.168.255.0 description SF-FD-Spine-1_Vlan3009
+      redistribute connected route-map RM-CONN-2-BGP-VRFS
+   !
    vrf default
       rd 10.255.255.162:1
       route-target import evpn 1:1
@@ -775,6 +847,12 @@ router bgp 65350
 | -------- | ------ |
 | 10 | permit 10.255.255.160/28 eq 32 |
 
+##### PL-MLAG-PEER-VRFS
+
+| Sequence | Action |
+| -------- | ------ |
+| 10 | permit 192.168.255.0/31 |
+
 ##### PL-P2P-LINKS
 
 | Sequence | Action |
@@ -791,6 +869,9 @@ router bgp 65350
 !
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 10.255.255.160/28 eq 32
+!
+ip prefix-list PL-MLAG-PEER-VRFS
+   seq 10 permit 192.168.255.0/31
 !
 ip prefix-list PL-P2P-LINKS
    seq 10 permit 10.250.15.2/31
@@ -811,6 +892,13 @@ ip prefix-list PL-P2P-LINKS
 | 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY | - | - | - |
 | 70 | permit | ip address prefix-list PL-P2P-LINKS | - | - | - |
 
+##### RM-CONN-2-BGP-VRFS
+
+| Sequence | Type | Match | Set | Sub-Route-Map | Continue |
+| -------- | ---- | ----- | --- | ------------- | -------- |
+| 10 | deny | ip address prefix-list PL-MLAG-PEER-VRFS | - | - | - |
+| 20 | permit | - | - | - | - |
+
 ##### RM-MLAG-PEER-IN
 
 | Sequence | Type | Match | Set | Sub-Route-Map | Continue |
@@ -827,6 +915,11 @@ route-map RM-CONN-2-BGP permit 10
 route-map RM-CONN-2-BGP permit 70
    match ip address prefix-list PL-P2P-LINKS
 !
+route-map RM-CONN-2-BGP-VRFS deny 10
+   match ip address prefix-list PL-MLAG-PEER-VRFS
+!
+route-map RM-CONN-2-BGP-VRFS permit 20
+!
 route-map RM-MLAG-PEER-IN permit 10
    description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
    set origin incomplete
@@ -838,11 +931,14 @@ route-map RM-MLAG-PEER-IN permit 10
 
 | VRF Name | IP Routing |
 | -------- | ---------- |
+| CORPORATE | enabled |
 | MGMT | disabled |
 
 ### VRF Instances Device Configuration
 
 ```eos
+!
+vrf instance CORPORATE
 !
 vrf instance MGMT
 ```

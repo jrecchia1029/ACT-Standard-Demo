@@ -260,11 +260,23 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
 | 4092 | INBAND_MGMT | - |
 
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
 !
 vlan 4092
    name INBAND_MGMT
@@ -280,14 +292,230 @@ vlan 4092
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet25 | L2_SF-FD-Leaf-3A_Ethernet55 | *trunk | *4092 | *- | *- | 25 |
-| Ethernet26 | L2_SF-FD-Leaf-3B_Ethernet55 | *trunk | *4092 | *- | *- | 25 |
+| Ethernet1 | - | access | 10 | - | - | - |
+| Ethernet2 | - | access | 10 | - | - | - |
+| Ethernet3 | - | access | 10 | - | - | - |
+| Ethernet4 | - | access | 10 | - | - | - |
+| Ethernet5 | - | access | 10 | - | - | - |
+| Ethernet6 | - | access | 10 | - | - | - |
+| Ethernet7 | - | access | 10 | - | - | - |
+| Ethernet8 | - | access | 10 | - | - | - |
+| Ethernet9 | - | access | 10 | - | - | - |
+| Ethernet10 | - | access | 10 | - | - | - |
+| Ethernet11 | - | access | 10 | - | - | - |
+| Ethernet12 | - | access | 10 | - | - | - |
+| Ethernet13 | - | access | 10 | - | - | - |
+| Ethernet14 | - | access | 10 | - | - | - |
+| Ethernet15 | - | access | 10 | - | - | - |
+| Ethernet16 | - | access | 10 | - | - | - |
+| Ethernet17 | - | access | 10 | - | - | - |
+| Ethernet18 | - | access | 10 | - | - | - |
+| Ethernet19 | - | access | 10 | - | - | - |
+| Ethernet20 | - | access | 10 | - | - | - |
+| Ethernet21 | - | access | 10 | - | - | - |
+| Ethernet22 | - | access | 10 | - | - | - |
+| Ethernet23 | - | access | 10 | - | - | - |
+| Ethernet24 | - | access | 10 | - | - | - |
+| Ethernet25 | L2_SF-FD-Leaf-3A_Ethernet55 | *trunk | *10,20,30,4092 | *- | *- | 25 |
+| Ethernet26 | L2_SF-FD-Leaf-3B_Ethernet55 | *trunk | *10,20,30,4092 | *- | *- | 25 |
 
 *Inherited from Port-Channel Interface
 
 #### Ethernet Interfaces Device Configuration
 
 ```eos
+!
+interface Ethernet1
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet2
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet3
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet4
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet5
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet6
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet7
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet8
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet9
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet10
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet11
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet12
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet13
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet14
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet15
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet16
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet17
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet18
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet19
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet20
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet21
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet22
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet23
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet24
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 !
 interface Ethernet25
    description L2_SF-FD-Leaf-3A_Ethernet55
@@ -308,7 +536,7 @@ interface Ethernet26
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel25 | L2_Floor3_Leafs_Port-Channel55 | trunk | 4092 | - | - | - | - | - | - |
+| Port-Channel25 | L2_Floor3_Leafs_Port-Channel55 | trunk | 10,20,30,4092 | - | - | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -317,7 +545,7 @@ interface Ethernet26
 interface Port-Channel25
    description L2_Floor3_Leafs_Port-Channel55
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
 ```
