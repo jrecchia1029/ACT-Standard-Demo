@@ -10,29 +10,29 @@ all:
             SF_FD_SPINES:
               hosts:
                 SF-FD-Spine-1:
-                  ansible_host: 10.73.252.11
+                  ansible_host: 10.18.160.112
                 SF-FD-Spine-2:
-                  ansible_host: 10.73.252.12
+                  ansible_host: 10.18.182.185
             SF_FD_L3_LEAFS:
               hosts:
                 SF-FD-Leaf-1A:
-                  ansible_host: 10.73.252.13
+                  ansible_host: 10.18.147.180
                 SF-FD-Leaf-1B:
-                  ansible_host: 10.73.252.14
+                  ansible_host: 10.18.183.253
                 SF-FD-Leaf-2A:
-                  ansible_host: 10.73.252.15
+                  ansible_host: 10.18.182.193
                 SF-FD-Leaf-3A:
-                  ansible_host: 10.73.252.16
+                  ansible_host: 10.18.177.196
                 SF-FD-Leaf-3B:
-                  ansible_host: 10.73.252.17
+                  ansible_host: 10.18.179.8
             SF_FD_L2_LEAFS:
               hosts:
                 SF-FD-Leaf-3C:
-                  ansible_host: 10.73.252.18
+                  ansible_host: 10.18.146.13
                 SF-FD-Leaf-3D:
-                  ansible_host: 10.73.252.19
+                  ansible_host: 10.18.182.176
                 SF-FD-Leaf-3E:
-                  ansible_host: 10.73.252.20
+                  ansible_host: 10.18.185.140
 Network_Services:
   children:
     SF_FD_SPINES:

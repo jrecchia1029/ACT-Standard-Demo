@@ -57,3 +57,8 @@ custom_structured_configuration_management_interfaces:
     lldp:
       transmit: true
       receive: false
+
+# ANTA
+anta_user: cvpadmin
+anta_password: arista123
+anta_runner_batch_size: 10

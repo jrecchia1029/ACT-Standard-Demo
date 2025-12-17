@@ -127,7 +127,7 @@ spanning_tree:
 static_routes:
 - vrf: MGMT
   prefix: 0.0.0.0/0
-  next_hop: 10.73.252.1
+  next_hop: 10.0.14.1
 - prefix: 0.0.0.0/0
   next_hop: 10.1.14.1
 transceiver_qsfp_default_mode_4x10: true

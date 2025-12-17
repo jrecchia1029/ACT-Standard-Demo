@@ -69,7 +69,7 @@ agent KernelFib environment KERNELFIB_PROGRAM_ALL_ECMP='true'
 
 | Management Interface | Description | Type | VRF | IP Address | Gateway |
 | -------------------- | ----------- | ---- | --- | ---------- | ------- |
-| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.14.9/24 | 10.73.252.1 |
+| Management1 | OOB_MANAGEMENT | oob | MGMT | 10.0.14.9/24 | 10.0.14.1 |
 
 ##### IPv6
 
@@ -515,7 +515,7 @@ no ip routing vrf MGMT
 
 | VRF | Destination Prefix | Next Hop IP | Exit interface | Administrative Distance | Tag | Route Name | Metric |
 | --- | ------------------ | ----------- | -------------- | ----------------------- | --- | ---------- | ------ |
-| MGMT | 0.0.0.0/0 | 10.73.252.1 | - | 1 | - | - | - |
+| MGMT | 0.0.0.0/0 | 10.0.14.1 | - | 1 | - | - | - |
 | default | 0.0.0.0/0 | 10.1.14.1 | - | 1 | - | - | - |
 
 #### Static Routes Device Configuration
@@ -523,7 +523,7 @@ no ip routing vrf MGMT
 ```eos
 !
 ip route 0.0.0.0/0 10.1.14.1
-ip route vrf MGMT 0.0.0.0/0 10.73.252.1
+ip route vrf MGMT 0.0.0.0/0 10.0.14.1
 ```
 
 ## Multicast

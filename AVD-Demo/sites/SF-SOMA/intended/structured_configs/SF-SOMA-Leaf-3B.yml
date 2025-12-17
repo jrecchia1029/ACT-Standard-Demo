@@ -130,7 +130,7 @@ management_interfaces:
   vrf: MGMT
   ip_address: 10.0.14.10/24
   type: oob
-  gateway: 10.73.252.1
+  gateway: 10.0.14.1
   lldp:
     transmit: true
     receive: false
@@ -286,7 +286,7 @@ spanning_tree:
 static_routes:
 - vrf: MGMT
   prefix: 0.0.0.0/0
-  next_hop: 10.73.252.1
+  next_hop: 10.0.14.1
 - prefix: 0.0.0.0/0
   next_hop: 10.1.14.1
 transceiver_qsfp_default_mode_4x10: true

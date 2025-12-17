@@ -12,29 +12,29 @@ all:
                 NY5_Spines:
                   hosts:
                     NY5-Spine1:
-                      ansible_host: 10.18.151.216
+                      ansible_host: 10.18.177.235
                     NY5-Spine2:
-                      ansible_host: 10.18.150.235
+                      ansible_host: 10.18.160.92
                 NY5_Leafs:
                   children:
                     NY5_Leaf1: # Multi-homing
                       hosts:
                         NY5-Leaf1A:
-                          ansible_host: 10.18.151.206
+                          ansible_host: 10.18.155.215
                         NY5-Leaf1B:
-                          ansible_host: 10.18.151.64
+                          ansible_host: 10.18.177.237
                     NY5_Leaf2:  # MLAG
                       hosts:
                         NY5-Leaf2A:
-                          ansible_host: 10.18.152.64
+                          ansible_host: 10.18.178.122
                         NY5-Leaf2B:
-                          ansible_host: 10.18.152.64
+                          ansible_host: 10.18.160.72
                     NY5-Border-Leaf:  # MLAG
                       hosts:
                         NY5-Border-Leaf-A:
-                          ansible_host: 10.18.151.214
+                          ansible_host: 10.18.185.143
                         NY5-Border-Leaf-B:
-                          ansible_host: 10.18.150.205
+                          ansible_host: 10.18.178.128
         CH3:
           children:
             CH3_Fabric:
@@ -42,29 +42,29 @@ all:
                 CH3_Spines:
                   hosts:
                     CH3-Spine1:
-                      ansible_host: 10.18.151.0
+                      ansible_host: 10.18.182.153
                     CH3-Spine2:
-                      ansible_host: 10.18.151.215
+                      ansible_host: 10.18.177.246
                 CH3_Leafs:
                   children:
                     CH3_Leaf1:  # Multi-homing
                       hosts:
                         CH3-Leaf1A:
-                          ansible_host: 10.18.151.111
+                          ansible_host: 10.18.174.255
                         CH3-Leaf1B:
-                          ansible_host: 10.18.152.61
+                          ansible_host: 10.18.178.85
                     CH3_Leaf2:  # MLAG
                       hosts:
                         CH3-Leaf2A:
-                          ansible_host:  10.18.151.11
+                          ansible_host:  10.18.182.167
                         CH3-Leaf2B:
-                          ansible_host: 10.18.152.4
+                          ansible_host: 10.18.166.209
                     CH3-Border-Leaf:  # MLAG
                       hosts:
                         CH3-Border-Leaf-A:
-                          ansible_host: 10.18.151.21
+                          ansible_host: 10.18.184.121
                         CH3-Border-Leaf-B:
-                          ansible_host: 10.18.150.178
+                          ansible_host: 10.18.168.172
 Tenants:
   children:
     NY5_Leafs:
