@@ -1,6 +1,6 @@
 collections:
   - name: arista.avd
-    version: "5.7.1"
+    version: "5.7.2"
 
-  # - name: community.general
-  #   version: "8.5.0"
+  - name: community.general
+    version: "8.5.0"
