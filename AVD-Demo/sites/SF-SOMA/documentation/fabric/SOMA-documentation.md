@@ -67,8 +67,6 @@
 | l2leaf | SF-SOMA-Leaf-3B | Ethernet53 | l2leaf | SF-SOMA-Leaf-3C | Ethernet26 |
 | l2leaf | SF-SOMA-Leaf-3B | Ethernet54 | l2leaf | SF-SOMA-Leaf-3D | Ethernet26 |
 | l2leaf | SF-SOMA-Leaf-3B | Ethernet55 | l2leaf | SF-SOMA-Leaf-3E | Ethernet26 |
-| l2leaf | SF-SOMA-Leaf-3C | Ethernet27 | mlag_peer | SF-SOMA-Leaf-3D | Ethernet27 |
-| l2leaf | SF-SOMA-Leaf-3C | Ethernet28 | mlag_peer | SF-SOMA-Leaf-3D | Ethernet28 |
 | l3spine | SF-SOMA-Spine-1 | Ethernet49/1 | mlag_peer | SF-SOMA-Spine-2 | Ethernet49/1 |
 | l3spine | SF-SOMA-Spine-1 | Ethernet50/1 | mlag_peer | SF-SOMA-Spine-2 | Ethernet50/1 |
 

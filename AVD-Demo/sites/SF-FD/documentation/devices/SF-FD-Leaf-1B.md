@@ -378,6 +378,13 @@ vlan 4094
 | Ethernet22 | - | access | 10 | - | - | - |
 | Ethernet23 | - | access | 10 | - | - | - |
 | Ethernet24 | - | access | 10 | - | - | - |
+| Ethernet25 | - | access | 10 | - | - | - |
+| Ethernet26 | - | access | 10 | - | - | - |
+| Ethernet27 | - | access | 10 | - | - | - |
+| Ethernet28 | - | access | 10 | - | - | - |
+| Ethernet29 | - | access | 10 | - | - | - |
+| Ethernet30 | - | access | 10 | - | - | - |
+| Ethernet31 | - | access | 10 | - | - | - |
 | Ethernet49 | MLAG_SF-FD-Leaf-1A_Ethernet49 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet50 | MLAG_SF-FD-Leaf-1A_Ethernet50 | *trunk | *- | *- | *MLAG | 49 |
 
@@ -579,6 +586,62 @@ interface Ethernet23
    spanning-tree bpduguard enable
 !
 interface Ethernet24
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet25
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet26
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet27
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet28
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet29
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet30
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet31
    no shutdown
    switchport access vlan 10
    switchport mode access
@@ -919,6 +982,8 @@ ASN Notation: asplain
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
 | 10.250.15.4 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.250.15.6 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 10.255.255.161 | 65350 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.162 | 65350 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | default | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 | 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | CORPORATE | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 
@@ -976,6 +1041,12 @@ router bgp 65351
    neighbor 10.250.15.6 peer group IPv4-UNDERLAY-PEERS
    neighbor 10.250.15.6 remote-as 65350
    neighbor 10.250.15.6 description SF-FD-Spine-2_Ethernet2
+   neighbor 10.255.255.161 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.161 remote-as 65350
+   neighbor 10.255.255.161 description SF-FD-Spine-1_Loopback0
+   neighbor 10.255.255.162 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.162 remote-as 65350
+   neighbor 10.255.255.162 description SF-FD-Spine-2_Loopback0
    neighbor 192.168.255.0 peer group MLAG-IPv4-UNDERLAY-PEER
    neighbor 192.168.255.0 description SF-FD-Leaf-1A_Vlan4093
    redistribute connected route-map RM-CONN-2-BGP

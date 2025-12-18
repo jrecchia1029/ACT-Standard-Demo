@@ -320,6 +320,37 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
+| Ethernet1 | - | access | 10 | - | - | - |
+| Ethernet2 | - | access | 10 | - | - | - |
+| Ethernet3 | - | access | 10 | - | - | - |
+| Ethernet4 | - | access | 10 | - | - | - |
+| Ethernet5 | - | access | 10 | - | - | - |
+| Ethernet6 | - | access | 10 | - | - | - |
+| Ethernet7 | - | access | 10 | - | - | - |
+| Ethernet8 | - | access | 10 | - | - | - |
+| Ethernet9 | - | access | 10 | - | - | - |
+| Ethernet10 | - | access | 10 | - | - | - |
+| Ethernet11 | - | access | 10 | - | - | - |
+| Ethernet12 | - | access | 10 | - | - | - |
+| Ethernet13 | - | access | 10 | - | - | - |
+| Ethernet14 | - | access | 10 | - | - | - |
+| Ethernet15 | - | access | 10 | - | - | - |
+| Ethernet16 | - | access | 10 | - | - | - |
+| Ethernet17 | - | access | 10 | - | - | - |
+| Ethernet18 | - | access | 10 | - | - | - |
+| Ethernet19 | - | access | 10 | - | - | - |
+| Ethernet20 | - | access | 10 | - | - | - |
+| Ethernet21 | - | access | 10 | - | - | - |
+| Ethernet22 | - | access | 10 | - | - | - |
+| Ethernet23 | - | access | 10 | - | - | - |
+| Ethernet24 | - | access | 10 | - | - | - |
+| Ethernet25 | - | access | 10 | - | - | - |
+| Ethernet26 | - | access | 10 | - | - | - |
+| Ethernet27 | - | access | 10 | - | - | - |
+| Ethernet28 | - | access | 10 | - | - | - |
+| Ethernet29 | - | access | 10 | - | - | - |
+| Ethernet30 | - | access | 10 | - | - | - |
+| Ethernet31 | - | access | 10 | - | - | - |
 | Ethernet49 | MLAG_SF-SOMA-Leaf-1A_Ethernet49 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet50 | MLAG_SF-SOMA-Leaf-1A_Ethernet50 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet51 | L2_SF-SOMA-Spine-1_Ethernet2 | *trunk | *4092 | *- | *- | 51 |
@@ -330,6 +361,254 @@ vlan 4094
 #### Ethernet Interfaces Device Configuration
 
 ```eos
+!
+interface Ethernet1
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet2
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet3
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet4
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet5
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet6
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet7
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet8
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet9
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet10
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet11
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet12
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet13
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet14
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet15
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet16
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet17
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet18
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet19
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet20
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet21
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet22
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet23
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet24
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet25
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet26
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet27
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet28
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet29
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet30
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet31
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 !
 interface Ethernet49
    description MLAG_SF-SOMA-Leaf-1A_Ethernet49

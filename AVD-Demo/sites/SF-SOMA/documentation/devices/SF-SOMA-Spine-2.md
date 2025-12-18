@@ -42,6 +42,7 @@
 - [Multicast](#multicast)
   - [IP IGMP Snooping](#ip-igmp-snooping)
 - [Filters](#filters)
+  - [Prefix-lists](#prefix-lists)
   - [Route-maps](#route-maps)
 - [VRF Instances](#vrf-instances)
   - [VRF Instances Summary](#vrf-instances-summary)
@@ -300,6 +301,7 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
 | 4094 | MLAG | MLAG |
@@ -307,6 +309,10 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 3009
+   name MLAG_L3_VRF_CORPORATE
+   trunk group MLAG
 !
 vlan 4092
    name INBAND_MGMT
@@ -472,12 +478,14 @@ interface Port-Channel491
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | ROUTER_ID | default | 10.255.255.146/32 |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | 10.255.255.146/32 |
 
 ##### IPv6
 
 | Interface | Description | VRF | IPv6 Address |
 | --------- | ----------- | --- | ------------ |
 | Loopback0 | ROUTER_ID | default | - |
+| Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | - |
 
 #### Loopback Interfaces Device Configuration
 
@@ -487,6 +495,12 @@ interface Loopback0
    description ROUTER_ID
    no shutdown
    ip address 10.255.255.146/32
+!
+interface Loopback10
+   description DIAG_VRF_CORPORATE
+   no shutdown
+   vrf CORPORATE
+   ip address 10.255.255.146/32
 ```
 
 ### VLAN Interfaces
@@ -495,6 +509,7 @@ interface Loopback0
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
+| Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | Inband Management | default | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
 | Vlan4094 | MLAG | default | 1500 | False |
@@ -503,6 +518,7 @@ interface Loopback0
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan3009 |  CORPORATE  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  10.1.14.3/24  |  -  |  10.1.14.1  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
 | Vlan4094 |  default  |  169.254.0.1/31  |  -  |  -  |  -  |  -  |
@@ -510,6 +526,13 @@ interface Loopback0
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan3009
+   description MLAG_L3_VRF_CORPORATE
+   no shutdown
+   mtu 1500
+   vrf CORPORATE
+   ip address 192.168.255.1/31
 !
 interface Vlan4092
    description Inband Management
@@ -565,6 +588,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | True |
+| CORPORATE | True |
 | MGMT | False |
 
 #### IP Routing Device Configuration
@@ -572,6 +596,7 @@ ip virtual-router mac-address 00:1c:73:00:00:99
 ```eos
 !
 ip routing
+ip routing vrf CORPORATE
 no ip routing vrf MGMT
 ```
 
@@ -582,6 +607,7 @@ no ip routing vrf MGMT
 | VRF | Routing Enabled |
 | --- | --------------- |
 | default | False |
+| CORPORATE | false |
 | MGMT | false |
 
 ### Static Routes
@@ -689,9 +715,34 @@ router bgp 65300
 
 ## Filters
 
+### Prefix-lists
+
+#### Prefix-lists Summary
+
+##### PL-MLAG-PEER-VRFS
+
+| Sequence | Action |
+| -------- | ------ |
+| 10 | permit 192.168.255.0/31 |
+
+#### Prefix-lists Device Configuration
+
+```eos
+!
+ip prefix-list PL-MLAG-PEER-VRFS
+   seq 10 permit 192.168.255.0/31
+```
+
 ### Route-maps
 
 #### Route-maps Summary
+
+##### RM-CONN-2-BGP-VRFS
+
+| Sequence | Type | Match | Set | Sub-Route-Map | Continue |
+| -------- | ---- | ----- | --- | ------------- | -------- |
+| 10 | deny | ip address prefix-list PL-MLAG-PEER-VRFS | - | - | - |
+| 20 | permit | - | - | - | - |
 
 ##### RM-MLAG-PEER-IN
 
@@ -702,6 +753,11 @@ router bgp 65300
 #### Route-maps Device Configuration
 
 ```eos
+!
+route-map RM-CONN-2-BGP-VRFS deny 10
+   match ip address prefix-list PL-MLAG-PEER-VRFS
+!
+route-map RM-CONN-2-BGP-VRFS permit 20
 !
 route-map RM-MLAG-PEER-IN permit 10
    description Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
@@ -714,11 +770,14 @@ route-map RM-MLAG-PEER-IN permit 10
 
 | VRF Name | IP Routing |
 | -------- | ---------- |
+| CORPORATE | enabled |
 | MGMT | disabled |
 
 ### VRF Instances Device Configuration
 
 ```eos
+!
+vrf instance CORPORATE
 !
 vrf instance MGMT
 ```

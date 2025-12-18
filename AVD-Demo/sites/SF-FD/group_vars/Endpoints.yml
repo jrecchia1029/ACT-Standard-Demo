@@ -8,15 +8,17 @@ port_profiles:
 network_ports:
   - switches:
       - SF-FD-Leaf-1(A|B)
+      - SF-FD-Leaf-2(A|B)
       - SF-FD-Leaf-3(C|D|E)
     switch_ports:
       - Ethernet1-24
+      - Ethernet1-31
       - Ethernet1-24
     profile: access_interface
     vlans: 10
   - switches:
       - SF-FD-Leaf-2A
     switch_ports:
-      - Ethernet1-24
+      - Ethernet32-40
     profile: access_interface
-    vlans: 30
+    vlans: 20

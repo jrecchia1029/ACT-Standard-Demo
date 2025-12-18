@@ -51,7 +51,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet2
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -61,7 +61,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet3
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -71,7 +71,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet4
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -81,7 +81,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet5
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -91,7 +91,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet6
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -101,7 +101,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet7
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -111,7 +111,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet8
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -121,7 +121,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet9
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -131,7 +131,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet10
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -141,7 +141,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet11
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -151,7 +151,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet12
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -161,7 +161,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet13
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -171,7 +171,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet14
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -181,7 +181,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet15
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -191,7 +191,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet16
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -201,7 +201,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet17
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -211,7 +211,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet18
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -221,7 +221,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet19
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -231,7 +231,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet20
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -241,7 +241,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet21
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -251,7 +251,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet22
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -261,7 +261,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet23
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -271,7 +271,7 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
 - name: Ethernet24
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -281,7 +281,167 @@ ethernet_interfaces:
   switchport:
     enabled: true
     mode: access
-    access_vlan: 30
+    access_vlan: 10
+- name: Ethernet25
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet26
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet27
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet28
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet29
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet30
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet31
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet32
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet33
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet34
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet35
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet36
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet37
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet38
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet39
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
+- name: Ethernet40
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 20
 hostname: SF-FD-Leaf-2A
 ip_domain_lookup:
   source_interfaces:
@@ -458,6 +618,70 @@ metadata:
       tags:
       - name: Link-Type
         value: AVD-Managed
+    - interface: Ethernet25
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet26
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet27
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet28
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet29
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet30
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet31
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet32
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet33
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet34
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet35
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet36
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet37
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet38
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet39
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet40
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
     - interface: Management1
       tags:
       - name: Link-Type
@@ -525,6 +749,16 @@ router_bgp:
     remote_as: '65350'
     peer: SF-FD-Spine-2
     description: SF-FD-Spine-2_Ethernet3
+  - ip_address: 10.255.255.161
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65350'
+    peer: SF-FD-Spine-1
+    description: SF-FD-Spine-1_Loopback0
+  - ip_address: 10.255.255.162
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65350'
+    peer: SF-FD-Spine-2
+    description: SF-FD-Spine-2_Loopback0
   redistribute:
     connected:
       enabled: true
