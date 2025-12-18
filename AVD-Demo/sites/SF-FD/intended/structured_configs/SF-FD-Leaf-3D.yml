@@ -547,7 +547,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: 10,20,30,4092
+      allowed_vlan: 10,20,30,40,4092
 serial_number: SN-SF-FD-Leaf-3D
 service_routing_protocols_model: multi-agent
 spanning_tree:
@@ -595,6 +595,9 @@ vlans:
   tenant: FD
 - id: 30
   name: PRINTERS
+  tenant: FD
+- id: 40
+  name: CAMERAS
   tenant: FD
 - id: 4092
   name: INBAND_MGMT

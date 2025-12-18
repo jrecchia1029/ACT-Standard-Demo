@@ -310,6 +310,7 @@ vlan internal order ascending range 1006 1199
 | 10 | DATA | - |
 | 20 | VOICE | - |
 | 30 | PRINTERS | - |
+| 40 | CAMERAS | - |
 | 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
@@ -327,6 +328,9 @@ vlan 20
 !
 vlan 30
    name PRINTERS
+!
+vlan 40
+   name CAMERAS
 !
 vlan 3009
    name MLAG_L3_VRF_CORPORATE
@@ -356,9 +360,9 @@ vlan 4094
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
 | Ethernet49 | MLAG_SF-FD-Leaf-3A_Ethernet49 | *trunk | *- | *- | *MLAG | 49 |
 | Ethernet50 | MLAG_SF-FD-Leaf-3A_Ethernet50 | *trunk | *- | *- | *MLAG | 49 |
-| Ethernet53 | L2_SF-FD-Leaf-3C_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 53 |
-| Ethernet54 | L2_SF-FD-Leaf-3D_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 53 |
-| Ethernet55 | L2_SF-FD-Leaf-3E_Ethernet26 | *trunk | *10,20,30,4092 | *- | *- | 55 |
+| Ethernet53 | L2_SF-FD-Leaf-3C_Ethernet26 | *trunk | *10,20,30,40,4092 | *- | *- | 53 |
+| Ethernet54 | L2_SF-FD-Leaf-3D_Ethernet26 | *trunk | *10,20,30,40,4092 | *- | *- | 53 |
+| Ethernet55 | L2_SF-FD-Leaf-3E_Ethernet26 | *trunk | *10,20,30,40,4092 | *- | *- | 55 |
 
 *Inherited from Port-Channel Interface
 
@@ -437,8 +441,8 @@ interface Ethernet55
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
 | Port-Channel49 | MLAG_SF-FD-Leaf-3A_Port-Channel49 | trunk | - | - | MLAG | 30 | individual | - | - |
-| Port-Channel53 | L2_Floor3_Member_Leafs_CD_Port-Channel25 | trunk | 10,20,30,4092 | - | - | 30 | individual | 53 | - |
-| Port-Channel55 | L2_SF-FD-Leaf-3E_Port-Channel25 | trunk | 10,20,30,4092 | - | - | 30 | individual | 55 | - |
+| Port-Channel53 | L2_Floor3_Member_Leafs_CD_Port-Channel25 | trunk | 10,20,30,40,4092 | - | - | 30 | individual | 53 | - |
+| Port-Channel55 | L2_SF-FD-Leaf-3E_Port-Channel25 | trunk | 10,20,30,40,4092 | - | - | 30 | individual | 55 | - |
 
 #### Port-Channel Interfaces Device Configuration
 
@@ -456,7 +460,7 @@ interface Port-Channel49
 interface Port-Channel53
    description L2_Floor3_Member_Leafs_CD_Port-Channel25
    no shutdown
-   switchport trunk allowed vlan 10,20,30,4092
+   switchport trunk allowed vlan 10,20,30,40,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -466,7 +470,7 @@ interface Port-Channel53
 interface Port-Channel55
    description L2_SF-FD-Leaf-3E_Port-Channel25
    no shutdown
-   switchport trunk allowed vlan 10,20,30,4092
+   switchport trunk allowed vlan 10,20,30,40,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -524,6 +528,7 @@ interface Loopback10
 | Vlan10 | DATA | CORPORATE | - | False |
 | Vlan20 | VOICE | CORPORATE | - | False |
 | Vlan30 | PRINTERS | CORPORATE | - | False |
+| Vlan40 | CAMERAS | CORPORATE | - | False |
 | Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | Inband Management | default | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
@@ -536,6 +541,7 @@ interface Loopback10
 | Vlan10 |  CORPORATE  |  -  |  10.15.10.1/24  |  -  |  -  |  -  |
 | Vlan20 |  CORPORATE  |  -  |  10.15.20.1/24  |  -  |  -  |  -  |
 | Vlan30 |  CORPORATE  |  -  |  10.15.30.1/24  |  -  |  -  |  -  |
+| Vlan40 |  CORPORATE  |  -  |  10.15.40.1/24  |  -  |  -  |  -  |
 | Vlan3009 |  CORPORATE  |  192.168.255.7/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  10.1.15.99/27  |  -  |  10.1.15.97  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.7/31  |  -  |  -  |  -  |  -  |
@@ -562,6 +568,12 @@ interface Vlan30
    no shutdown
    vrf CORPORATE
    ip address virtual 10.15.30.1/24
+!
+interface Vlan40
+   description CAMERAS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.40.1/24
 !
 interface Vlan3009
    description MLAG_L3_VRF_CORPORATE
@@ -610,6 +622,7 @@ interface Vlan4094
 | 10 | 10010 | - | - |
 | 20 | 10020 | - | - |
 | 30 | 10030 | - | - |
+| 40 | 10040 | - | - |
 | 4092 | 14092 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
@@ -631,6 +644,7 @@ interface Vxlan1
    vxlan vlan 10 vni 10010
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
+   vxlan vlan 40 vni 10040
    vxlan vlan 4092 vni 14092
    vxlan vrf CORPORATE vni 10
    vxlan vrf default vni 1
@@ -776,6 +790,7 @@ ASN Notation: asplain
 | 10 | 10.255.255.167:10010 | 10010:10010 | - | - | learned |
 | 20 | 10.255.255.167:10020 | 10020:10020 | - | - | learned |
 | 30 | 10.255.255.167:10030 | 10030:10030 | - | - | learned |
+| 40 | 10.255.255.167:10040 | 10040:10040 | - | - | learned |
 | 4092 | 10.255.255.167:14092 | 14092:14092 | - | - | learned |
 
 #### Router BGP VRFs
@@ -839,6 +854,11 @@ router bgp 65353
    vlan 30
       rd 10.255.255.167:10030
       route-target both 10030:10030
+      redistribute learned
+   !
+   vlan 40
+      rd 10.255.255.167:10040
+      route-target both 10040:10040
       redistribute learned
    !
    vlan 4092

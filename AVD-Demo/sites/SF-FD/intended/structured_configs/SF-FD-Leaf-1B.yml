@@ -754,6 +754,14 @@ router_bgp:
       - 10030:10030
     redistribute_routes:
     - learned
+  - id: 40
+    tenant: FD
+    rd: 10.255.255.164:10040
+    route_targets:
+      both:
+      - 10040:10040
+    redistribute_routes:
+    - learned
   - id: 4092
     tenant: FD
     rd: 10.255.255.164:14092
@@ -852,6 +860,12 @@ vlan_interfaces:
   vrf: CORPORATE
   ip_address_virtual: 10.15.30.1/24
   tenant: FD
+- name: Vlan40
+  description: CAMERAS
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.40.1/24
+  tenant: FD
 - name: Vlan3009
   description: MLAG_L3_VRF_CORPORATE
   shutdown: false
@@ -891,6 +905,9 @@ vlans:
 - id: 30
   name: PRINTERS
   tenant: FD
+- id: 40
+  name: CAMERAS
+  tenant: FD
 - id: 3009
   name: MLAG_L3_VRF_CORPORATE
   trunk_groups:
@@ -919,6 +936,8 @@ vxlan_interface:
         vni: 10020
       - id: 30
         vni: 10030
+      - id: 40
+        vni: 10040
       - id: 4092
         vni: 14092
       vrfs:

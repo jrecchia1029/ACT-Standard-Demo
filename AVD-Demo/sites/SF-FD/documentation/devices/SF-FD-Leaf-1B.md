@@ -310,6 +310,7 @@ vlan internal order ascending range 1006 1199
 | 10 | DATA | - |
 | 20 | VOICE | - |
 | 30 | PRINTERS | - |
+| 40 | CAMERAS | - |
 | 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | L2_INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
@@ -327,6 +328,9 @@ vlan 20
 !
 vlan 30
    name PRINTERS
+!
+vlan 40
+   name CAMERAS
 !
 vlan 3009
    name MLAG_L3_VRF_CORPORATE
@@ -754,6 +758,7 @@ interface Loopback10
 | Vlan10 | DATA | CORPORATE | - | False |
 | Vlan20 | VOICE | CORPORATE | - | False |
 | Vlan30 | PRINTERS | CORPORATE | - | False |
+| Vlan40 | CAMERAS | CORPORATE | - | False |
 | Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | L2_INBAND_MGMT | default | - | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
@@ -766,6 +771,7 @@ interface Loopback10
 | Vlan10 |  CORPORATE  |  -  |  10.15.10.1/24  |  -  |  -  |  -  |
 | Vlan20 |  CORPORATE  |  -  |  10.15.20.1/24  |  -  |  -  |  -  |
 | Vlan30 |  CORPORATE  |  -  |  10.15.30.1/24  |  -  |  -  |  -  |
+| Vlan40 |  CORPORATE  |  -  |  10.15.40.1/24  |  -  |  -  |  -  |
 | Vlan3009 |  CORPORATE  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  -  |  -  |  -  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.1/31  |  -  |  -  |  -  |  -  |
@@ -792,6 +798,12 @@ interface Vlan30
    no shutdown
    vrf CORPORATE
    ip address virtual 10.15.30.1/24
+!
+interface Vlan40
+   description CAMERAS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.15.40.1/24
 !
 interface Vlan3009
    description MLAG_L3_VRF_CORPORATE
@@ -836,6 +848,7 @@ interface Vlan4094
 | 10 | 10010 | - | - |
 | 20 | 10020 | - | - |
 | 30 | 10030 | - | - |
+| 40 | 10040 | - | - |
 | 4092 | 14092 | - | - |
 
 ##### VRF to VNI and Multicast Group Mappings
@@ -857,6 +870,7 @@ interface Vxlan1
    vxlan vlan 10 vni 10010
    vxlan vlan 20 vni 10020
    vxlan vlan 30 vni 10030
+   vxlan vlan 40 vni 10040
    vxlan vlan 4092 vni 14092
    vxlan vrf CORPORATE vni 10
    vxlan vrf default vni 1
@@ -1002,6 +1016,7 @@ ASN Notation: asplain
 | 10 | 10.255.255.164:10010 | 10010:10010 | - | - | learned |
 | 20 | 10.255.255.164:10020 | 10020:10020 | - | - | learned |
 | 30 | 10.255.255.164:10030 | 10030:10030 | - | - | learned |
+| 40 | 10.255.255.164:10040 | 10040:10040 | - | - | learned |
 | 4092 | 10.255.255.164:14092 | 14092:14092 | - | - | learned |
 
 #### Router BGP VRFs
@@ -1064,6 +1079,11 @@ router bgp 65351
    vlan 30
       rd 10.255.255.164:10030
       route-target both 10030:10030
+      redistribute learned
+   !
+   vlan 40
+      rd 10.255.255.164:10040
+      route-target both 10040:10040
       redistribute learned
    !
    vlan 4092

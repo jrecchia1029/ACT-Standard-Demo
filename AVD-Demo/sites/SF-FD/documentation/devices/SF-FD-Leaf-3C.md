@@ -294,6 +294,7 @@ vlan internal order ascending range 1006 1199
 | 10 | DATA | - |
 | 20 | VOICE | - |
 | 30 | PRINTERS | - |
+| 40 | CAMERAS | - |
 | 4092 | INBAND_MGMT | - |
 | 4094 | MLAG | MLAG |
 
@@ -309,6 +310,9 @@ vlan 20
 !
 vlan 30
    name PRINTERS
+!
+vlan 40
+   name CAMERAS
 !
 vlan 4092
    name INBAND_MGMT
@@ -352,8 +356,8 @@ vlan 4094
 | Ethernet22 | - | access | 10 | - | - | - |
 | Ethernet23 | - | access | 10 | - | - | - |
 | Ethernet24 | - | access | 10 | - | - | - |
-| Ethernet25 | - | *trunk | *10,20,30,4092 | *- | *- | 25 |
-| Ethernet26 | - | *trunk | *10,20,30,4092 | *- | *- | 25 |
+| Ethernet25 | - | *trunk | *10,20,30,40,4092 | *- | *- | 25 |
+| Ethernet26 | - | *trunk | *10,20,30,40,4092 | *- | *- | 25 |
 | Ethernet27 | - | *trunk | *- | *- | *MLAG | 27 |
 | Ethernet28 | - | *trunk | *- | *- | *MLAG | 27 |
 | Ethernet29 | - | access | 10 | - | - | - |
@@ -627,7 +631,7 @@ interface Ethernet31
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel25 | L2_Floor3_Leafs_Port-Channel53 | trunk | 10,20,30,4092 | - | - | - | - | 25 | - |
+| Port-Channel25 | L2_Floor3_Leafs_Port-Channel53 | trunk | 10,20,30,40,4092 | - | - | - | - | 25 | - |
 | Port-Channel27 | MLAG_SF-FD-Leaf-3D_Port-Channel27 | trunk | - | - | MLAG | 30 | individual | - | - |
 
 #### Port-Channel Interfaces Device Configuration
@@ -637,7 +641,7 @@ interface Ethernet31
 interface Port-Channel25
    description L2_Floor3_Leafs_Port-Channel53
    no shutdown
-   switchport trunk allowed vlan 10,20,30,4092
+   switchport trunk allowed vlan 10,20,30,40,4092
    switchport mode trunk
    switchport
    mlag 25
