@@ -301,6 +301,9 @@ vlan internal order ascending range 1006 1199
 
 | VLAN ID | Name | Trunk Groups |
 | ------- | ---- | ------------ |
+| 10 | DATA | - |
+| 20 | VOICE | - |
+| 30 | PRINTERS | - |
 | 3009 | MLAG_L3_VRF_CORPORATE | MLAG |
 | 4092 | INBAND_MGMT | - |
 | 4093 | MLAG_L3 | MLAG |
@@ -309,6 +312,15 @@ vlan internal order ascending range 1006 1199
 ### VLANs Device Configuration
 
 ```eos
+!
+vlan 10
+   name DATA
+!
+vlan 20
+   name VOICE
+!
+vlan 30
+   name PRINTERS
 !
 vlan 3009
    name MLAG_L3_VRF_CORPORATE
@@ -336,11 +348,11 @@ vlan 4094
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet1 | L2_SF-SOMA-Leaf-1A_Ethernet51 | *trunk | *4092 | *- | *- | 1 |
-| Ethernet2 | L2_SF-SOMA-Leaf-1B_Ethernet51 | *trunk | *4092 | *- | *- | 1 |
-| Ethernet3 | L2_SF-SOMA-Leaf-2A_Ethernet97/1 | *trunk | *4092 | *- | *- | 3 |
-| Ethernet4 | L2_SF-SOMA-Leaf-3A_Ethernet51 | *trunk | *4092 | *- | *- | 4 |
-| Ethernet5 | L2_SF-SOMA-Leaf-3B_Ethernet51 | *trunk | *4092 | *- | *- | 4 |
+| Ethernet1 | L2_SF-SOMA-Leaf-1A_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 1 |
+| Ethernet2 | L2_SF-SOMA-Leaf-1B_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 1 |
+| Ethernet3 | L2_SF-SOMA-Leaf-2A_Ethernet97/1 | *trunk | *10,20,30,4092 | *- | *- | 3 |
+| Ethernet4 | L2_SF-SOMA-Leaf-3A_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 4 |
+| Ethernet5 | L2_SF-SOMA-Leaf-3B_Ethernet51 | *trunk | *10,20,30,4092 | *- | *- | 4 |
 | Ethernet49/1 | MLAG_SF-SOMA-Spine-2_Ethernet49/1 | *trunk | *- | *- | *MLAG | 491 |
 | Ethernet50/1 | MLAG_SF-SOMA-Spine-2_Ethernet50/1 | *trunk | *- | *- | *MLAG | 491 |
 
@@ -422,9 +434,9 @@ interface Ethernet51/1
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | LACP Fallback Timeout | LACP Fallback Mode | MLAG ID | EVPN ESI |
 | --------- | ----------- | ---- | ----- | ----------- | ------------| --------------------- | ------------------ | ------- | -------- |
-| Port-Channel1 | L2_Floor1_Leafs_Port-Channel51 | trunk | 4092 | - | - | 30 | individual | 1 | - |
-| Port-Channel3 | L2_SF-SOMA-Leaf-2A_Port-Channel971 | trunk | 4092 | - | - | 30 | individual | 3 | - |
-| Port-Channel4 | L2_Floor3_Leafs_Port-Channel51 | trunk | 4092 | - | - | 30 | individual | 4 | - |
+| Port-Channel1 | L2_Floor1_Leafs_Port-Channel51 | trunk | 10,20,30,4092 | - | - | 30 | individual | 1 | - |
+| Port-Channel3 | L2_SF-SOMA-Leaf-2A_Port-Channel971 | trunk | 10,20,30,4092 | - | - | 30 | individual | 3 | - |
+| Port-Channel4 | L2_Floor3_Leafs_Port-Channel51 | trunk | 10,20,30,4092 | - | - | 30 | individual | 4 | - |
 | Port-Channel491 | MLAG_SF-SOMA-Spine-2_Port-Channel491 | trunk | - | - | MLAG | - | - | - | - |
 
 #### Port-Channel Interfaces Device Configuration
@@ -434,7 +446,7 @@ interface Ethernet51/1
 interface Port-Channel1
    description L2_Floor1_Leafs_Port-Channel51
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -444,7 +456,7 @@ interface Port-Channel1
 interface Port-Channel3
    description L2_SF-SOMA-Leaf-2A_Port-Channel971
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -454,7 +466,7 @@ interface Port-Channel3
 interface Port-Channel4
    description L2_Floor3_Leafs_Port-Channel51
    no shutdown
-   switchport trunk allowed vlan 4092
+   switchport trunk allowed vlan 10,20,30,4092
    switchport mode trunk
    switchport
    port-channel lacp fallback individual
@@ -509,6 +521,9 @@ interface Loopback10
 
 | Interface | Description | VRF |  MTU | Shutdown |
 | --------- | ----------- | --- | ---- | -------- |
+| Vlan10 | DATA | CORPORATE | - | False |
+| Vlan20 | VOICE | CORPORATE | - | False |
+| Vlan30 | PRINTERS | CORPORATE | - | False |
 | Vlan3009 | MLAG_L3_VRF_CORPORATE | CORPORATE | 1500 | False |
 | Vlan4092 | Inband Management | default | 1500 | False |
 | Vlan4093 | MLAG_L3 | default | 1500 | False |
@@ -518,6 +533,9 @@ interface Loopback10
 
 | Interface | VRF | IP Address | IP Address Virtual | IP Router Virtual Address | ACL In | ACL Out |
 | --------- | --- | ---------- | ------------------ | ------------------------- | ------ | ------- |
+| Vlan10 |  CORPORATE  |  -  |  10.14.10.1/24  |  -  |  -  |  -  |
+| Vlan20 |  CORPORATE  |  -  |  10.14.20.1/24  |  -  |  -  |  -  |
+| Vlan30 |  CORPORATE  |  -  |  10.14.30.1/24  |  -  |  -  |  -  |
 | Vlan3009 |  CORPORATE  |  192.168.255.0/31  |  -  |  -  |  -  |  -  |
 | Vlan4092 |  default  |  10.1.14.2/24  |  -  |  10.1.14.1  |  -  |  -  |
 | Vlan4093 |  default  |  192.168.255.0/31  |  -  |  -  |  -  |  -  |
@@ -526,6 +544,24 @@ interface Loopback10
 #### VLAN Interfaces Device Configuration
 
 ```eos
+!
+interface Vlan10
+   description DATA
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.14.10.1/24
+!
+interface Vlan20
+   description VOICE
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.14.20.1/24
+!
+interface Vlan30
+   description PRINTERS
+   no shutdown
+   vrf CORPORATE
+   ip address virtual 10.14.30.1/24
 !
 interface Vlan3009
    description MLAG_L3_VRF_CORPORATE

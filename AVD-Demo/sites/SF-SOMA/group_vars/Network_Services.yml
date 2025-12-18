@@ -2,8 +2,6 @@
 tenants:  # dynamic_key: network_services
   - name: SOMA
     vrfs:
-      - name: default
-        vrf_vni: 1
       - name: CORPORATE
         vrf_vni: 10
         vtep_diagnostic:
@@ -22,6 +20,8 @@ tenants:  # dynamic_key: network_services
             name: PRINTERS
             enabled: true
             ip_address_virtual: 10.14.30.1/24
+      - name: default
+        vrf_vni: 1
         svis:
           - id: 4092
             name: L2_INBAND_MGMT
