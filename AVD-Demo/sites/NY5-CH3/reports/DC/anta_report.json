@@ -1004,7 +1004,7 @@
         "description": "Verifies there are no syslog messages with a severity of ERRORS or higher.",
         "result": "failure",
         "messages": [
-            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:55 CH3-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.\n Dec 18 12:37:56 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.12.2 (VRF default AS 65050) 6/5 (Cease/connection rejected) 0 bytes\n Dec 18 12:37:56 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.12.0 (VRF default AS 65050) 6/5 (Cease/connection rejected) 0 bytes\n Dec 18 12:37:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.218.2 (VRF default AS 65050) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:37:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.218.1 (VRF default AS 65050) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:38:20 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:30 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.22613 secs)\n Dec 18 12:38:38 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.87031 secs)\n Dec 18 12:38:47 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.71358 secs)\n Dec 18 12:38:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.40363 secs)\n Dec 18 12:40:09 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 72.9206 secs)\n Dec 18 12:41:18 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:35 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:45:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:24 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:13 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:06 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:36 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:09 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:42 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:13 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:12:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:15:50 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:40 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:46 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:21 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:06 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:50 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:34 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:18 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:38:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:44 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:29 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:11 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:48:58 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:47 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:57:27 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:00:14 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
+            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:55 CH3-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.\n Dec 18 12:37:56 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.12.2 (VRF default AS 65050) 6/5 (Cease/connection rejected) 0 bytes\n Dec 18 12:37:56 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.12.0 (VRF default AS 65050) 6/5 (Cease/connection rejected) 0 bytes\n Dec 18 12:37:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.218.2 (VRF default AS 65050) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:37:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.218.1 (VRF default AS 65050) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:38:20 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:30 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.22613 secs)\n Dec 18 12:38:38 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.87031 secs)\n Dec 18 12:38:47 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.71358 secs)\n Dec 18 12:38:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.40363 secs)\n Dec 18 12:40:09 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 72.9206 secs)\n Dec 18 12:41:18 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:35 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:45:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:24 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:13 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:06 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:36 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:09 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:42 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:13 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:12:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:15:50 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:40 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:46 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:21 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:06 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:50 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:34 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:18 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:38:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:44 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:29 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:11 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:48:58 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:47 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:57:27 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:00:14 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:02:46 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:05:17 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:07:54 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:10:37 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:13:08 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
         ],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
@@ -1685,11 +1685,52 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
+        "result": "failure",
         "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+            "Peer: 10.245.217.7 VRF: default - Incorrect session state - Expected: Established Actual: Active",
+            "Peer: 10.245.217.8 VRF: default - Incorrect session state - Expected: Established Actual: Active"
         ],
-        "atomic_results": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.7 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.217.8 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.218.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.14.64 VRF: default",
+                "result": "success",
+                "messages": []
+            }
+        ],
         "custom_field": "Generated by AVD"
     },
     {
@@ -2642,7 +2683,7 @@
         "description": "Verifies there are no syslog messages with a severity of ERRORS or higher.",
         "result": "failure",
         "messages": [
-            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:47 CH3-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1435) -- Master ProcMgr (PID=1435) exiting.\n Dec 18 12:36:48 CH3-Border-Leaf-B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1857) at tbl://stpTxRxListen/+n closed by peer (EOF)\n Dec 18 12:36:48 CH3-Border-Leaf-B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1857))\n Dec 18 12:38:20 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:25 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 5.63323 secs)\n Dec 18 12:38:35 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.45084 secs)\n Dec 18 12:38:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.10601 secs)\n Dec 18 12:38:54 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.52122 secs)\n Dec 18 12:39:03 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.19425 secs)\n Dec 18 12:40:18 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:41:23 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:36 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:53 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:07 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:17 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:52:01 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:41 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:17 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:57 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:15 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:37 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:00 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:56 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:50 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:43 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:18 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:58 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:31 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:16 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:38:05 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:42 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:29 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:03 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:49:00 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:34 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:26 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:57:07 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:59:41 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
+            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:47 CH3-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1435) -- Master ProcMgr (PID=1435) exiting.\n Dec 18 12:36:48 CH3-Border-Leaf-B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1857) at tbl://stpTxRxListen/+n closed by peer (EOF)\n Dec 18 12:36:48 CH3-Border-Leaf-B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1857))\n Dec 18 12:38:20 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:25 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 5.63323 secs)\n Dec 18 12:38:35 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.45084 secs)\n Dec 18 12:38:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.10601 secs)\n Dec 18 12:38:54 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.52122 secs)\n Dec 18 12:39:03 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.19425 secs)\n Dec 18 12:40:18 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:41:23 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:36 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:53 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:07 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:17 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:52:01 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:41 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:17 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:57 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:15 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:37 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:00 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:56 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:50 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:43 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:18 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:58 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:31 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:16 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:38:05 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:42 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:29 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:03 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:49:00 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:34 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:26 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:57:07 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:59:41 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:02:19 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:05:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:08:06 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:10:45 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
         ],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
@@ -3323,11 +3364,30 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.10 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -4322,11 +4382,30 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.12 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.14 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -5321,11 +5400,70 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.9 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.13 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.17 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.21 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -6046,11 +6184,70 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.11 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.15 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.19 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.12.23 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -6771,11 +6968,52 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
+        "result": "failure",
         "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+            "Peer: 10.245.218.7 VRF: default - Incorrect session state - Expected: Established Actual: Active",
+            "Peer: 10.245.218.8 VRF: default - Incorrect session state - Expected: Established Actual: Active"
         ],
-        "atomic_results": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.7 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.218.8 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.11.0 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.13.65 VRF: default",
+                "result": "success",
+                "messages": []
+            }
+        ],
         "custom_field": "Generated by AVD"
     },
     {
@@ -7728,7 +7966,7 @@
         "description": "Verifies there are no syslog messages with a severity of ERRORS or higher.",
         "result": "failure",
         "messages": [
-            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:53 NY5-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.\n Dec 18 12:36:53 NY5-Border-Leaf-A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)\n Dec 18 12:36:53 NY5-Border-Leaf-A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))\n Dec 18 12:37:57 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.217.2 (VRF default AS 65000) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:38:20 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 5.67891 secs)\n Dec 18 12:38:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.299 secs)\n Dec 18 12:38:44 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.18834 secs)\n Dec 18 12:38:53 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.03793 secs)\n Dec 18 12:39:02 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.15937 secs)\n Dec 18 12:40:21 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:41:31 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:39 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:49 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:54 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:08 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:12 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:59 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:28 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:56:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:27 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:04:58 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:31 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:09 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:18 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:14 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:44 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:04 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:26:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:06 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:31:45 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:34:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:37:29 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:01 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:42:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:45:43 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:48:47 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:20 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:22 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:56:52 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:59:43 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
+            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:53 NY5-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.\n Dec 18 12:36:53 NY5-Border-Leaf-A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)\n Dec 18 12:36:53 NY5-Border-Leaf-A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))\n Dec 18 12:37:57 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.245.217.2 (VRF default AS 65000) 6/7 (Cease/connection collision resolution) 0 bytes \n Dec 18 12:38:20 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 5.67891 secs)\n Dec 18 12:38:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.299 secs)\n Dec 18 12:38:44 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.18834 secs)\n Dec 18 12:38:53 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.03793 secs)\n Dec 18 12:39:02 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.15937 secs)\n Dec 18 12:40:21 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:41:31 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:39 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:49 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:54 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:46:08 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:49:12 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:59 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:28 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:56:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:59:27 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:02:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:04:58 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:07:31 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:10:09 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:18 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:14 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:18:44 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:21:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:04 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:26:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:06 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:31:45 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:34:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:37:29 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:01 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:42:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:45:43 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:48:47 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:51:20 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:22 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:56:52 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:59:43 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:02:24 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:04:52 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:07:23 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:10:12 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:12:55 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
         ],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
@@ -7898,11 +8136,52 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
+        "result": "failure",
         "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+            "Peer: 10.245.218.7 VRF: default - Incorrect session state - Expected: Established Actual: Active",
+            "Peer: 10.245.218.8 VRF: default - Incorrect session state - Expected: Established Actual: Active"
         ],
-        "atomic_results": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.218.7 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.218.8 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Incorrect session state - Expected: Established Actual: Active"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.11.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.13.64 VRF: default",
+                "result": "success",
+                "messages": []
+            }
+        ],
         "custom_field": "Generated by AVD"
     },
     {
@@ -8855,7 +9134,7 @@
         "description": "Verifies there are no syslog messages with a severity of ERRORS or higher.",
         "result": "failure",
         "messages": [
-            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:59 NY5-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1439) -- Master ProcMgr (PID=1439) exiting.\n Dec 18 12:38:20 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:29 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.68283 secs)\n Dec 18 12:38:37 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.2641 secs)\n Dec 18 12:38:46 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.97844 secs)\n Dec 18 12:38:56 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.95359 secs)\n Dec 18 12:40:15 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 78.8052 secs)\n Dec 18 12:41:21 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:26 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:41 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:48 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:45:53 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:48:49 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:32 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:38 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:43 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:00:31 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:03:04 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:40 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:08:09 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:11:13 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:43 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:30 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:19:21 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:22:08 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:36 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:17 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:54 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:32 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:10 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:37:58 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:57 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:47 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:45 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:49:34 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:52:27 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:56 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:58:01 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:00:45 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
+            "Device has reported syslog messages with a severity of ERRORS or higher:\nDec 18 12:36:59 NY5-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1439) -- Master ProcMgr (PID=1439) exiting.\n Dec 18 12:38:20 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:38:29 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.68283 secs)\n Dec 18 12:38:37 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.2641 secs)\n Dec 18 12:38:46 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 8.97844 secs)\n Dec 18 12:38:56 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 9.95359 secs)\n Dec 18 12:40:15 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes (message repeated 1 times in 78.8052 secs)\n Dec 18 12:41:21 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:42:26 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:43:41 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:44:48 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:45:53 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:48:49 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:51:32 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:54:38 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 12:57:43 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:00:31 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:03:04 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:05:40 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:08:09 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:11:13 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:13:43 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:16:30 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:19:21 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:22:08 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:24:36 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:27:17 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:29:54 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:32:32 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:35:10 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:37:58 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:40:57 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:43:47 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:46:45 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:49:34 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:52:27 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:54:56 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 13:58:01 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:00:45 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:03:29 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:06:12 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:08:55 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n Dec 18 14:11:59 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes\n \n"
         ],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
@@ -9025,11 +9304,30 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.10 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -9814,10 +10112,8 @@
             "interfaces"
         ],
         "description": "Verifies that the utilization of interfaces is below a certain threshold.",
-        "result": "error",
-        "messages": [
-            "show interfaces counters rates has failed: ReadTimeout"
-        ],
+        "result": "success",
+        "messages": [],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
@@ -10291,11 +10587,30 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.12 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.14 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -11290,11 +11605,51 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
+        "result": "failure",
         "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+            "Peer: 10.245.218.1 VRF: default - Not found",
+            "Peer: 10.245.218.2 VRF: default - Not found",
+            "Peer: 192.168.12.16 VRF: default - Not found",
+            "Peer: 192.168.12.18 VRF: default - Not found",
+            "Peer: 192.168.14.73 VRF: default - Not found"
         ],
-        "atomic_results": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.1 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.218.2 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.12.16 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.12.18 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.14.73 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            }
+        ],
         "custom_field": "Generated by AVD"
     },
     {
@@ -11304,11 +11659,35 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.16 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.18 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.13.73 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -13549,11 +13928,51 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
+        "result": "failure",
         "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+            "Peer: 10.245.218.1 VRF: default - Not found",
+            "Peer: 10.245.218.2 VRF: default - Not found",
+            "Peer: 192.168.12.20 VRF: default - Not found",
+            "Peer: 192.168.12.22 VRF: default - Not found",
+            "Peer: 192.168.14.72 VRF: default - Not found"
         ],
-        "atomic_results": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.218.1 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 10.245.218.2 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.12.20 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.12.22 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            },
+            {
+                "description": "Peer: 192.168.14.72 VRF: default",
+                "result": "failure",
+                "messages": [
+                    "Not found"
+                ]
+            }
+        ],
         "custom_field": "Generated by AVD"
     },
     {
@@ -13563,11 +13982,35 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.2 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.20 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.22 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.13.72 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -15808,11 +16251,70 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.1 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.9 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.13 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.17 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.21 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -16533,11 +17035,70 @@
             "bgp"
         ],
         "description": "Verifies the session state of BGP peers.",
-        "result": "error",
-        "messages": [
-            "show bgp neighbors vrf all has failed: ReadTimeout"
+        "result": "success",
+        "messages": [],
+        "atomic_results": [
+            {
+                "description": "Peer: 10.245.217.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.4 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.5 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.6 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 10.245.217.8 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.3 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.7 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.11 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.15 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.19 VRF: default",
+                "result": "success",
+                "messages": []
+            },
+            {
+                "description": "Peer: 192.168.11.23 VRF: default",
+                "result": "success",
+                "messages": []
+            }
         ],
-        "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
     {
@@ -17062,10 +17623,8 @@
             "interfaces"
         ],
         "description": "Verifies that the utilization of interfaces is below a certain threshold.",
-        "result": "error",
-        "messages": [
-            "show interfaces counters rates has failed: ReadTimeout"
-        ],
+        "result": "success",
+        "messages": [],
         "atomic_results": [],
         "custom_field": "Generated by AVD"
     },
