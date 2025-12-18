@@ -307,30 +307,46 @@ vlan 4092
 
 | Interface | Description | Mode | VLANs | Native VLAN | Trunk Group | Channel-Group |
 | --------- | ----------- | ---- | ----- | ----------- | ----------- | ------------- |
-| Ethernet1 | - | access | 30 | - | - | - |
-| Ethernet2 | - | access | 30 | - | - | - |
-| Ethernet3 | - | access | 30 | - | - | - |
-| Ethernet4 | - | access | 30 | - | - | - |
-| Ethernet5 | - | access | 30 | - | - | - |
-| Ethernet6 | - | access | 30 | - | - | - |
-| Ethernet7 | - | access | 30 | - | - | - |
-| Ethernet8 | - | access | 30 | - | - | - |
-| Ethernet9 | - | access | 30 | - | - | - |
-| Ethernet10 | - | access | 30 | - | - | - |
-| Ethernet11 | - | access | 30 | - | - | - |
-| Ethernet12 | - | access | 30 | - | - | - |
-| Ethernet13 | - | access | 30 | - | - | - |
-| Ethernet14 | - | access | 30 | - | - | - |
-| Ethernet15 | - | access | 30 | - | - | - |
-| Ethernet16 | - | access | 30 | - | - | - |
-| Ethernet17 | - | access | 30 | - | - | - |
-| Ethernet18 | - | access | 30 | - | - | - |
-| Ethernet19 | - | access | 30 | - | - | - |
-| Ethernet20 | - | access | 30 | - | - | - |
-| Ethernet21 | - | access | 30 | - | - | - |
-| Ethernet22 | - | access | 30 | - | - | - |
-| Ethernet23 | - | access | 30 | - | - | - |
-| Ethernet24 | - | access | 30 | - | - | - |
+| Ethernet1 | - | access | 10 | - | - | - |
+| Ethernet2 | - | access | 10 | - | - | - |
+| Ethernet3 | - | access | 10 | - | - | - |
+| Ethernet4 | - | access | 10 | - | - | - |
+| Ethernet5 | - | access | 10 | - | - | - |
+| Ethernet6 | - | access | 10 | - | - | - |
+| Ethernet7 | - | access | 10 | - | - | - |
+| Ethernet8 | - | access | 10 | - | - | - |
+| Ethernet9 | - | access | 10 | - | - | - |
+| Ethernet10 | - | access | 10 | - | - | - |
+| Ethernet11 | - | access | 10 | - | - | - |
+| Ethernet12 | - | access | 10 | - | - | - |
+| Ethernet13 | - | access | 10 | - | - | - |
+| Ethernet14 | - | access | 10 | - | - | - |
+| Ethernet15 | - | access | 10 | - | - | - |
+| Ethernet16 | - | access | 10 | - | - | - |
+| Ethernet17 | - | access | 10 | - | - | - |
+| Ethernet18 | - | access | 10 | - | - | - |
+| Ethernet19 | - | access | 10 | - | - | - |
+| Ethernet20 | - | access | 10 | - | - | - |
+| Ethernet21 | - | access | 10 | - | - | - |
+| Ethernet22 | - | access | 10 | - | - | - |
+| Ethernet23 | - | access | 10 | - | - | - |
+| Ethernet24 | - | access | 10 | - | - | - |
+| Ethernet25 | - | access | 10 | - | - | - |
+| Ethernet26 | - | access | 10 | - | - | - |
+| Ethernet27 | - | access | 10 | - | - | - |
+| Ethernet28 | - | access | 10 | - | - | - |
+| Ethernet29 | - | access | 10 | - | - | - |
+| Ethernet30 | - | access | 10 | - | - | - |
+| Ethernet31 | - | access | 10 | - | - | - |
+| Ethernet32 | - | access | 20 | - | - | - |
+| Ethernet33 | - | access | 20 | - | - | - |
+| Ethernet34 | - | access | 20 | - | - | - |
+| Ethernet35 | - | access | 20 | - | - | - |
+| Ethernet36 | - | access | 20 | - | - | - |
+| Ethernet37 | - | access | 20 | - | - | - |
+| Ethernet38 | - | access | 20 | - | - | - |
+| Ethernet39 | - | access | 20 | - | - | - |
+| Ethernet40 | - | access | 20 | - | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -347,7 +363,7 @@ vlan 4092
 !
 interface Ethernet1
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -355,7 +371,7 @@ interface Ethernet1
 !
 interface Ethernet2
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -363,7 +379,7 @@ interface Ethernet2
 !
 interface Ethernet3
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -371,7 +387,7 @@ interface Ethernet3
 !
 interface Ethernet4
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -379,7 +395,7 @@ interface Ethernet4
 !
 interface Ethernet5
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -387,7 +403,7 @@ interface Ethernet5
 !
 interface Ethernet6
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -395,7 +411,7 @@ interface Ethernet6
 !
 interface Ethernet7
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -403,7 +419,7 @@ interface Ethernet7
 !
 interface Ethernet8
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -411,7 +427,7 @@ interface Ethernet8
 !
 interface Ethernet9
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -419,7 +435,7 @@ interface Ethernet9
 !
 interface Ethernet10
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -427,7 +443,7 @@ interface Ethernet10
 !
 interface Ethernet11
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -435,7 +451,7 @@ interface Ethernet11
 !
 interface Ethernet12
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -443,7 +459,7 @@ interface Ethernet12
 !
 interface Ethernet13
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -451,7 +467,7 @@ interface Ethernet13
 !
 interface Ethernet14
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -459,7 +475,7 @@ interface Ethernet14
 !
 interface Ethernet15
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -467,7 +483,7 @@ interface Ethernet15
 !
 interface Ethernet16
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -475,7 +491,7 @@ interface Ethernet16
 !
 interface Ethernet17
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -483,7 +499,7 @@ interface Ethernet17
 !
 interface Ethernet18
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -491,7 +507,7 @@ interface Ethernet18
 !
 interface Ethernet19
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -499,7 +515,7 @@ interface Ethernet19
 !
 interface Ethernet20
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -507,7 +523,7 @@ interface Ethernet20
 !
 interface Ethernet21
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -515,7 +531,7 @@ interface Ethernet21
 !
 interface Ethernet22
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -523,7 +539,7 @@ interface Ethernet22
 !
 interface Ethernet23
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
    switchport mode access
    switchport
    spanning-tree portfast
@@ -531,7 +547,135 @@ interface Ethernet23
 !
 interface Ethernet24
    no shutdown
-   switchport access vlan 30
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet25
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet26
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet27
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet28
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet29
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet30
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet31
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet32
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet33
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet34
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet35
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet36
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet37
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet38
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet39
+   no shutdown
+   switchport access vlan 20
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet40
+   no shutdown
+   switchport access vlan 20
    switchport mode access
    switchport
    spanning-tree portfast
@@ -792,6 +936,8 @@ ASN Notation: asplain
 | -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- | ------- | ------------ |
 | 10.250.15.8 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.250.15.10 | 65350 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 10.255.255.161 | 65350 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.162 | 65350 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 
 #### Router BGP EVPN Address Family
 
@@ -840,6 +986,12 @@ router bgp 65352
    neighbor 10.250.15.10 peer group IPv4-UNDERLAY-PEERS
    neighbor 10.250.15.10 remote-as 65350
    neighbor 10.250.15.10 description SF-FD-Spine-2_Ethernet3
+   neighbor 10.255.255.161 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.161 remote-as 65350
+   neighbor 10.255.255.161 description SF-FD-Spine-1_Loopback0
+   neighbor 10.255.255.162 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.162 remote-as 65350
+   neighbor 10.255.255.162 description SF-FD-Spine-2_Loopback0
    redistribute connected route-map RM-CONN-2-BGP
    !
    vlan 10

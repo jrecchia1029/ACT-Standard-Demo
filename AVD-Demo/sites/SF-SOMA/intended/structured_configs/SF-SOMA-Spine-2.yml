@@ -136,6 +136,11 @@ loopback_interfaces:
   description: ROUTER_ID
   shutdown: false
   ip_address: 10.255.255.146/32
+- name: Loopback10
+  description: DIAG_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 10.255.255.146/32
 management_api_http:
   enable_https: true
   enable_vrfs:
@@ -296,6 +301,11 @@ port_channel_interfaces:
     mode: trunk
     trunk:
       allowed_vlan: '4092'
+prefix_lists:
+- name: PL-MLAG-PEER-VRFS
+  sequence_numbers:
+  - sequence: 10
+    action: permit 192.168.255.0/31
 route_maps:
 - name: RM-MLAG-PEER-IN
   sequence_numbers:
@@ -304,6 +314,14 @@ route_maps:
     description: Make routes learned over MLAG Peer-link less preferred on spines to ensure optimal routing
     set:
     - origin incomplete
+- name: RM-CONN-2-BGP-VRFS
+  sequence_numbers:
+  - sequence: 10
+    type: deny
+    match:
+    - ip address prefix-list PL-MLAG-PEER-VRFS
+  - sequence: 20
+    type: permit
 router_bgp:
   as: '65300'
   router_id: 10.255.255.146
@@ -385,6 +403,14 @@ vlan_interfaces:
     enabled: true
     distance: 19
   tenant: SOMA
+- name: Vlan3009
+  description: MLAG_L3_VRF_CORPORATE
+  shutdown: false
+  vrf: CORPORATE
+  ip_address: 192.168.255.1/31
+  mtu: 1500
+  tenant: SOMA
+  type: underlay_peering
 vlan_internal_order:
   allocation: ascending
   range:
@@ -404,6 +430,14 @@ vlans:
 - id: 4092
   name: INBAND_MGMT
   tenant: system
+- id: 3009
+  name: MLAG_L3_VRF_CORPORATE
+  trunk_groups:
+  - MLAG
+  tenant: SOMA
 vrfs:
 - name: MGMT
   ip_routing: false
+- name: CORPORATE
+  ip_routing: true
+  tenant: SOMA

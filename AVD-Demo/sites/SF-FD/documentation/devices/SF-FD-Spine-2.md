@@ -36,6 +36,7 @@
   - [Port-Channel Interfaces](#port-channel-interfaces)
   - [Loopback Interfaces](#loopback-interfaces)
   - [VLAN Interfaces](#vlan-interfaces)
+  - [VXLAN Interface](#vxlan-interface)
 - [Routing](#routing)
   - [Service Routing Protocols Model](#service-routing-protocols-model)
   - [Virtual Router MAC Address](#virtual-router-mac-address)
@@ -43,6 +44,8 @@
   - [IPv6 Routing](#ipv6-routing)
   - [Static Routes](#static-routes)
   - [Router BGP](#router-bgp)
+- [BFD](#bfd)
+  - [Router BFD](#router-bfd)
 - [Multicast](#multicast)
   - [IP IGMP Snooping](#ip-igmp-snooping)
 - [Filters](#filters)
@@ -51,6 +54,9 @@
 - [VRF Instances](#vrf-instances)
   - [VRF Instances Summary](#vrf-instances-summary)
   - [VRF Instances Device Configuration](#vrf-instances-device-configuration)
+- [Virtual Source NAT](#virtual-source-nat)
+  - [Virtual Source NAT Summary](#virtual-source-nat-summary)
+  - [Virtual Source NAT Configuration](#virtual-source-nat-configuration)
 
 ## Management
 
@@ -539,6 +545,7 @@ interface Port-Channel491
 | Interface | Description | VRF | IP Address |
 | --------- | ----------- | --- | ---------- |
 | Loopback0 | ROUTER_ID | default | 10.255.255.162/32 |
+| Loopback1 | VXLAN_TUNNEL_SOURCE | default | 10.255.254.161/32 |
 | Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | 10.255.255.162/32 |
 
 ##### IPv6
@@ -546,6 +553,7 @@ interface Port-Channel491
 | Interface | Description | VRF | IPv6 Address |
 | --------- | ----------- | --- | ------------ |
 | Loopback0 | ROUTER_ID | default | - |
+| Loopback1 | VXLAN_TUNNEL_SOURCE | default | - |
 | Loopback10 | DIAG_VRF_CORPORATE | CORPORATE | - |
 
 #### Loopback Interfaces Device Configuration
@@ -556,6 +564,11 @@ interface Loopback0
    description ROUTER_ID
    no shutdown
    ip address 10.255.255.162/32
+!
+interface Loopback1
+   description VXLAN_TUNNEL_SOURCE
+   no shutdown
+   ip address 10.255.254.161/32
 !
 interface Loopback10
    description DIAG_VRF_CORPORATE
@@ -636,6 +649,49 @@ interface Vlan4094
    mtu 1500
    no autostate
    ip address 169.254.0.1/31
+```
+
+### VXLAN Interface
+
+#### VXLAN Interface Summary
+
+| Setting | Value |
+| ------- | ----- |
+| Source Interface | Loopback1 |
+| UDP port | 4789 |
+| EVPN MLAG Shared Router MAC | mlag-system-id |
+
+##### VLAN to VNI, Flood List and Multicast Group Mappings
+
+| VLAN | VNI | Flood List | Multicast Group |
+| ---- | --- | ---------- | --------------- |
+| 10 | 10010 | - | - |
+| 20 | 10020 | - | - |
+| 30 | 10030 | - | - |
+| 4092 | 14092 | - | - |
+
+##### VRF to VNI and Multicast Group Mappings
+
+| VRF | VNI | Overlay Multicast Group to Encap Mappings |
+| --- | --- | ----------------------------------------- |
+| CORPORATE | 10 | - |
+| default | 1 | - |
+
+#### VXLAN Interface Device Configuration
+
+```eos
+!
+interface Vxlan1
+   description SF-FD-Spine-2_VTEP
+   vxlan source-interface Loopback1
+   vxlan virtual-router encapsulation mac-address mlag-system-id
+   vxlan udp-port 4789
+   vxlan vlan 10 vni 10010
+   vxlan vlan 20 vni 10020
+   vxlan vlan 30 vni 10030
+   vxlan vlan 4092 vni 14092
+   vxlan vrf CORPORATE vni 10
+   vxlan vrf default vni 1
 ```
 
 ## Routing
@@ -723,6 +779,18 @@ ASN Notation: asplain
 
 #### Router BGP Peer Groups
 
+##### EVPN-OVERLAY-PEERS
+
+| Settings | Value |
+| -------- | ----- |
+| Address Family | evpn |
+| Next-hop unchanged | True |
+| Source | Loopback0 |
+| BFD | True |
+| Ebgp multihop | 3 |
+| Send community | all |
+| Maximum routes | 0 (no limit) |
+
 ##### IPv4-UNDERLAY-PEERS
 
 | Settings | Value |
@@ -751,8 +819,30 @@ ASN Notation: asplain
 | 10.250.15.15 | 65353 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.250.15.19 | 65353 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
 | 10.255.0.30 | 64750 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - | - | - |
+| 10.255.255.163 | 65351 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.164 | 65351 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.165 | 65352 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.166 | 65353 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
+| 10.255.255.167 | 65353 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - | - | - |
 | 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | default | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
 | 192.168.255.0 | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | CORPORATE | - | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | Inherited from peer group MLAG-IPv4-UNDERLAY-PEER | - | - | - | - | - | - |
+
+#### Router BGP EVPN Address Family
+
+##### EVPN Peer Groups
+
+| Peer Group | Activate | Route-map In | Route-map Out | Peer-tag In | Peer-tag Out | Encapsulation | Next-hop-self Source Interface |
+| ---------- | -------- | ------------ | ------------- | ----------- | ------------ | ------------- | ------------------------------ |
+| EVPN-OVERLAY-PEERS | True | - | - | - | - | default | - |
+
+#### Router BGP VLANs
+
+| VLAN | Route-Distinguisher | Both Route-Target | Import Route Target | Export Route-Target | Redistribute |
+| ---- | ------------------- | ----------------- | ------------------- | ------------------- | ------------ |
+| 10 | 10.255.255.162:10010 | 10010:10010 | - | - | learned |
+| 20 | 10.255.255.162:10020 | 10020:10020 | - | - | learned |
+| 30 | 10.255.255.162:10030 | 10030:10030 | - | - | learned |
+| 4092 | 10.255.255.162:14092 | 14092:14092 | - | - | learned |
 
 #### Router BGP VRFs
 
@@ -769,6 +859,13 @@ router bgp 65350
    router-id 10.255.255.162
    no bgp default ipv4-unicast
    maximum-paths 4 ecmp 4
+   neighbor EVPN-OVERLAY-PEERS peer group
+   neighbor EVPN-OVERLAY-PEERS next-hop-unchanged
+   neighbor EVPN-OVERLAY-PEERS update-source Loopback0
+   neighbor EVPN-OVERLAY-PEERS bfd
+   neighbor EVPN-OVERLAY-PEERS ebgp-multihop 3
+   neighbor EVPN-OVERLAY-PEERS send-community
+   neighbor EVPN-OVERLAY-PEERS maximum-routes 0
    neighbor IPv4-UNDERLAY-PEERS peer group
    neighbor IPv4-UNDERLAY-PEERS send-community
    neighbor IPv4-UNDERLAY-PEERS maximum-routes 12000
@@ -797,11 +894,50 @@ router bgp 65350
    neighbor 10.255.0.30 peer group IPv4-UNDERLAY-PEERS
    neighbor 10.255.0.30 remote-as 64750
    neighbor 10.255.0.30 description WAN-1
+   neighbor 10.255.255.163 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.163 remote-as 65351
+   neighbor 10.255.255.163 description SF-FD-Leaf-1A_Loopback0
+   neighbor 10.255.255.164 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.164 remote-as 65351
+   neighbor 10.255.255.164 description SF-FD-Leaf-1B_Loopback0
+   neighbor 10.255.255.165 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.165 remote-as 65352
+   neighbor 10.255.255.165 description SF-FD-Leaf-2A_Loopback0
+   neighbor 10.255.255.166 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.166 remote-as 65353
+   neighbor 10.255.255.166 description SF-FD-Leaf-3A_Loopback0
+   neighbor 10.255.255.167 peer group EVPN-OVERLAY-PEERS
+   neighbor 10.255.255.167 remote-as 65353
+   neighbor 10.255.255.167 description SF-FD-Leaf-3B_Loopback0
    neighbor 192.168.255.0 peer group MLAG-IPv4-UNDERLAY-PEER
    neighbor 192.168.255.0 description SF-FD-Spine-1_Vlan4093
    redistribute connected route-map RM-CONN-2-BGP
    !
+   vlan 10
+      rd 10.255.255.162:10010
+      route-target both 10010:10010
+      redistribute learned
+   !
+   vlan 20
+      rd 10.255.255.162:10020
+      route-target both 10020:10020
+      redistribute learned
+   !
+   vlan 30
+      rd 10.255.255.162:10030
+      route-target both 10030:10030
+      redistribute learned
+   !
+   vlan 4092
+      rd 10.255.255.162:14092
+      route-target both 14092:14092
+      redistribute learned
+   !
+   address-family evpn
+      neighbor EVPN-OVERLAY-PEERS activate
+   !
    address-family ipv4
+      no neighbor EVPN-OVERLAY-PEERS activate
       neighbor IPv4-UNDERLAY-PEERS activate
       neighbor MLAG-IPv4-UNDERLAY-PEER activate
    !
@@ -818,6 +954,24 @@ router bgp 65350
       rd 10.255.255.162:1
       route-target import evpn 1:1
       route-target export evpn 1:1
+```
+
+## BFD
+
+### Router BFD
+
+#### Router BFD Multihop Summary
+
+| Interval | Minimum RX | Multiplier |
+| -------- | ---------- | ---------- |
+| 300 | 300 | 3 |
+
+#### Router BFD Device Configuration
+
+```eos
+!
+router bfd
+   multihop interval 300 min-rx 300 multiplier 3
 ```
 
 ## Multicast
@@ -846,6 +1000,7 @@ router bgp 65350
 | Sequence | Action |
 | -------- | ------ |
 | 10 | permit 10.255.255.160/28 eq 32 |
+| 20 | permit 10.255.254.160/28 eq 32 |
 
 ##### PL-MLAG-PEER-VRFS
 
@@ -869,6 +1024,7 @@ router bgp 65350
 !
 ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
    seq 10 permit 10.255.255.160/28 eq 32
+   seq 20 permit 10.255.254.160/28 eq 32
 !
 ip prefix-list PL-MLAG-PEER-VRFS
    seq 10 permit 192.168.255.0/31
@@ -941,4 +1097,19 @@ route-map RM-MLAG-PEER-IN permit 10
 vrf instance CORPORATE
 !
 vrf instance MGMT
+```
+
+## Virtual Source NAT
+
+### Virtual Source NAT Summary
+
+| Source NAT VRF | Source NAT IPv4 Address | Source NAT IPv6 Address |
+| -------------- | ----------------------- | ----------------------- |
+| CORPORATE | 10.255.255.162 | - |
+
+### Virtual Source NAT Configuration
+
+```eos
+!
+ip address virtual source-nat vrf CORPORATE address 10.255.255.162
 ```

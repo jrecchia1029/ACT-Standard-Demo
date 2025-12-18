@@ -169,6 +169,10 @@ loopback_interfaces:
   description: ROUTER_ID
   shutdown: false
   ip_address: 10.255.255.162/32
+- name: Loopback1
+  description: VXLAN_TUNNEL_SOURCE
+  shutdown: false
+  ip_address: 10.255.254.161/32
 - name: Loopback10
   description: DIAG_VRF_CORPORATE
   shutdown: false
@@ -306,6 +310,8 @@ prefix_lists:
   sequence_numbers:
   - sequence: 10
     action: permit 10.255.255.160/28 eq 32
+  - sequence: 20
+    action: permit 10.255.254.160/28 eq 32
 - name: PL-P2P-LINKS
   sequence_numbers:
   - sequence: 10
@@ -348,6 +354,11 @@ route_maps:
     - ip address prefix-list PL-MLAG-PEER-VRFS
   - sequence: 20
     type: permit
+router_bfd:
+  multihop:
+    interval: 300
+    min_rx: 300
+    multiplier: 3
 router_bgp:
   as: '65350'
   router_id: 10.255.255.162
@@ -370,6 +381,14 @@ router_bgp:
     type: ipv4
     send_community: all
     maximum_routes: 12000
+  - name: EVPN-OVERLAY-PEERS
+    type: evpn
+    next_hop_unchanged: true
+    update_source: Loopback0
+    bfd: true
+    ebgp_multihop: 3
+    send_community: all
+    maximum_routes: 0
   neighbors:
   - ip_address: 192.168.255.0
     peer_group: MLAG-IPv4-UNDERLAY-PEER
@@ -400,6 +419,31 @@ router_bgp:
     remote_as: '65353'
     peer: SF-FD-Leaf-3B
     description: SF-FD-Leaf-3B_Ethernet52
+  - ip_address: 10.255.255.163
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65351'
+    peer: SF-FD-Leaf-1A
+    description: SF-FD-Leaf-1A_Loopback0
+  - ip_address: 10.255.255.164
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65351'
+    peer: SF-FD-Leaf-1B
+    description: SF-FD-Leaf-1B_Loopback0
+  - ip_address: 10.255.255.165
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65352'
+    peer: SF-FD-Leaf-2A
+    description: SF-FD-Leaf-2A_Loopback0
+  - ip_address: 10.255.255.166
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65353'
+    peer: SF-FD-Leaf-3A
+    description: SF-FD-Leaf-3A_Loopback0
+  - ip_address: 10.255.255.167
+    peer_group: EVPN-OVERLAY-PEERS
+    remote_as: '65353'
+    peer: SF-FD-Leaf-3B
+    description: SF-FD-Leaf-3B_Loopback0
   - ip_address: 10.255.0.30
     peer_group: IPv4-UNDERLAY-PEERS
     remote_as: '64750'
@@ -409,12 +453,51 @@ router_bgp:
     connected:
       enabled: true
       route_map: RM-CONN-2-BGP
+  vlans:
+  - id: 10
+    tenant: FD
+    rd: 10.255.255.162:10010
+    route_targets:
+      both:
+      - 10010:10010
+    redistribute_routes:
+    - learned
+  - id: 20
+    tenant: FD
+    rd: 10.255.255.162:10020
+    route_targets:
+      both:
+      - 10020:10020
+    redistribute_routes:
+    - learned
+  - id: 30
+    tenant: FD
+    rd: 10.255.255.162:10030
+    route_targets:
+      both:
+      - 10030:10030
+    redistribute_routes:
+    - learned
+  - id: 4092
+    tenant: FD
+    rd: 10.255.255.162:14092
+    route_targets:
+      both:
+      - 14092:14092
+    redistribute_routes:
+    - learned
+  address_family_evpn:
+    peer_groups:
+    - name: EVPN-OVERLAY-PEERS
+      activate: true
   address_family_ipv4:
     peer_groups:
     - name: MLAG-IPv4-UNDERLAY-PEER
       activate: true
     - name: IPv4-UNDERLAY-PEERS
       activate: true
+    - name: EVPN-OVERLAY-PEERS
+      activate: false
   vrfs:
   - name: CORPORATE
     rd: 10.255.255.162:10
@@ -460,6 +543,9 @@ static_routes:
   prefix: 0.0.0.0/0
   next_hop: 10.0.15.1
 transceiver_qsfp_default_mode_4x10: true
+virtual_source_nat_vrfs:
+- name: CORPORATE
+  ip_address: 10.255.255.162
 vlan_interfaces:
 - name: Vlan4093
   description: MLAG_L3
@@ -543,3 +629,24 @@ vrfs:
 - name: CORPORATE
   ip_routing: true
   tenant: FD
+vxlan_interface:
+  vxlan1:
+    description: SF-FD-Spine-2_VTEP
+    vxlan:
+      source_interface: Loopback1
+      udp_port: 4789
+      virtual_router_encapsulation_mac_address: mlag-system-id
+      vlans:
+      - id: 10
+        vni: 10010
+      - id: 20
+        vni: 10020
+      - id: 30
+        vni: 10030
+      - id: 4092
+        vni: 14092
+      vrfs:
+      - name: CORPORATE
+        vni: 10
+      - name: default
+        vni: 1

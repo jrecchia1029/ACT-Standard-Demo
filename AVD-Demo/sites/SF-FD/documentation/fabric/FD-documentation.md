@@ -62,8 +62,6 @@
 | l3leaf | SF-FD-Leaf-3B | Ethernet53 | l2leaf | SF-FD-Leaf-3C | Ethernet26 |
 | l3leaf | SF-FD-Leaf-3B | Ethernet54 | l2leaf | SF-FD-Leaf-3D | Ethernet26 |
 | l3leaf | SF-FD-Leaf-3B | Ethernet55 | l2leaf | SF-FD-Leaf-3E | Ethernet26 |
-| l2leaf | SF-FD-Leaf-3C | Ethernet27 | mlag_peer | SF-FD-Leaf-3D | Ethernet27 |
-| l2leaf | SF-FD-Leaf-3C | Ethernet28 | mlag_peer | SF-FD-Leaf-3D | Ethernet28 |
 | l3spine | SF-FD-Spine-1 | Ethernet49/1 | mlag_peer | SF-FD-Spine-2 | Ethernet49/1 |
 | l3spine | SF-FD-Spine-1 | Ethernet50/1 | mlag_peer | SF-FD-Spine-2 | Ethernet50/1 |
 
@@ -112,7 +110,7 @@
 
 | VTEP Loopback Pool | Available Addresses | Assigned addresses | Assigned Address % |
 | ------------------ | ------------------- | ------------------ | ------------------ |
-| 10.255.254.160/28 | 16 | 5 | 31.25 % |
+| 10.255.254.160/28 | 16 | 7 | 43.75 % |
 
 ### VTEP Loopback Node allocation
 
@@ -123,3 +121,5 @@
 | FD | SF-FD-Leaf-2A | 10.255.254.165/32 |
 | FD | SF-FD-Leaf-3A | 10.255.254.166/32 |
 | FD | SF-FD-Leaf-3B | 10.255.254.166/32 |
+| FD | SF-FD-Spine-1 | 10.255.254.161/32 |
+| FD | SF-FD-Spine-2 | 10.255.254.161/32 |

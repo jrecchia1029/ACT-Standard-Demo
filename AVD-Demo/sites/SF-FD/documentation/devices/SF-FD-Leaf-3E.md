@@ -316,8 +316,13 @@ vlan 4092
 | Ethernet22 | - | access | 10 | - | - | - |
 | Ethernet23 | - | access | 10 | - | - | - |
 | Ethernet24 | - | access | 10 | - | - | - |
-| Ethernet25 | L2_SF-FD-Leaf-3A_Ethernet55 | *trunk | *10,20,30,4092 | *- | *- | 25 |
-| Ethernet26 | L2_SF-FD-Leaf-3B_Ethernet55 | *trunk | *10,20,30,4092 | *- | *- | 25 |
+| Ethernet25 | - | *trunk | *10,20,30,4092 | *- | *- | 25 |
+| Ethernet26 | - | *trunk | *10,20,30,4092 | *- | *- | 25 |
+| Ethernet27 | - | access | 10 | - | - | - |
+| Ethernet28 | - | access | 10 | - | - | - |
+| Ethernet29 | - | access | 10 | - | - | - |
+| Ethernet30 | - | access | 10 | - | - | - |
+| Ethernet31 | - | access | 10 | - | - | - |
 
 *Inherited from Port-Channel Interface
 
@@ -518,14 +523,62 @@ interface Ethernet24
    spanning-tree bpduguard enable
 !
 interface Ethernet25
-   description L2_SF-FD-Leaf-3A_Ethernet55
    no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
    channel-group 25 mode active
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 !
 interface Ethernet26
-   description L2_SF-FD-Leaf-3B_Ethernet55
    no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
    channel-group 25 mode active
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet27
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet28
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet29
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet30
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
+!
+interface Ethernet31
+   no shutdown
+   switchport access vlan 10
+   switchport mode access
+   switchport
+   spanning-tree portfast
+   spanning-tree bpduguard enable
 ```
 
 ### Port-Channel Interfaces

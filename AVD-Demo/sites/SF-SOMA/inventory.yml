@@ -35,6 +35,9 @@ Network_Services:
   children:
     SF_SOMA_SPINES:
     SF_SOMA_LEAFS:
+Endpoints:
+  children:
+    SF_SOMA_LEAFS:
 Spines:
   children:
     SF_SOMA_SPINES:

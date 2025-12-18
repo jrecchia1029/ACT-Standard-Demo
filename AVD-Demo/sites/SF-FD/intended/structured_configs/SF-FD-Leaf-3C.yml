@@ -23,49 +23,57 @@ enable_password:
   disabled: true
 ethernet_interfaces:
 - name: Ethernet27
-  description: MLAG_SF-FD-Leaf-3D_Ethernet27
   shutdown: false
   channel_group:
     id: 27
     mode: active
-  peer: SF-FD-Leaf-3D
-  peer_interface: Ethernet27
-  peer_type: mlag_peer
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
   switchport:
     enabled: true
     mode: access
-    access_vlan: 4092
+    access_vlan: 10
 - name: Ethernet28
-  description: MLAG_SF-FD-Leaf-3D_Ethernet28
   shutdown: false
   channel_group:
     id: 27
     mode: active
-  peer: SF-FD-Leaf-3D
-  peer_interface: Ethernet28
-  peer_type: mlag_peer
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
   switchport:
     enabled: true
     mode: access
-    access_vlan: 4092
+    access_vlan: 10
 - name: Ethernet25
-  description: L2_SF-FD-Leaf-3A_Ethernet53
   shutdown: false
   channel_group:
     id: 25
     mode: active
-  peer: SF-FD-Leaf-3A
-  peer_interface: Ethernet53
-  peer_type: l3leaf
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
 - name: Ethernet26
-  description: L2_SF-FD-Leaf-3B_Ethernet53
   shutdown: false
   channel_group:
     id: 25
     mode: active
-  peer: SF-FD-Leaf-3B
-  peer_interface: Ethernet53
-  peer_type: l3leaf
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
 - name: Ethernet1
   shutdown: false
   spanning_tree_bpduguard: 'True'
@@ -306,6 +314,36 @@ ethernet_interfaces:
     enabled: true
     mode: access
     access_vlan: 10
+- name: Ethernet29
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet30
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
+- name: Ethernet31
+  shutdown: false
+  spanning_tree_bpduguard: 'True'
+  spanning_tree_portfast: edge
+  peer_type: network_port
+  port_profile: access_interface
+  switchport:
+    enabled: true
+    mode: access
+    access_vlan: 10
 hostname: SF-FD-Leaf-3C
 ip_domain_lookup:
   source_interfaces:
@@ -352,34 +390,18 @@ metadata:
       tags:
       - name: Link-Type
         value: AVD-Managed
-      - name: Link-Type
-        value: Fabric
-      - name: Link-Type
-        value: MLAG
     - interface: Ethernet28
       tags:
       - name: Link-Type
         value: AVD-Managed
-      - name: Link-Type
-        value: Fabric
-      - name: Link-Type
-        value: MLAG
     - interface: Ethernet25
       tags:
       - name: Link-Type
         value: AVD-Managed
-      - name: Link-Type
-        value: Fabric
-      - name: Link-Type
-        value: Uplink
     - interface: Ethernet26
       tags:
       - name: Link-Type
         value: AVD-Managed
-      - name: Link-Type
-        value: Fabric
-      - name: Link-Type
-        value: Uplink
     - interface: Ethernet1
       tags:
       - name: Link-Type
@@ -473,6 +495,18 @@ metadata:
       - name: Link-Type
         value: AVD-Managed
     - interface: Ethernet24
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet29
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet30
+      tags:
+      - name: Link-Type
+        value: AVD-Managed
+    - interface: Ethernet31
       tags:
       - name: Link-Type
         value: AVD-Managed
