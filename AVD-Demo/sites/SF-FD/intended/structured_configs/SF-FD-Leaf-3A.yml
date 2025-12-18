@@ -272,7 +272,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: 10,20,30,4092
+      allowed_vlan: 10,20,30,40,4092
 - name: Port-Channel55
   description: L2_SF-FD-Leaf-3E_Port-Channel25
   shutdown: false
@@ -283,7 +283,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: 10,20,30,4092
+      allowed_vlan: 10,20,30,40,4092
 prefix_lists:
 - name: PL-LOOPBACKS-EVPN-OVERLAY
   sequence_numbers:
@@ -415,6 +415,14 @@ router_bgp:
       - 10030:10030
     redistribute_routes:
     - learned
+  - id: 40
+    tenant: FD
+    rd: 10.255.255.166:10040
+    route_targets:
+      both:
+      - 10040:10040
+    redistribute_routes:
+    - learned
   - id: 4092
     tenant: FD
     rd: 10.255.255.166:14092
@@ -513,6 +521,12 @@ vlan_interfaces:
   vrf: CORPORATE
   ip_address_virtual: 10.15.30.1/24
   tenant: FD
+- name: Vlan40
+  description: CAMERAS
+  shutdown: false
+  vrf: CORPORATE
+  ip_address_virtual: 10.15.40.1/24
+  tenant: FD
 - name: Vlan3009
   description: MLAG_L3_VRF_CORPORATE
   shutdown: false
@@ -559,6 +573,9 @@ vlans:
 - id: 30
   name: PRINTERS
   tenant: FD
+- id: 40
+  name: CAMERAS
+  tenant: FD
 - id: 3009
   name: MLAG_L3_VRF_CORPORATE
   trunk_groups:
@@ -587,6 +604,8 @@ vxlan_interface:
         vni: 10020
       - id: 30
         vni: 10030
+      - id: 40
+        vni: 10040
       - id: 4092
         vni: 14092
       vrfs:

@@ -21,6 +21,10 @@ tenants:  # dynamic_key: network_services
             name: PRINTERS
             enabled: true
             ip_address_virtual: 10.15.30.1/24
+          - id: 40
+            name: CAMERAS
+            enabled: true
+            ip_address_virtual: 10.15.40.1/24
       - name: default
         vrf_vni: 1
         svis:
