@@ -67,6 +67,53 @@ Dec 18 12:36:55 CH3-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr
  Dec 18 14:07:54 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:10:37 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:13:08 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:15:41 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:18:15 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:20:55 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:23:34 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:26:04 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:28:43 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:31:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:34:31 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:37:11 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:40:00 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:43:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.255.0.4 (VRF default AS 64750) 6/7 (Cease/connection collision resolution) 0 bytes 
+ Dec 18 14:43:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:46:01 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:48:54 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:51:27 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:53:57 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:56:45 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:59:45 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:02:17 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:04:49 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:07:25 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:09:54 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:12:35 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:15:08 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:17:42 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:20:24 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:22:52 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:25:27 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:28:35 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:31:28 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:34:36 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:37:10 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:40:06 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:42:49 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:45:19 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:47:52 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:50:27 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:52:56 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:55:28 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:58:36 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:01:17 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:03:58 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:06:39 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:09:20 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:11:48 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:14:30 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:17:33 CH3-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.4 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 CH3-Border-Leaf-A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -148,6 +195,53 @@ Dec 18 12:36:47 CH3-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr
  Dec 18 14:05:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:08:06 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:10:45 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:13:20 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:16:09 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:19:11 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:22:08 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:24:55 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:27:55 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:30:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:33:20 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:36:17 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:38:49 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:41:26 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:44:03 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:46:31 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:49:13 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:52:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:55:15 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:57:53 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:00:30 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:03:19 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:05:50 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:08:21 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:10:57 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:13:45 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:16:29 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:19:09 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:21:54 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:24:30 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:27:05 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:29:50 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:32:25 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:34:55 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:37:34 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:40:12 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:42:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:45:24 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:47:56 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:50:40 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:53:27 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:56:07 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:58:44 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:01:24 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:03:56 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:06:37 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:09:24 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:11:54 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:14:34 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:17:08 CH3-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.6 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 CH3-Border-Leaf-B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -361,6 +455,52 @@ Dec 18 12:36:53 NY5-Border-Leaf-A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr
  Dec 18 14:07:23 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:10:12 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:12:55 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:15:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:18:05 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:20:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:23:41 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:26:30 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:29:01 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:31:55 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:34:25 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:36:59 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:39:47 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:42:46 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:45:33 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:48:23 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:50:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:53:49 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:56:37 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:59:07 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:01:38 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:04:12 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:06:41 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:09:13 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:12:18 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:15:23 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:17:58 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:20:35 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:23:04 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:25:42 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:28:10 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:30:59 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:33:58 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:36:38 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:39:31 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:42:00 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:44:30 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:47:10 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:49:56 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:52:28 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:55:01 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:57:34 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:00:45 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:03:16 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:05:53 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:08:57 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:11:28 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:14:09 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:16:53 NY5-Border-Leaf-A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.0 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 NY5-Border-Leaf-A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -439,6 +579,53 @@ Dec 18 12:36:59 NY5-Border-Leaf-B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr
  Dec 18 14:06:12 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:08:55 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  Dec 18 14:11:59 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:14:49 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:17:36 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:20:11 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:22:42 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:25:20 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:27:50 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:30:25 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:33:12 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:35:51 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:38:21 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:40:59 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:43:36 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:46:18 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:48:59 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:51:27 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:54:02 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 14:57:03 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:00:03 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:02:33 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:05:05 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:07:40 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:10:17 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:13:06 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:15:52 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:18:22 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:20:53 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:23:44 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:26:14 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:28:47 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:31:17 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:34:10 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:36:51 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:39:20 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:42:12 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:44:41 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:47:14 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:49:48 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:52:46 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:55:36 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 15:58:13 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:00:50 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:03:18 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:06:10 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:08:51 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:11:39 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:14:42 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
+ Dec 18 16:17:16 NY5-Border-Leaf-B Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.255.0.2 (VRF default AS 64750) 2/2 (Open Message Error/bad AS number) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 NY5-Border-Leaf-B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
