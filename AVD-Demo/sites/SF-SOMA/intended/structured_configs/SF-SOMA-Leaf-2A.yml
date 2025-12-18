@@ -688,7 +688,7 @@ port_channel_interfaces:
     enabled: true
     mode: trunk
     trunk:
-      allowed_vlan: '4092'
+      allowed_vlan: 10,20,30,4092
 serial_number: SN-SF-SOMA-Leaf-2A
 service_routing_protocols_model: multi-agent
 spanning_tree:
@@ -716,6 +716,15 @@ vlan_internal_order:
     beginning: 1006
     ending: 1199
 vlans:
+- id: 10
+  name: DATA
+  tenant: SOMA
+- id: 20
+  name: VOICE
+  tenant: SOMA
+- id: 30
+  name: PRINTERS
+  tenant: SOMA
 - id: 4092
   name: INBAND_MGMT
   tenant: system
