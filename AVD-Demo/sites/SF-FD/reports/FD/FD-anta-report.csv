@@ -4,6 +4,7 @@ SF-FD-Leaf-1A,VerifyRunningConfigDiffs,success,,Verifies there is no difference 
 SF-FD-Leaf-1A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Leaf-1A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-1A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Leaf-1A,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Leaf-1A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-1A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-1A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -11,14 +12,16 @@ SF-FD-Leaf-1A,VerifyTemperature,skipped,VerifyTemperature test is not supported 
 SF-FD-Leaf-1A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-1A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
 SF-FD-Leaf-1A,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
-SF-FD-Leaf-1A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-FD-Leaf-1A,VerifyInterfaceErrDisabled,failure,Interface: Ethernet13 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-1A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-1A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-1A,VerifyInterfacesStatus,failure,"Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-1A,VerifyInterfacesStatus,failure,"Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-1A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-1A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-1A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:55 SF-FD-Leaf-1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1430) -- Master ProcMgr (PID=1430) exiting.
+Dec 18 12:37:27 SF-FD-Leaf-1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 18 12:37:27 SF-FD-Leaf-1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1851) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:27 SF-FD-Leaf-1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1851))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-1A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -33,29 +36,31 @@ SF-FD-Leaf-1A,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Leaf-1A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Leaf-1A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-1A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
-SF-FD-Leaf-1A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+SF-FD-Leaf-1A,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Leaf-1B,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
 SF-FD-Leaf-1B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-1B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Leaf-1B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-1B,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Leaf-1B,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Leaf-1B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-1B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-1B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
 SF-FD-Leaf-1B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
 SF-FD-Leaf-1B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-1B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
-SF-FD-Leaf-1B,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
-SF-FD-Leaf-1B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-FD-Leaf-1B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-FD-Leaf-1B,VerifyInterfaceErrDisabled,failure,Interface: Ethernet13 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-1B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-1B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-1B,VerifyInterfacesStatus,failure,"Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-1B,VerifyInterfacesStatus,failure,"Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-1B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-1B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-1B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:55 SF-FD-Leaf-1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1426) -- Master ProcMgr (PID=1426) exiting.
- Dec 17 12:59:55 SF-FD-Leaf-1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:55 SF-FD-Leaf-1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))
+Dec 18 12:37:34 SF-FD-Leaf-1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1430) -- Master ProcMgr (PID=1430) exiting.
+ Dec 18 12:37:35 SF-FD-Leaf-1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:35 SF-FD-Leaf-1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))
+ Dec 18 12:38:38 SF-FD-Leaf-1B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.15.4 (VRF default AS 65350) 6/5 (Cease/connection rejected) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-1B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -70,28 +75,28 @@ SF-FD-Leaf-1B,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Leaf-1B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Leaf-1B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-1B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
-SF-FD-Leaf-1B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+SF-FD-Leaf-1B,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Leaf-2A,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
 SF-FD-Leaf-2A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-2A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Leaf-2A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-2A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Leaf-2A,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Leaf-2A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-2A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-2A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
 SF-FD-Leaf-2A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
 SF-FD-Leaf-2A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
-SF-FD-Leaf-2A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-FD-Leaf-2A,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
 SF-FD-Leaf-2A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-2A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-2A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-2A,VerifyInterfacesStatus,failure,Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-2A,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet25 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet26 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet27 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet28 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet29 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet30 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet32 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet35 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet36 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet37 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet38 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet39 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet40 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-2A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-2A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:42 SF-FD-Leaf-2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1482) -- Master ProcMgr (PID=1482) exiting.
- Dec 17 12:59:42 SF-FD-Leaf-2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1894) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:42 SF-FD-Leaf-2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1894))
- Dec 17 13:00:52 SF-FD-Leaf-2A Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.250.15.8 (VRF default AS 65350) 6/5 (Cease/connection rejected) 0 bytes
+Dec 18 12:37:20 SF-FD-Leaf-2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1480) -- Master ProcMgr (PID=1480) exiting.
+ Dec 18 12:37:20 SF-FD-Leaf-2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1898) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:20 SF-FD-Leaf-2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1898))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-2A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
@@ -103,29 +108,31 @@ SF-FD-Leaf-2A,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Leaf-2A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Leaf-2A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-2A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
-SF-FD-Leaf-2A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+SF-FD-Leaf-2A,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Leaf-3A,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
 SF-FD-Leaf-3A,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-3A,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Leaf-3A,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-3A,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Leaf-3A,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Leaf-3A,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-3A,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-3A,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
 SF-FD-Leaf-3A,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
 SF-FD-Leaf-3A,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-3A,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
-SF-FD-Leaf-3A,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-FD-Leaf-3A,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
 SF-FD-Leaf-3A,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-3A,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-3A,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-3A,VerifyInterfacesStatus,failure,Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-3A,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-3A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-3A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-3A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:51 SF-FD-Leaf-3A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
- Dec 17 12:59:51 SF-FD-Leaf-3A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1847) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:51 SF-FD-Leaf-3A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1847))
+Dec 18 12:37:29 SF-FD-Leaf-3A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 18 12:37:29 SF-FD-Leaf-3A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1854) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:29 SF-FD-Leaf-3A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1854))
+ Dec 18 12:38:35 SF-FD-Leaf-3A Bgp: %BGP-3-NOTIFICATION: received from neighbor 192.168.255.7 (VRF CORPORATE AS 65353) 6/7 (Cease/connection collision resolution) 0 bytes 
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-3A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -140,12 +147,13 @@ SF-FD-Leaf-3A,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Leaf-3A,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Leaf-3A,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-3A,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
-SF-FD-Leaf-3A,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+SF-FD-Leaf-3A,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Leaf-3B,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
 SF-FD-Leaf-3B,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-3B,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Leaf-3B,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-3B,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Leaf-3B,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Leaf-3B,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-3B,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-3B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -156,13 +164,16 @@ SF-FD-Leaf-3B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero 
 SF-FD-Leaf-3B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-3B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-3B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-3B,VerifyInterfacesStatus,failure,Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-3B,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-3B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-3B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-3B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:44 SF-FD-Leaf-3B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
- Dec 17 12:59:44 SF-FD-Leaf-3B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:44 SF-FD-Leaf-3B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
+Dec 18 12:37:32 SF-FD-Leaf-3B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 18 12:37:32 SF-FD-Leaf-3B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:32 SF-FD-Leaf-3B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))
+ Dec 18 12:38:35 SF-FD-Leaf-3B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 192.168.255.6 (VRF CORPORATE AS 65353) 6/7 (Cease/connection collision resolution) 0 bytes 
+ Dec 18 12:38:35 SF-FD-Leaf-3B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.15.16 (VRF default AS 65350) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 18 12:38:35 SF-FD-Leaf-3B Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.15.18 (VRF default AS 65350) 6/5 (Cease/connection rejected) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-3B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -177,10 +188,9 @@ SF-FD-Leaf-3B,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Leaf-3B,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Leaf-3B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-3B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
-SF-FD-Leaf-3B,VerifyVxlanConfigSanity,failure,Vxlan Category: localVtep - Config sanity check is not passing,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
+SF-FD-Leaf-3B,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Leaf-3C,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-3C,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-FD-Leaf-3C,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-3C,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-3C,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-3C,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -188,16 +198,14 @@ SF-FD-Leaf-3C,VerifyTemperature,skipped,VerifyTemperature test is not supported 
 SF-FD-Leaf-3C,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-3C,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
 SF-FD-Leaf-3C,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
-SF-FD-Leaf-3C,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-FD-Leaf-3C,VerifyInterfaceErrDisabled,failure,Interface: Ethernet8 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-3C,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-3C,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-3C,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-3C,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet29 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet30 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-3C,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-3C,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-3C,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:38 SF-FD-Leaf-3C ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1402) -- Master ProcMgr (PID=1402) exiting.
- Dec 17 12:59:38 SF-FD-Leaf-3C Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1823) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:38 SF-FD-Leaf-3C Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1823))
+Dec 18 12:37:20 SF-FD-Leaf-3C ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1404) -- Master ProcMgr (PID=1404) exiting.
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-3C,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -214,7 +222,6 @@ SF-FD-Leaf-3C,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-3C,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-FD-Leaf-3D,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-3D,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-FD-Leaf-3D,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-3D,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-3D,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-3D,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -222,19 +229,16 @@ SF-FD-Leaf-3D,VerifyTemperature,skipped,VerifyTemperature test is not supported 
 SF-FD-Leaf-3D,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-3D,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
 SF-FD-Leaf-3D,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
-SF-FD-Leaf-3D,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-FD-Leaf-3D,VerifyInterfaceErrDisabled,failure,Interface: Ethernet8 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-3D,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-3D,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-3D,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-3D,VerifyInterfacesStatus,failure,"Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-3D,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-3D,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-3D,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:49 SF-FD-Leaf-3D ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1403) -- Master ProcMgr (PID=1403) exiting.
- Dec 17 12:59:49 SF-FD-Leaf-3D Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1830) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:49 SF-FD-Leaf-3D Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1830))
- Dec 17 12:59:49 SF-FD-Leaf-3D ConfigAgent: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to Sysdb (pid:1610) at tbl://sysdb/+n closed by peer (EOF)
- Dec 17 12:59:49 SF-FD-Leaf-3D ConfigAgent: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://sysdb/+n-in)(Sysdb (pid:1610))
- Dec 17 12:59:49 SF-FD-Leaf-3D ConfigAgent: %FWK-3-MOUNT_CLOSED_EXIT: Process exiting.
+Dec 18 12:37:19 SF-FD-Leaf-3D ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1403) -- Master ProcMgr (PID=1403) exiting.
+ Dec 18 12:37:19 SF-FD-Leaf-3D Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1824) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:19 SF-FD-Leaf-3D Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1824))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-3D,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -251,7 +255,6 @@ SF-FD-Leaf-3D,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Leaf-3D,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-FD-Leaf-3E,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Leaf-3E,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-FD-Leaf-3E,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Leaf-3E,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Leaf-3E,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Leaf-3E,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -259,16 +262,16 @@ SF-FD-Leaf-3E,VerifyTemperature,skipped,VerifyTemperature test is not supported 
 SF-FD-Leaf-3E,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-FD-Leaf-3E,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
 SF-FD-Leaf-3E,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
-SF-FD-Leaf-3E,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
+SF-FD-Leaf-3E,VerifyInterfaceErrDisabled,failure,Interface: Ethernet8 - Error disabled - Causes: bpduguard,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Leaf-3E,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Leaf-3E,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Leaf-3E,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Leaf-3E,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet27 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet28 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet29 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet30 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Leaf-3E,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Leaf-3E,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Leaf-3E,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:36 SF-FD-Leaf-3E ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1401) -- Master ProcMgr (PID=1401) exiting.
- Dec 17 12:59:36 SF-FD-Leaf-3E Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1815) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:36 SF-FD-Leaf-3E Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1815))
+Dec 18 12:37:12 SF-FD-Leaf-3E ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1407) -- Master ProcMgr (PID=1407) exiting.
+ Dec 18 12:37:12 SF-FD-Leaf-3E Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1822) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:12 SF-FD-Leaf-3E Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1822))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Leaf-3E,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
@@ -285,6 +288,7 @@ SF-FD-Spine-1,VerifyRunningConfigDiffs,success,,Verifies there is no difference 
 SF-FD-Spine-1,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Spine-1,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Spine-1,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Spine-1,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Spine-1,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Spine-1,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Spine-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -295,14 +299,15 @@ SF-FD-Spine-1,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero 
 SF-FD-Spine-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Spine-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Spine-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Spine-1,VerifyInterfacesStatus,failure,Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Spine-1,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Spine-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Spine-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Spine-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:51 SF-FD-Spine-1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.
- Dec 17 12:59:51 SF-FD-Spine-1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1853) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:51 SF-FD-Spine-1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1853))
- Dec 17 13:00:52 SF-FD-Spine-1 Bgp: %BGP-3-NOTIFICATION: sent to neighbor 10.250.15.9 (VRF default AS 65352) 6/5 (Cease/connection rejected) 0 bytes
+Dec 18 12:37:18 SF-FD-Spine-1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.
+ Dec 18 12:37:18 SF-FD-Spine-1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:18 SF-FD-Spine-1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
+ Dec 18 12:38:35 SF-FD-Spine-1 Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.250.15.17 (VRF default AS 65353) 6/5 (Cease/connection rejected) 0 bytes
+ Dec 18 12:38:38 SF-FD-Spine-1 Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.250.15.5 (VRF default AS 65351) 6/5 (Cease/connection rejected) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Spine-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -317,11 +322,13 @@ SF-FD-Spine-1,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Spine-1,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Spine-1,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Spine-1,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-FD-Spine-1,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN
 SF-FD-Spine-2,VerifyBGPPeerSession,success,,Verifies the session state of BGP peers.,BGP
 SF-FD-Spine-2,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-FD-Spine-2,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
 SF-FD-Spine-2,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-FD-Spine-2,VerifyReachability,success,,Verifies point-to-point reachability between Ethernet interfaces.,Connectivity
+SF-FD-Spine-2,VerifyReachability,success,,Verifies reachability to BGP neighbors with an update source configured.,Connectivity
 SF-FD-Spine-2,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-FD-Spine-2,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-FD-Spine-2,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -332,11 +339,14 @@ SF-FD-Spine-2,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero 
 SF-FD-Spine-2,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-FD-Spine-2,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-FD-Spine-2,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-FD-Spine-2,VerifyInterfacesStatus,failure,Interface: Loopback10 - Not configured - Interface: Vlan10 - Not configured - Interface: Vlan20 - Not configured - Interface: Vlan30 - Not configured - Interface: Vlan3009 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-FD-Spine-2,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-FD-Spine-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-FD-Spine-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-FD-Spine-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:53 SF-FD-Spine-2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+Dec 18 12:37:21 SF-FD-Spine-2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 18 12:37:21 SF-FD-Spine-2 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:21 SF-FD-Spine-2 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
+ Dec 18 12:38:35 SF-FD-Spine-2 Bgp: %BGP-3-NOTIFICATION: received from neighbor 10.250.15.19 (VRF default AS 65353) 6/5 (Cease/connection rejected) 0 bytes
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-FD-Spine-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -351,3 +361,4 @@ SF-FD-Spine-2,VerifyMaintenance,success,,Verifies that the device is not current
 SF-FD-Spine-2,VerifyMemoryUtilization,success,,Verifies whether the memory utilization is below 75%.,System
 SF-FD-Spine-2,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-FD-Spine-2,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
+SF-FD-Spine-2,VerifyVxlanConfigSanity,success,,Verifies there are no VXLAN config-sanity inconsistencies.,VXLAN

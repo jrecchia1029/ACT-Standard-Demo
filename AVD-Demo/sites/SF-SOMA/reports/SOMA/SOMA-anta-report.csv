@@ -16,9 +16,9 @@ SF-SOMA-Leaf-1A,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Leaf-1A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-1A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-1A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:43 SF-SOMA-Leaf-1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1430) -- Master ProcMgr (PID=1430) exiting.
- Dec 17 12:59:43 SF-SOMA-Leaf-1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1847) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:43 SF-SOMA-Leaf-1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1847))
+Dec 18 12:37:22 SF-SOMA-Leaf-1A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1433) -- Master ProcMgr (PID=1433) exiting.
+ Dec 18 12:37:22 SF-SOMA-Leaf-1A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1852) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:22 SF-SOMA-Leaf-1A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1852))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-1A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -42,17 +42,15 @@ SF-SOMA-Leaf-1B,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCo
 SF-SOMA-Leaf-1B,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
 SF-SOMA-Leaf-1B,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-SOMA-Leaf-1B,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
-SF-SOMA-Leaf-1B,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
 SF-SOMA-Leaf-1B,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-SOMA-Leaf-1B,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-SOMA-Leaf-1B,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-SOMA-Leaf-1B,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-1B,VerifyInterfacesStatus,failure,"Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet8 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet25 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet26 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet27 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet28 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet29 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet30 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Status mismatch - Expected: up/up, Actual: down/down",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-SOMA-Leaf-1B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-1B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-1B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:54 SF-SOMA-Leaf-1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
- Dec 17 12:59:54 SF-SOMA-Leaf-1B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1860) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:54 SF-SOMA-Leaf-1B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1860))
+Dec 18 12:37:21 SF-SOMA-Leaf-1B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-1B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -84,9 +82,7 @@ SF-SOMA-Leaf-2A,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Leaf-2A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-2A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-2A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:59 SF-SOMA-Leaf-2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1488) -- Master ProcMgr (PID=1488) exiting.
- Dec 17 12:59:59 SF-SOMA-Leaf-2A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1904) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:59 SF-SOMA-Leaf-2A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1904))
+Dec 18 12:37:21 SF-SOMA-Leaf-2A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1482) -- Master ProcMgr (PID=1482) exiting.
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-2A,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
@@ -115,7 +111,9 @@ SF-SOMA-Leaf-3A,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Leaf-3A,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-3A,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-3A,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:57 SF-SOMA-Leaf-3A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+Dec 18 12:37:21 SF-SOMA-Leaf-3A ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1431) -- Master ProcMgr (PID=1431) exiting.
+ Dec 18 12:37:22 SF-SOMA-Leaf-3A Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1849) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:22 SF-SOMA-Leaf-3A Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1849))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-3A,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -147,9 +145,9 @@ SF-SOMA-Leaf-3B,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Leaf-3B,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-3B,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-3B,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:53 SF-SOMA-Leaf-3B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1437) -- Master ProcMgr (PID=1437) exiting.
- Dec 17 12:59:53 SF-SOMA-Leaf-3B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:53 SF-SOMA-Leaf-3B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
+Dec 18 12:37:19 SF-SOMA-Leaf-3B ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1429) -- Master ProcMgr (PID=1429) exiting.
+ Dec 18 12:37:19 SF-SOMA-Leaf-3B Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1848) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:19 SF-SOMA-Leaf-3B Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1848))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-3B,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -166,7 +164,6 @@ SF-SOMA-Leaf-3B,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-SOMA-Leaf-3B,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-SOMA-Leaf-3C,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-SOMA-Leaf-3C,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-SOMA-Leaf-3C,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-SOMA-Leaf-3C,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-SOMA-Leaf-3C,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-SOMA-Leaf-3C,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -177,13 +174,13 @@ SF-SOMA-Leaf-3C,VerifyInterfaceDiscards,success,,Verifies that the interfaces pa
 SF-SOMA-Leaf-3C,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-SOMA-Leaf-3C,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-SOMA-Leaf-3C,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-SOMA-Leaf-3C,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3C,VerifyInterfacesStatus,failure,Interface: Ethernet31 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-SOMA-Leaf-3C,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-3C,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-3C,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 13:00:00 SF-SOMA-Leaf-3C ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1409) -- Master ProcMgr (PID=1409) exiting.
- Dec 17 13:00:00 SF-SOMA-Leaf-3C Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1827) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 13:00:00 SF-SOMA-Leaf-3C Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1827))
+Dec 18 12:37:28 SF-SOMA-Leaf-3C ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1404) -- Master ProcMgr (PID=1404) exiting.
+ Dec 18 12:37:28 SF-SOMA-Leaf-3C Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1827) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:28 SF-SOMA-Leaf-3C Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1827))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-3C,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -200,7 +197,6 @@ SF-SOMA-Leaf-3C,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-SOMA-Leaf-3C,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-SOMA-Leaf-3D,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-SOMA-Leaf-3D,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-SOMA-Leaf-3D,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-SOMA-Leaf-3D,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-SOMA-Leaf-3D,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-SOMA-Leaf-3D,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -211,11 +207,13 @@ SF-SOMA-Leaf-3D,VerifyInterfaceDiscards,success,,Verifies that the interfaces pa
 SF-SOMA-Leaf-3D,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-SOMA-Leaf-3D,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-SOMA-Leaf-3D,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-SOMA-Leaf-3D,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3D,VerifyInterfacesStatus,failure,"Interface: Ethernet1 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet2 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet3 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet4 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet5 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet6 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet7 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet9 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet10 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet11 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet12 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet13 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet14 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet15 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet16 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet17 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet18 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet19 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet20 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet21 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet22 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet23 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet24 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet29 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet30 - Status mismatch - Expected: up/up, Actual: down/down - Interface: Ethernet31 - Not configured",Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-SOMA-Leaf-3D,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-3D,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-3D,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:56 SF-SOMA-Leaf-3D ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1410) -- Master ProcMgr (PID=1410) exiting.
+Dec 18 13:22:13 SF-SOMA-Leaf-3D ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1403) -- Master ProcMgr (PID=1403) exiting.
+ Dec 18 13:22:14 SF-SOMA-Leaf-3D Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:2179) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 13:22:14 SF-SOMA-Leaf-3D Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:2179))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-3D,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -232,7 +230,6 @@ SF-SOMA-Leaf-3D,VerifyNTP,success,,Verifies if NTP is synchronised.,System
 SF-SOMA-Leaf-3D,VerifyReloadCause,success,,Verifies the last reload cause of the device.,System
 SF-SOMA-Leaf-3E,VerifyRunningConfigDiffs,success,,Verifies there is no difference between the running-config and the startup-config.,Configuration
 SF-SOMA-Leaf-3E,VerifyZeroTouch,success,,Verifies ZeroTouch is disabled.,Configuration
-SF-SOMA-Leaf-3E,VerifyLLDPNeighbors,success,,Verifies the connection status of the specified LLDP (Link Layer Discovery Protocol) neighbors.,Connectivity
 SF-SOMA-Leaf-3E,VerifyEnvironmentCooling,skipped,VerifyEnvironmentCooling test is not supported on vEOS-lab,Verifies the status of power supply fans and all fan trays.,Hardware
 SF-SOMA-Leaf-3E,VerifyEnvironmentPower,skipped,VerifyEnvironmentPower test is not supported on vEOS-lab,Verifies the power supplies state and input voltage.,Hardware
 SF-SOMA-Leaf-3E,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCooling test is not supported on vEOS-lab,Verifies the device's system cooling status.,Hardware
@@ -243,13 +240,11 @@ SF-SOMA-Leaf-3E,VerifyInterfaceDiscards,success,,Verifies that the interfaces pa
 SF-SOMA-Leaf-3E,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-SOMA-Leaf-3E,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-SOMA-Leaf-3E,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
-SF-SOMA-Leaf-3E,VerifyInterfacesStatus,success,,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
+SF-SOMA-Leaf-3E,VerifyInterfacesStatus,failure,Interface: Ethernet31 - Not configured,Verifies the operational states of specified interfaces to ensure they match expected configurations.,Interfaces
 SF-SOMA-Leaf-3E,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Leaf-3E,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Leaf-3E,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 12:59:36 SF-SOMA-Leaf-3E ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1407) -- Master ProcMgr (PID=1407) exiting.
- Dec 17 12:59:36 SF-SOMA-Leaf-3E Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1809) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 12:59:36 SF-SOMA-Leaf-3E Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1809))
+Dec 18 12:37:16 SF-SOMA-Leaf-3E ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1404) -- Master ProcMgr (PID=1404) exiting.
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Leaf-3E,VerifyRoutingProtocolModel,success,,Verifies the configured routing protocol model.,Routing
@@ -271,7 +266,7 @@ SF-SOMA-Spine-1,VerifyEnvironmentSystemCooling,skipped,VerifyEnvironmentSystemCo
 SF-SOMA-Spine-1,VerifyTemperature,skipped,VerifyTemperature test is not supported on vEOS-lab,Verifies if the device temperature is within acceptable limits.,Hardware
 SF-SOMA-Spine-1,VerifyTransceiversTemperature,skipped,VerifyTransceiversTemperature test is not supported on vEOS-lab,Verifies if all the transceivers are operating at an acceptable temperature.,Hardware
 SF-SOMA-Spine-1,VerifyIllegalLACP,success,,Verifies there are no illegal LACP packets in port channels.,Interfaces
-SF-SOMA-Spine-1,VerifyInterfaceDiscards,failure,Interface: Management1 - Non-zero discard counter(s): inDiscards: 2,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
+SF-SOMA-Spine-1,VerifyInterfaceDiscards,success,,Verifies that the interfaces packet discard counters are equal to zero.,Interfaces
 SF-SOMA-Spine-1,VerifyInterfaceErrDisabled,success,,Verifies there are no interfaces in the errdisabled state.,Interfaces
 SF-SOMA-Spine-1,VerifyInterfaceErrors,success,,Verifies that the interfaces error counters are equal to zero.,Interfaces
 SF-SOMA-Spine-1,VerifyInterfaceUtilization,success,,Verifies that the utilization of interfaces is below a certain threshold.,Interfaces
@@ -279,9 +274,9 @@ SF-SOMA-Spine-1,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Spine-1,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Spine-1,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Spine-1,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 13:00:02 SF-SOMA-Spine-1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1440) -- Master ProcMgr (PID=1440) exiting.
- Dec 17 13:00:02 SF-SOMA-Spine-1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1861) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 13:00:02 SF-SOMA-Spine-1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1861))
+Dec 18 12:37:25 SF-SOMA-Spine-1 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1432) -- Master ProcMgr (PID=1432) exiting.
+ Dec 18 12:37:25 SF-SOMA-Spine-1 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1851) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:25 SF-SOMA-Spine-1 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1851))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Spine-1,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
@@ -314,9 +309,9 @@ SF-SOMA-Spine-2,VerifyInterfacesStatus,success,,Verifies the operational states 
 SF-SOMA-Spine-2,VerifyPortChannels,success,,Verifies there are no inactive ports in port channels.,Interfaces
 SF-SOMA-Spine-2,VerifyStormControlDrops,skipped,VerifyStormControlDrops test is not supported on vEOS-lab,Verifies there are no interface storm-control drop counters.,Interfaces
 SF-SOMA-Spine-2,VerifyLoggingErrors,failure,"Device has reported syslog messages with a severity of ERRORS or higher:
-Dec 17 13:00:01 SF-SOMA-Spine-2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1438) -- Master ProcMgr (PID=1438) exiting.
- Dec 17 13:00:01 SF-SOMA-Spine-2 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1852) at tbl://stpTxRxListen/+n closed by peer (EOF)
- Dec 17 13:00:01 SF-SOMA-Spine-2 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1852))
+Dec 18 12:37:20 SF-SOMA-Spine-2 ProcMgr: %PROCMGR-3-SHUTDOWNREQUESTED: ProcMgr shutdown requested via SIGQUIT or SIGTERM to worker (PID=1434) -- Master ProcMgr (PID=1434) exiting.
+ Dec 18 12:37:20 SF-SOMA-Spine-2 Stp: %FWK-3-SOCKET_CLOSE_REMOTE: Connection to StpTxRx (pid:1850) at tbl://stpTxRxListen/+n closed by peer (EOF)
+ Dec 18 12:37:20 SF-SOMA-Spine-2 Stp: %FWK-3-MOUNT_PEER_CLOSED: Peer closed socket connection. (tbl://stpTxRxListen/+n-in)(StpTxRx (pid:1850))
  
 ",Verifies there are no syslog messages with a severity of ERRORS or higher.,Logging
 SF-SOMA-Spine-2,VerifyMlagConfigSanity,success,,Verifies there are no MLAG config-sanity inconsistencies.,MLAG
