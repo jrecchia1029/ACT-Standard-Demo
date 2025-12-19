@@ -1,0 +1,4 @@
+# Run startup script on boot
+@reboot sudo bash /home/cvpadmin/startup.sh
+# Start github runner on boot (enable if github runner is configured)
+# @reboot sudo bash /home/cvpadmin/start-github-runner.sh

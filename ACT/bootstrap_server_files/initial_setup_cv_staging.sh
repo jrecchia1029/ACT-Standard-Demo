@@ -5,9 +5,6 @@ yum clean all
 yum -y update
 yum -y install httpd kea wget iptables-services tcpdump iftop
 
-# Set up network
-# bash network_setup.sh
-
 # next we'll run the script to pull all the boostrap files
 cd ~
 cat << EOF > workshop.py

@@ -11,7 +11,7 @@ sudo ip route add 10.248.0.0/13 via 172.16.254.254
 # Underlay links, Loopbacks, Router IDs, VTEPs, 
 # sudo ip route add 10.250.0.0/24 via 172.16.254.254
 # Management Network Blocks (includes out-of-band and in-band mgmt)
-sudo ip route add 10.0.0.0/15 via 172.16.254.254
+sudo ip route add 10.0.0.0/14 via 172.16.254.254
 # User/Service Subnets Campus 1: 
 sudo ip route add 10.10.0.0/16 via 172.16.254.254
 # User/Service Subnets Campus 2:
