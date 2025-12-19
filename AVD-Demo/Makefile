@@ -1,130 +1,336 @@
-# Makefile for AVD Multi-Site Demo
-# Simplified to Build and Deploy operations
+# Arista AVD/CloudVision Multi-Site Makefile
+# Usage: make <action> <site>
+# Example: make build ny5-ch3
 
-.PHONY: help build deploy debug clean
-
-# Default target
-.DEFAULT_GOAL := help
+.PHONY: help build deploy deploy-auto validate cleanup provision list-sites debug
 
 # Variables
 UV := uv
 ANSIBLE := $(UV) run ansible-playbook
-# Use absolute paths based on Makefile location
 MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-DC_INVENTORY := $(MAKEFILE_DIR)sites/NY5-CH3/inventory.yml
-SOMA_INVENTORY := $(MAKEFILE_DIR)sites/SF-SOMA/inventory.yml
-FD_INVENTORY := $(MAKEFILE_DIR)sites/SF-FD/inventory.yml
-BUILD_PLAYBOOK := $(MAKEFILE_DIR)playbooks/build.yml
-DEPLOY_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy.yml
-DEPLOY_AUTO_PLAYBOOK := $(MAKEFILE_DIR)playbooks/deploy_auto.yml
-VALIDATE_PLAYBOOK := $(MAKEFILE_DIR)playbooks/validate.yml
+SITES_DIR := $(MAKEFILE_DIR)sites
+PLAYBOOKS_DIR := $(MAKEFILE_DIR)playbooks
 
-help: ## Display this help message
-	@echo "AVD Multi-Site Demo - Available Commands:"
-	@echo ""
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
-	@echo ""
-	@echo "Examples:"
-	@echo "  make build         # Build all sites"
-	@echo "  make deploy        # Deploy all sites to CloudVision"
+# Available sites (automatically detected from sites directory)
+AVAILABLE_SITES := $(notdir $(wildcard $(SITES_DIR)/*))
 
-build: ## Build configurations for all sites (Datacenter, SF-SOMA, SF-FD)
-	@echo "=========================================="
+# Colors for output
+GREEN := \033[0;32m
+YELLOW := \033[1;33m
+RED := \033[0;31m
+BLUE := \033[0;34m
+NC := \033[0m # No Color
+
+# Default target
+.DEFAULT_GOAL := help
+
+# Help target
+help:
+	@echo "$(GREEN)=========================================="
+	@echo "AVD Multi-Site Demo - Available Commands"
+	@echo "==========================================$(NC)"
+	@echo ""
+	@echo "$(YELLOW)Usage:$(NC)"
+	@echo "  make <action> <site>       Execute action for specific site"
+	@echo "  make <action>              Execute action for all sites"
+	@echo ""
+	@echo "$(YELLOW)Actions:$(NC)"
+	@echo "  $(BLUE)build [site]$(NC)           Build AVD configurations"
+	@echo "  $(BLUE)deploy [site]$(NC)          Deploy configs to CloudVision"
+	@echo "  $(BLUE)deploy-auto [site]$(NC)     Deploy with auto-submit & change control"
+	@echo "  $(BLUE)validate [site]$(NC)        Run ANTA validation tests"
+	@echo "  $(BLUE)cleanup [site]$(NC)         Clean generated configs"
+	@echo "  $(BLUE)all [site]$(NC)             Build + deploy-auto + validate"
+	@echo ""
+	@echo "$(YELLOW)Utilities:$(NC)"
+	@echo "  $(BLUE)list-sites$(NC)             List available sites"
+	@echo "  $(BLUE)debug$(NC)                  Show Makefile variables"
+	@echo ""
+	@echo "$(YELLOW)Available Sites:$(NC)"
+	@for site in $(AVAILABLE_SITES); do \
+		site_lower=$$(echo "$$site" | tr 'A-Z' 'a-z'); \
+		echo "  • $$site_lower ($$site)"; \
+	done
+	@echo ""
+	@echo "$(YELLOW)Examples:$(NC)"
+	@echo "  make build ny5-ch3         Build configs for NY5-CH3 datacenter"
+	@echo "  make deploy sf-soma        Deploy configs to SF-SOMA campus"
+	@echo "  make validate sf-fd        Validate SF-FD campus"
+	@echo "  make all ny5-ch3           Full workflow for NY5-CH3"
+	@echo "  make build                 Build all sites"
+	@echo ""
+
+# List available sites
+list-sites:
+	@echo "$(GREEN)Available sites:$(NC)"
+	@for site in $(AVAILABLE_SITES); do \
+		site_lower=$$(echo "$$site" | tr 'A-Z' 'a-z'); \
+		echo "  • $$site_lower ($$site)"; \
+	done
+
+# Build configurations
+build:
+	@echo "$(GREEN)=========================================="
 	@echo "Building AVD Configurations"
-	@echo "=========================================="
+	@echo "==========================================$(NC)"
 	@echo ""
-	@echo "→ Building Datacenter (NY5 & CH3)..."
-	@$(ANSIBLE) $(BUILD_PLAYBOOK) -i $(DC_INVENTORY)
-	@echo ""
-	@echo "→ Building SF-SOMA Campus..."
-	@$(ANSIBLE) $(BUILD_PLAYBOOK) -i $(SOMA_INVENTORY)
-	@echo ""
-	@echo "→ Building SF-FD Campus..."
-	@$(ANSIBLE) $(BUILD_PLAYBOOK) -i $(FD_INVENTORY)
-	@echo ""
-	@echo "✅ All configurations built successfully!"
+	@for site in $(AVAILABLE_SITES); do \
+		echo "$(YELLOW)→ Building $$site...$(NC)"; \
+		$(ANSIBLE) $(PLAYBOOKS_DIR)/build.yml -i $(SITES_DIR)/$$site/inventory.yml; \
+		echo ""; \
+	done
+	@echo "$(GREEN)✅ All configurations built successfully!$(NC)"
 	@echo ""
 
-deploy: ## Deploy configurations to CloudVision for all sites
-	@echo "=========================================="
+# Build specific site: make build <site>
+build-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(GREEN)=========================================="; \
+	echo "Building $$actual_site"; \
+	echo "==========================================$(NC)"; \
+	echo ""; \
+	$(ANSIBLE) $(PLAYBOOKS_DIR)/build.yml -i $(SITES_DIR)/$$actual_site/inventory.yml; \
+	echo ""; \
+	echo "$(GREEN)✅ Build complete for $$actual_site$(NC)"; \
+	echo ""
+
+# Deploy configurations to CloudVision
+deploy:
+	@echo "$(GREEN)=========================================="
 	@echo "Deploying to CloudVision"
-	@echo "=========================================="
+	@echo "==========================================$(NC)"
 	@echo ""
-	@echo "→ Deploying Datacenter (NY5 & CH3)..."
-	@$(ANSIBLE) $(DEPLOY_PLAYBOOK) -i $(DC_INVENTORY)
-	@echo ""
-	@echo "→ Deploying SF-SOMA Campus..."
-	@$(ANSIBLE) $(DEPLOY_PLAYBOOK) -i $(SOMA_INVENTORY)
-	@echo ""
-	@echo "→ Deploying SF-FD Campus..."
-	@$(ANSIBLE) $(DEPLOY_PLAYBOOK) -i $(FD_INVENTORY)
-	@echo ""
-	@echo "✅ All configurations deployed successfully!"
+	@for site in $(AVAILABLE_SITES); do \
+		echo "$(YELLOW)→ Deploying $$site...$(NC)"; \
+		$(ANSIBLE) $(PLAYBOOKS_DIR)/deploy.yml -i $(SITES_DIR)/$$site/inventory.yml; \
+		echo ""; \
+	done
+	@echo "$(GREEN)✅ All configurations deployed successfully!$(NC)"
 	@echo ""
 
-deploy-auto: ## Deploy configurations to CloudVision for all sites
-	@echo "=========================================="
-	@echo "Deploying to CloudVision"
-	@echo "=========================================="
+# Deploy specific site: make deploy <site>
+deploy-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(GREEN)=========================================="; \
+	echo "Deploying $$actual_site"; \
+	echo "==========================================$(NC)"; \
+	echo ""; \
+	$(ANSIBLE) $(PLAYBOOKS_DIR)/deploy.yml -i $(SITES_DIR)/$$actual_site/inventory.yml; \
+	echo ""; \
+	echo "$(GREEN)✅ Deploy complete for $$actual_site$(NC)"; \
+	echo ""
+
+# Deploy with auto-submit and change control
+deploy-auto:
+	@echo "$(GREEN)=========================================="
+	@echo "Deploying to CloudVision (Auto Mode)"
+	@echo "==========================================$(NC)"
 	@echo ""
-	@echo "→ Deploying Datacenter (NY5 & CH3)..."
-	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(DC_INVENTORY)
-	@echo ""
-	@echo "→ Deploying SF-SOMA Campus..."
-	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(SOMA_INVENTORY)
-	@echo ""
-	@echo "→ Deploying SF-FD Campus..."
-	@$(ANSIBLE) $(DEPLOY_AUTO_PLAYBOOK) -i $(FD_INVENTORY)
-	@echo ""
-	@echo "✅ All configurations deployed successfully!"
+	@for site in $(AVAILABLE_SITES); do \
+		echo "$(YELLOW)→ Deploying $$site...$(NC)"; \
+		$(ANSIBLE) $(PLAYBOOKS_DIR)/deploy_auto.yml -i $(SITES_DIR)/$$site/inventory.yml; \
+		echo ""; \
+	done
+	@echo "$(GREEN)✅ All configurations deployed successfully!$(NC)"
 	@echo ""
 
-validate: ## Validate device state
-	@echo "=========================================="
+# Deploy-auto specific site: make deploy-auto <site>
+deploy-auto-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(GREEN)=========================================="; \
+	echo "Deploying $$actual_site (Auto Mode)"; \
+	echo "==========================================$(NC)"; \
+	echo ""; \
+	$(ANSIBLE) $(PLAYBOOKS_DIR)/deploy_auto.yml -i $(SITES_DIR)/$$actual_site/inventory.yml; \
+	echo ""; \
+	echo "$(GREEN)✅ Deploy complete for $$actual_site$(NC)"; \
+	echo ""
+
+# Validate device state with ANTA
+validate:
+	@echo "$(GREEN)=========================================="
 	@echo "Running ANTA validation tests"
-	@echo "=========================================="
+	@echo "==========================================$(NC)"
 	@echo ""
-	@echo "→ Validating Datacenter (NY5 & CH3)..."
-	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(DC_INVENTORY)
-	@echo ""
-	@echo "→ Validating SF-SOMA Campus..."
-	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(SOMA_INVENTORY)
-	@echo ""
-	@echo "→ Validating SF-FD Campus..."
-	@$(ANSIBLE) $(VALIDATE_PLAYBOOK) -i $(FD_INVENTORY)
-	@echo ""
-	@echo "✅ All validation tests ran successfully!"
+	@for site in $(AVAILABLE_SITES); do \
+		echo "$(YELLOW)→ Validating $$site...$(NC)"; \
+		$(ANSIBLE) $(PLAYBOOKS_DIR)/validate.yml -i $(SITES_DIR)/$$site/inventory.yml; \
+		echo ""; \
+	done
+	@echo "$(GREEN)✅ All validation tests ran successfully!$(NC)"
 	@echo ""
 
-debug: ## Show Makefile variables and verify paths
-	@echo "=== Makefile Debug Info ==="
+# Validate specific site: make validate <site>
+validate-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(GREEN)=========================================="; \
+	echo "Running ANTA validation for $$actual_site"; \
+	echo "==========================================$(NC)"; \
+	echo ""; \
+	export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES && \
+	$(ANSIBLE) $(PLAYBOOKS_DIR)/validate.yml -i $(SITES_DIR)/$$actual_site/inventory.yml; \
+	echo ""; \
+	echo "$(GREEN)✅ Validation complete for $$actual_site$(NC)"; \
+	echo ""
+
+# Clean generated files
+cleanup:
+	@echo "$(YELLOW)Cleaning generated files for all sites...$(NC)"
+	@rm -rf $(MAKEFILE_DIR)intended/
+	@rm -rf $(MAKEFILE_DIR)documentation/
+	@rm -rf $(MAKEFILE_DIR)reports/
+	@echo "$(GREEN)✓ Clean complete$(NC)"
+
+# Cleanup specific site: make cleanup <site>
+cleanup-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(YELLOW)Cleaning generated files for $$actual_site...$(NC)"; \
+	find $(MAKEFILE_DIR)intended/ -name "*$$actual_site*" -type f -delete 2>/dev/null || true; \
+	find $(MAKEFILE_DIR)reports/ -name "*$$actual_site*" -type d -exec rm -rf {} + 2>/dev/null || true; \
+	echo "$(GREEN)✓ Clean complete for $$actual_site$(NC)"
+
+# Full workflow for all sites: build + deploy-auto + validate
+provision:
+	@echo "$(GREEN)=========================================="
+	@echo "Running full workflow for all sites"
+	@echo "==========================================$(NC)"
+	@echo ""
+	@$(MAKE) build
+	@$(MAKE) deploy-auto
+	@$(MAKE) validate
+	@echo "$(GREEN)✅ Full workflow complete for all sites!$(NC)"
+	@echo ""
+
+# Full workflow for specific site: make all <site>
+provision-%:
+	@site_dir=$$(echo "$*" | tr 'A-Z' 'a-z'); \
+	actual_site=""; \
+	for dir in $(AVAILABLE_SITES); do \
+		dir_lower=$$(echo "$$dir" | tr 'A-Z' 'a-z'); \
+		if [ "$$dir_lower" = "$$site_dir" ]; then \
+			actual_site=$$dir; \
+			break; \
+		fi; \
+	done; \
+	if [ -z "$$actual_site" ]; then \
+		echo "$(RED)Error: Site '$*' not found$(NC)"; \
+		echo "$(YELLOW)Available sites:$(NC)"; \
+		$(MAKE) list-sites; \
+		exit 1; \
+	fi; \
+	echo "$(GREEN)=========================================="; \
+	echo "Running full workflow for $$actual_site"; \
+	echo "==========================================$(NC)"; \
+	echo ""; \
+	site_lower=$$(echo "$$actual_site" | tr 'A-Z' 'a-z'); \
+	$(MAKE) build-$$site_lower; \
+	$(MAKE) deploy-auto-$$site_lower; \
+	$(MAKE) validate-$$site_lower; \
+	echo "$(GREEN)✅ Full workflow complete for $$actual_site!$(NC)"; \
+	echo ""
+
+# Debug target
+debug:
+	@echo "$(BLUE)=== Makefile Debug Info ===$(NC)"
 	@echo "MAKEFILE_DIR: $(MAKEFILE_DIR)"
 	@echo "UV: $(UV)"
 	@echo "ANSIBLE: $(ANSIBLE)"
 	@echo ""
-	@echo "=== Inventory Files ==="
-	@echo "DC_INVENTORY: $(DC_INVENTORY)"
-	@echo "SOMA_INVENTORY: $(SOMA_INVENTORY)"
-	@echo "FD_INVENTORY: $(FD_INVENTORY)"
+	@echo "$(BLUE)=== Directories ===$(NC)"
+	@echo "SITES_DIR: $(SITES_DIR)"
+	@echo "PLAYBOOKS_DIR: $(PLAYBOOKS_DIR)"
 	@echo ""
-	@echo "=== Playbooks ==="
-	@echo "BUILD_PLAYBOOK: $(BUILD_PLAYBOOK)"
-	@echo "DEPLOY_PLAYBOOK: $(DEPLOY_PLAYBOOK)"
+	@echo "$(BLUE)=== Available Sites ===$(NC)"
+	@for site in $(AVAILABLE_SITES); do \
+		echo "  • $$site"; \
+	done
 	@echo ""
-	@echo "=== File Existence Check ==="
-	@test -f $(DC_INVENTORY) && echo "✓ DC inventory exists" || echo "✗ DC inventory NOT found"
-	@test -f $(SOMA_INVENTORY) && echo "✓ SOMA inventory exists" || echo "✗ SOMA inventory NOT found"
-	@test -f $(FD_INVENTORY) && echo "✓ FD inventory exists" || echo "✗ FD inventory NOT found"
-	@test -f $(BUILD_PLAYBOOK) && echo "✓ Build playbook exists" || echo "✗ Build playbook NOT found"
-	@test -f $(DEPLOY_PLAYBOOK) && echo "✓ Deploy playbook exists" || echo "✗ Deploy playbook NOT found"
+	@echo "$(BLUE)=== File Existence Check ===$(NC)"
+	@for site in $(AVAILABLE_SITES); do \
+		if [ -f "$(SITES_DIR)/$$site/inventory.yml" ]; then \
+			echo "$(GREEN)✓$(NC) $$site inventory exists"; \
+		else \
+			echo "$(RED)✗$(NC) $$site inventory NOT found"; \
+		fi \
+	done
 	@echo ""
-	@echo "=== Current Working Directory ==="
+	@test -f $(PLAYBOOKS_DIR)/build.yml && echo "$(GREEN)✓$(NC) Build playbook exists" || echo "$(RED)✗$(NC) Build playbook NOT found"
+	@test -f $(PLAYBOOKS_DIR)/deploy.yml && echo "$(GREEN)✓$(NC) Deploy playbook exists" || echo "$(RED)✗$(NC) Deploy playbook NOT found"
+	@test -f $(PLAYBOOKS_DIR)/deploy_auto.yml && echo "$(GREEN)✓$(NC) Deploy-auto playbook exists" || echo "$(RED)✗$(NC) Deploy-auto playbook NOT found"
+	@test -f $(PLAYBOOKS_DIR)/validate.yml && echo "$(GREEN)✓$(NC) Validate playbook exists" || echo "$(RED)✗$(NC) Validate playbook NOT found"
+	@echo ""
+	@echo "$(BLUE)=== Current Working Directory ===$(NC)"
 	@pwd
 	@echo ""
-	@echo "=== UV Version ==="
+	@echo "$(BLUE)=== UV Version ===$(NC)"
 	@$(UV) --version
-
-clean: ## Clean generated files
-	@echo "Cleaning generated files..."
-	@rm -rf $(MAKEFILE_DIR)intended/
-	@echo "✓ Clean complete"
